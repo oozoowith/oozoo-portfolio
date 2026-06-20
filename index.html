@@ -4,11 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>정은용 | Experience Designer</title>
-  <meta name="description" content="브랜드 경험 기획자 정은용의 포트폴리오. 브랜드 캠페인, 커뮤니티, 콘텐츠 전략을 설계합니다.">
+  <meta name="description" content="브랜드 경험 기획자 정은용의 포트폴리오. 브랜드 런칭, 커뮤니티, 캠페인, 콘텐츠 전략을 설계합니다.">
   <meta property="og:title" content="정은용 | Experience Designer">
-  <meta property="og:description" content="브랜드의 가치를 감각적 경험으로 설계하고 성과로 증명하는 기획자입니다.">
+  <meta property="og:description" content="0→1 브랜드 경험을 설계하고 성과로 증명하는 기획자입니다.">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="images/og.webp">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg:              #F8F7F4;
@@ -22,592 +26,233 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
-
     body {
-      font-family: 'Pretendard', -apple-system, sans-serif;
+      font-family: 'Gotham', 'Montserrat', 'Pretendard', -apple-system, sans-serif;
       background: var(--bg);
       color: var(--text-primary);
       font-size: 16px;
       line-height: 1.75;
     }
-
     a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
-    /* ─── CONTAINER ─── */
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 40px;
-    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
 
     /* ─── NAV ─── */
     nav {
-      position: sticky;
-      top: 0;
-      background: var(--bg);
-      z-index: 100;
-      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; background: var(--bg);
+      z-index: 100; border-bottom: 1px solid var(--border);
     }
     .nav-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 40px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      max-width: 1100px; margin: 0 auto; padding: 0 40px; height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
     }
-    .nav-logo {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--text-primary);
-      display: flex;
-      align-items: center;
-    }
-    .nav-logo img {
-      height: 32px;
-      width: auto;
-      display: block;
-    }
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: 15px;
-      color: var(--text-secondary);
-      transition: color 0.2s;
-    }
+    .nav-logo { font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 600; color: var(--text-primary); display: flex; align-items: center; letter-spacing: -0.01em; }
+    .nav-logo img { height: 32px; width: auto; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 15px; color: var(--text-secondary); transition: color 0.2s; }
     .nav-links a:hover { color: var(--text-primary); }
+    .nav-cta {
+      font-size: 14px; font-weight: 500; color: var(--accent);
+      border: 1.5px solid var(--accent); padding: 6px 14px; border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-cta:hover { background: var(--accent); color: #fff; }
 
-    /* Hamburger */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 4px;
-    }
-    .hamburger span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: var(--text-primary);
-      transition: all 0.3s;
-    }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--text-primary); transition: all 0.3s; }
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    .mobile-menu {
-      display: none;
-      flex-direction: column;
-      background: var(--bg);
-      border-top: 1px solid var(--border);
-      padding: 16px 40px 24px;
-      gap: 16px;
-    }
+    .mobile-menu { display: none; flex-direction: column; background: var(--bg); border-top: 1px solid var(--border); padding: 16px 40px 24px; gap: 16px; }
     .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      font-size: 16px;
-      color: var(--text-secondary);
-    }
+    .mobile-menu a { font-size: 16px; color: var(--text-secondary); }
 
     /* ─── SECTION COMMON ─── */
-    section {
-      padding: 96px 0;
-    }
+    section { padding: 96px 0; }
     .section-label {
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 48px;
+      font-size: 13px; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
     }
+    .section-subtitle { font-size: 16px; color: var(--text-secondary); margin-bottom: 40px; }
+    .works-intro { max-width: 760px; margin-bottom: 40px; }
+    .works-intro p { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 12px; }
+    .works-intro p:last-child { margin-bottom: 0; }
 
-    /* ─── HOME ─── */
-    #home {
-      height: calc(100vh - 61px); /* NAV 60px + border 1px */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0;
-      overflow: hidden;
-    }
-    .home-inner {
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .home-name {
-      font-size: 80px;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-      color: var(--text-primary);
-    }
-    .home-name-en {
-      margin-top: 8px;
-      font-size: 18px;
-      font-weight: 400;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
-    }
-    .home-title {
-      margin-top: 16px;
-      font-size: 16px;
-      font-weight: 400;
-      letter-spacing: 0.06em;
-      color: var(--text-secondary);
-    }
-    .home-desc {
-      margin-top: 24px;
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 1.7;
-      color: var(--text-secondary);
-    }
-    .btn-outline {
-      display: inline-block;
-      margin-top: 48px;
-      padding: 14px 32px;
-      border: 1.5px solid var(--accent);
-      color: var(--accent);
-      font-size: 15px;
-      font-weight: 500;
-      border-radius: 6px;
-      transition: background 0.2s, color 0.2s;
-      cursor: pointer;
-    }
-    .btn-outline:hover {
-      background: var(--accent);
-      color: #fff;
-    }
+    /* ─── HOME (perryw.ca 스타일) ─── */
+    #home { min-height: calc(100vh - 61px); display: flex; align-items: center; padding: 0; }
+    #home .container { width: 100%; }
+    .home-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .home-mono { line-height: 1.2; color: var(--text-primary); text-align: center; }
+    .hn-ko { display: block; font-size: clamp(56px, 9vw, 112px); font-weight: 700; letter-spacing: -0.02em; }
+    .hn-en { display: block; font-weight: 400; font-size: clamp(18px, 2.7vw, 34px); letter-spacing: 0.02em; color: var(--text-muted); }
+    .home-bio-primary { font-size: 22px; line-height: 1.6; }
+    .home-bio-primary-en { margin-top: 12px; font-size: 16px; line-height: 1.6; color: var(--text-muted); }
+    .home-bio-divider { height: 1px; background: var(--border); margin: 28px 0; }
+    .home-bio-secondary { font-size: 16px; line-height: 1.7; color: var(--text-muted); }
+    .home-bio-secondary a { color: var(--text-secondary); border-bottom: 1px solid var(--border); transition: color 0.2s, border-color 0.2s; }
+    .home-bio-secondary a:hover { color: var(--accent); border-color: var(--accent); }
 
     /* ─── ABOUT ─── */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 60% 40%;
-      gap: 64px;
-      align-items: start;
-    }
-    .about-name {
-      font-size: 36px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-    }
-    .about-role {
-      font-size: 15px;
-      color: var(--text-secondary);
-      margin-top: 4px;
-      letter-spacing: 0.04em;
-    }
-    .about-tagline {
-      margin-top: 24px;
-      font-size: 17px;
-      font-weight: 500;
-      color: var(--text-primary);
-      line-height: 1.6;
-    }
-    .about-bio {
-      margin-top: 20px;
-      font-size: 16px;
-      color: var(--text-secondary);
-      line-height: 1.8;
-    }
-    .about-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 28px;
-    }
-    .tag {
-      background: var(--accent-light);
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 500;
-      padding: 4px 10px;
-      border-radius: 4px;
-      letter-spacing: 0.04em;
-    }
-
-    /* About Right */
-    .timeline-label {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-      margin-top: 32px;
-    }
+    .about-grid { display: grid; grid-template-columns: 60% 40%; gap: 64px; align-items: start; }
+    .about-name { font-size: 36px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; }
+    .about-role { font-size: 15px; color: var(--text-secondary); margin-top: 4px; letter-spacing: 0.04em; }
+    .about-tagline { margin-top: 24px; font-size: 17px; font-weight: 500; line-height: 1.6; }
+    .about-bio { margin-top: 20px; font-size: 16px; color: var(--text-secondary); line-height: 1.8; }
+    .tag { background: var(--accent-light); color: var(--accent); font-size: 12px; font-weight: 500; padding: 4px 10px; border-radius: 4px; letter-spacing: 0.04em; }
+    .timeline-label { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin: 24px 0 12px; }
     .timeline-label:first-child { margin-top: 0; }
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 90px 1fr;
-      gap: 12px;
-      margin-bottom: 12px;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-    .timeline-year {
-      color: var(--text-muted);
-      font-size: 13px;
-      padding-top: 1px;
-    }
+    .timeline-item { display: grid; grid-template-columns: 90px 1fr; gap: 12px; margin-bottom: 10px; font-size: 14px; line-height: 1.5; }
+    .timeline-year { color: var(--text-muted); font-size: 13px; padding-top: 1px; }
     .timeline-org { font-weight: 600; }
     .timeline-role { color: var(--text-secondary); font-size: 13px; }
+    /* 스킬 카드 (가로 배치) */
+    .skill-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 32px; }
+    .skill-card { position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 16px; overflow: hidden; }
+    .skill-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); }
+    .skill-card-name { font-weight: 700; font-size: 14px; color: var(--accent); margin-bottom: 6px; }
+    .skill-card-detail { color: var(--text-secondary); font-size: 12.5px; line-height: 1.6; }
 
-    .skill-item {
-      margin-bottom: 16px;
-      font-size: 14px;
+    /* ─── IMAGE PLACEHOLDER (drop-in ready) ─── */
+    .img-ph {
+      position: relative; background: var(--border); border-radius: 8px; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-muted); font-size: 13px; letter-spacing: 0.05em; text-align: center;
     }
-    .skill-name {
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
-    .skill-detail { color: var(--text-secondary); font-size: 13px; }
+    .img-ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 
-    /* ─── WORKS ─── */
-    .filter-tabs {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 32px;
-      flex-wrap: wrap;
-    }
+    /* ─── WORKS (D gallery + E one-liner) ─── */
+    .filter-tabs { display: flex; gap: 8px; margin-bottom: 40px; flex-wrap: wrap; }
     .filter-tab {
-      padding: 8px 20px;
-      border: 1.5px solid var(--border);
-      border-radius: 6px;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text-secondary);
-      cursor: pointer;
-      background: var(--surface);
-      transition: all 0.15s;
+      padding: 8px 18px; border: 1.5px solid var(--border); border-radius: 20px;
+      font-size: 14px; font-weight: 500; color: var(--text-secondary);
+      cursor: pointer; background: var(--surface); transition: all 0.15s;
     }
-    .filter-tab.active {
-      background: var(--accent);
-      color: #fff;
-      border-color: var(--accent);
-    }
-    .category-desc {
-      font-size: 15px;
-      color: var(--text-secondary);
-      line-height: 1.8;
-      margin-bottom: 40px;
-      max-width: 720px;
-    }
-    .works-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 24px;
-    }
-    .work-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 32px;
-      cursor: pointer;
-      transition: box-shadow 0.2s, transform 0.2s;
-    }
-    .work-card:hover {
-      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-      transform: translateY(-2px);
-    }
-    .card-category {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 12px;
-    }
-    .card-title {
-      font-size: 20px;
-      font-weight: 700;
-      line-height: 1.3;
-      margin-bottom: 8px;
-    }
-    .card-org {
-      font-size: 13px;
-      color: var(--text-secondary);
-      margin-bottom: 16px;
-    }
-    .card-desc {
-      font-size: 14px;
-      color: var(--text-secondary);
-      line-height: 1.7;
-    }
+    .filter-tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
 
-    /* ─── MODAL ─── */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.5);
-      z-index: 200;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
+    .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .g-card { cursor: pointer; }
+    .g-card.pg-static { cursor: default; }
+    .g-card .cover { aspect-ratio: 3/2; }
+    .g-card .cover img { transition: transform 0.4s ease; }
+    .g-card:hover .cover img { transform: scale(1.04); }
+    .g-num { position: absolute; top: 12px; left: 14px; z-index: 2; font-size: 12px; font-weight: 500; color: #fff; mix-blend-mode: difference; }
+    .g-title { margin-top: 14px; font-size: 19px; font-weight: 700; }
+    .g-line { margin-top: 4px; font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+
+    /* ─── SERVICES (bottom block) ─── */
+    .services {
+      margin-top: 64px; padding: 36px 40px; background: var(--accent-light);
+      border-radius: 16px; display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: space-between; gap: 24px;
     }
-    .modal-overlay.open { display: flex; }
-    .modal-box {
-      background: var(--surface);
-      border-radius: 16px;
-      max-width: 720px;
-      width: 100%;
-      max-height: 90vh;
-      overflow-y: auto;
-      position: relative;
+    .services-text { font-size: 15px; color: var(--accent); line-height: 1.7; }
+    .services-text strong { font-weight: 600; }
+    .services .btn-fill {
+      flex-shrink: 0; background: var(--accent); color: #fff; font-size: 15px; font-weight: 500;
+      padding: 14px 28px; border-radius: 8px; transition: opacity 0.2s;
     }
-    .modal-body { padding: 40px; }
-    .modal-close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: none;
-      border: none;
-      font-size: 24px;
-      cursor: pointer;
-      color: var(--text-muted);
-      line-height: 1;
-      z-index: 1;
+    .services .btn-fill:hover { opacity: 0.88; }
+
+    /* ─── DETAIL PAGE (Gabriel structure) ─── */
+    .detail { position: fixed; inset: 0; background: var(--bg); z-index: 300; overflow-y: auto; display: none; }
+    .detail.open { display: block; }
+    .detail-inner { max-width: 880px; margin: 0 auto; padding: 32px 40px 96px; }
+    .detail-back {
+      display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500;
+      color: var(--text-secondary); cursor: pointer; background: none; border: none;
+      font-family: inherit; padding: 8px 0; margin-bottom: 32px;
     }
-    .modal-close:hover { color: var(--text-primary); }
-    .modal-img {
-      margin-bottom: 32px;
+    .detail-back:hover { color: var(--accent); }
+    .detail-title { font-size: 48px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; }
+    .detail-tagline { margin-top: 14px; font-size: 19px; color: var(--text-secondary); line-height: 1.6; }
+    .detail-cover { margin-top: 36px; }
+    .detail-cover .img-ph { aspect-ratio: 3/2; border-radius: 12px; }
+    .meta-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 24px;
+      margin-top: 36px; padding: 28px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
     }
-    .img-placeholder {
-      background: var(--border);
-      aspect-ratio: 16/9;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-muted);
-      font-size: 13px;
-      letter-spacing: 0.05em;
+    .meta-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+    .meta-value { font-size: 14px; line-height: 1.6; }
+    .meta-value .tag { margin: 0 4px 4px 0; display: inline-block; }
+    .detail-section { margin-top: 56px; }
+    .detail-section h3 {
+      font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 16px;
     }
-    .playground-card .img-placeholder {
-      aspect-ratio: 3/2;
-    }
-    .modal-project-title {
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-    .modal-org {
-      font-size: 14px;
-      color: var(--text-secondary);
-      margin-bottom: 8px;
-    }
-    .modal-role {
-      font-size: 14px;
-      color: var(--text-secondary);
-      margin-bottom: 16px;
-    }
-    .modal-oneliner {
-      font-size: 16px;
-      font-weight: 500;
-      color: var(--text-primary);
-      margin-bottom: 20px;
-      line-height: 1.6;
-    }
-    .modal-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
-    .modal-section-label {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-      margin-top: 24px;
-    }
-    .modal-text {
-      font-size: 15px;
-      color: var(--text-secondary);
-      line-height: 1.75;
-    }
-    .modal-text ul {
-      padding-left: 20px;
-    }
-    .modal-text li { margin-bottom: 4px; }
-    .modal-results {
-      margin-top: 8px;
-    }
+    .detail-section p { font-size: 16px; color: var(--text-secondary); line-height: 1.8; }
+    .detail-section ul { padding-left: 20px; color: var(--text-secondary); line-height: 1.8; }
+    .detail-section li { margin-bottom: 6px; }
+    .detail-imgs { margin-top: 24px; display: flex; flex-direction: column; gap: 16px; }
+    .detail-imgs .img-ph { aspect-ratio: 16/9; border-radius: 10px; }
     .result-item {
-      font-size: 15px;
-      color: var(--text-secondary);
-      padding: 10px 0;
-      border-bottom: 1px solid var(--border);
-      line-height: 1.6;
+      font-size: 16px; color: var(--text-secondary); padding: 14px 0;
+      border-bottom: 1px solid var(--border); line-height: 1.6;
     }
     .result-item:last-child { border-bottom: none; }
-    .result-num {
-      font-weight: 700;
-      color: var(--accent);
+    .result-num { font-weight: 700; color: var(--accent); }
+    .next-project {
+      margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--border);
+      cursor: pointer; display: flex; align-items: center; justify-content: space-between;
     }
+    .next-project:hover .next-title { color: var(--accent); }
+    .next-label { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
+    .next-title { font-size: 24px; font-weight: 700; margin-top: 4px; transition: color 0.2s; }
 
     /* ─── PLAYGROUND ─── */
-    .playground-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .playground-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-    }
+    .playground-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .playground-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .playground-card .img-ph { aspect-ratio: 3/2; border-radius: 0; }
     .playground-card-body { padding: 24px; }
-    .pg-card-title {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .pg-card-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 12px;
-    }
-    .pg-card-period {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-bottom: 12px;
-    }
-    .pg-card-desc {
-      font-size: 14px;
-      color: var(--text-secondary);
-      line-height: 1.75;
-      margin-bottom: 16px;
-    }
-    .pg-card-stat {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--accent);
-      margin-bottom: 16px;
-    }
+    .pg-card-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .pg-card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+    .pg-card-period { font-size: 12px; color: var(--text-muted); margin-bottom: 12px; }
+    .pg-card-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 16px; }
+    .pg-card-stat { font-size: 14px; font-weight: 600; color: var(--accent); margin-bottom: 16px; }
     .btn-link {
-      display: inline-block;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--accent);
-      border: 1.5px solid var(--accent);
-      padding: 7px 16px;
-      border-radius: 6px;
+      display: inline-block; font-size: 13px; font-weight: 500; color: var(--accent);
+      border: 1.5px solid var(--accent); padding: 7px 16px; border-radius: 6px;
       transition: background 0.2s, color 0.2s;
     }
-    .btn-link:hover {
-      background: var(--accent);
-      color: #fff;
-    }
+    .btn-link:hover { background: var(--accent); color: #fff; }
 
     /* ─── CONTACT ─── */
-    #contact {
-      text-align: center;
-    }
-    .contact-heading {
-      font-size: 40px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 16px;
-    }
-    .contact-sub {
-      font-size: 16px;
-      color: var(--text-secondary);
-      margin-bottom: 40px;
-    }
+    #contact { text-align: center; }
+    .contact-heading { font-size: 40px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; }
+    .contact-sub { font-size: 16px; color: var(--text-secondary); margin-bottom: 40px; }
     .email-btn {
-      display: inline-block;
-      padding: 16px 36px;
-      border: 1.5px solid var(--accent);
-      color: var(--accent);
-      font-size: 16px;
-      font-weight: 500;
-      border-radius: 8px;
-      cursor: pointer;
-      background: none;
-      font-family: inherit;
-      transition: background 0.2s, color 0.2s;
+      display: inline-block; padding: 16px 36px; border: 1.5px solid var(--accent);
+      color: var(--accent); font-size: 16px; font-weight: 500; border-radius: 8px;
+      cursor: pointer; background: none; font-family: inherit; transition: background 0.2s, color 0.2s;
     }
-    .email-btn:hover {
-      background: var(--accent);
-      color: #fff;
-    }
-    .contact-links {
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      margin-top: 32px;
-    }
-    .contact-links a {
-      font-size: 14px;
-      color: var(--text-secondary);
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 2px;
-      transition: color 0.2s, border-color 0.2s;
-    }
-    .contact-links a:hover {
-      color: var(--accent);
-      border-color: var(--accent);
-    }
+    .email-btn:hover { background: var(--accent); color: #fff; }
+    .contact-links { display: flex; justify-content: center; gap: 32px; margin-top: 32px; }
+    .contact-links a { font-size: 14px; color: var(--text-secondary); border-bottom: 1px solid var(--border); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
+    .contact-links a:hover { color: var(--accent); border-color: var(--accent); }
 
-    /* ─── FOOTER ─── */
-    footer {
-      padding: 40px 0;
-      text-align: center;
-      font-size: 12px;
-      color: var(--text-muted);
-      border-top: 1px solid var(--border);
-    }
-
-    /* ─── SECTION SUBTITLE ─── */
-    .section-subtitle {
-      font-size: 16px;
-      color: var(--text-secondary);
-      margin-top: -32px;
-      margin-bottom: 40px;
-    }
+    footer { padding: 40px 0; text-align: center; font-size: 12px; color: var(--text-muted); border-top: 1px solid var(--border); }
 
     /* ─── RESPONSIVE ─── */
-    @media (max-width: 1024px) {
-      .about-grid { grid-template-columns: 55% 45%; gap: 40px; }
-    }
-
+    @media (max-width: 1024px) { .about-grid { grid-template-columns: 55% 45%; gap: 40px; } }
     @media (max-width: 768px) {
       .container { padding: 0 20px; }
       .nav-inner { padding: 0 20px; }
-      .nav-links { display: none; }
+      .nav-links, .nav-cta { display: none; }
       .hamburger { display: flex; }
       .mobile-menu { padding: 16px 20px 24px; }
-
       section { padding: 64px 0; }
-      .section-label { margin-bottom: 32px; }
-
-      .home-name { font-size: 52px; }
-      .home-desc { font-size: 16px; }
-
+      .home-grid { grid-template-columns: 1fr; gap: 32px; }
+      .hn-ko { font-size: 56px; }
+      .home-bio-primary { font-size: 18px; }
       .about-grid { grid-template-columns: 1fr; gap: 48px; }
-
-      .works-grid { grid-template-columns: 1fr; }
-
+      .gallery { grid-template-columns: 1fr; gap: 24px; }
       .playground-grid { grid-template-columns: 1fr; }
-
+      .services { flex-direction: column; align-items: flex-start; padding: 28px 24px; }
       .contact-heading { font-size: 28px; }
       .contact-links { flex-direction: column; align-items: center; gap: 16px; }
-
-      .modal-body { padding: 28px 24px; }
+      .detail-inner { padding: 24px 20px 64px; }
+      .detail-title { font-size: 32px; }
     }
   </style>
 </head>
@@ -617,19 +262,17 @@
 <nav>
   <div class="nav-inner">
     <a href="#home" class="nav-logo">
-      <!-- 로고 이미지 슬롯: 로고 파일 준비 시 아래 img 태그 주석 해제 후 텍스트 삭제 -->
-      <!-- <img src="images/logo.svg" alt="정은용 로고"> -->
-      정은용
+      <!-- 로고 이미지 슬롯: 로고 파일 준비 시 아래 img 주석 해제 후 텍스트 삭제 -->
+      <!-- <img src="images/logo.svg" alt="oozoo.work 로고"> -->
+      oozoo.work
     </a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#works">Works</a></li>
       <li><a href="#playground">Playground</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
     </ul>
-    <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="hamburger" id="hamburger" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
   </div>
   <div class="mobile-menu" id="mobile-menu">
     <a href="#about" class="mobile-link">About</a>
@@ -641,12 +284,19 @@
 
 <!-- HOME -->
 <section id="home">
-  <div class="home-inner">
-    <h1 class="home-name">정은용</h1>
-    <p class="home-name-en">Eunyong Chung</p>
-    <p class="home-title">Experience Designer</p>
-    <p class="home-desc">'깊이 있는 경험'을 설계합니다.</p>
-    <a href="#works" class="btn-outline">Works -></a>
+  <div class="container">
+    <div class="home-grid">
+      <div class="home-mono">
+        <span class="hn-ko">정은용</span>
+        <span class="hn-en">Eunyong Chung</span>
+      </div>
+      <div class="home-bio">
+        <p class="home-bio-primary">'깊이 있는 경험'을 설계하는 기획자. 커뮤니티·캠페인·콘텐츠를 넘나들며 브랜드의 세계관을 구축합니다.</p>
+        <p class="home-bio-primary-en">A planner who designs experiences with depth — building a brand's universe across community, campaign, and content.</p>
+        <div class="home-bio-divider"></div>
+        <p class="home-bio-secondary">작업이 궁금하다면 <a href="#works">Works</a>, 흥미로운 활동이 궁금하다면 <a href="https://www.instagram.com/oozoo.with/" target="_blank" rel="noopener">Playground</a>를 둘러보세요. 협업 문의는 <a href="mailto:oozoo.work@gmail.com">oozoo.work@gmail.com</a>로 보내주세요.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -655,91 +305,32 @@
   <div class="container">
     <p class="section-label">About</p>
     <div class="about-grid">
-      <!-- Left -->
       <div>
         <div class="about-name">정은용</div>
-        <div class="about-role">Brand Experience Planner</div>
-        <p class="about-tagline">브랜드의 언어를 사용자의 일상 언어로 번역합니다.</p>
+        <div class="about-role">Experience Designer</div>
+        <p class="about-tagline">마음을 움직이는 경험은 삶을 바꾼다.</p>
         <p class="about-bio">
           브랜드의 가치를 감각적 경험으로 설계하고 성과로 증명하는 기획자입니다.<br>
           콘텐츠, 커뮤니티, 공간을 넘나들며 고객 경험을 입체적으로 구현해 왔습니다.<br>
-          특히 신규 브랜드·서비스를 기획운영하는 '제로 투 원' 단계의 실행 경험이 풍부합니다.<br>
           프로젝트의 맥락을 명확한 구조로 재편하고, 비즈니스 전략과 함께 빈틈없는 디테일로 실행하며 실질적인 결과를 만듭니다.<br>
           쉽게 휘발되는 체험 대신 브랜드의 팬덤을 단단히 다지는 '깊이 있는 경험'을 설계합니다.
         </p>
-        <div class="about-tags">
-          <span class="tag">브랜드마케팅</span>
-          <span class="tag">커뮤니티</span>
-          <span class="tag">콘텐츠</span>
-          <span class="tag">브랜드 런칭(0→1)</span>
-          <span class="tag">온오프라인 통합 기획</span>
+        <div class="skill-cards">
+          <div class="skill-card"><div class="skill-card-name">Brand Marketing</div><div class="skill-card-detail">브랜드 런칭 · 캠페인 기획 · 사업 전략 연계</div></div>
+          <div class="skill-card"><div class="skill-card-name">Experience</div><div class="skill-card-detail">온오프라인 통합 기획 · 경험 시퀀스 설계 · 공간 연출</div></div>
+          <div class="skill-card"><div class="skill-card-name">Community</div><div class="skill-card-detail">유저 플로우 설계 · 팬덤·리텐션 전략 · BM 고도화</div></div>
+          <div class="skill-card"><div class="skill-card-name">Contents</div><div class="skill-card-detail">채널 스토리텔링 · 카피라이팅 · 온드채널 운영</div></div>
         </div>
       </div>
-      <!-- Right -->
       <div>
         <p class="timeline-label">경력</p>
-        <div class="timeline-item">
-          <span class="timeline-year">2023–2025</span>
-          <div>
-            <div class="timeline-org">CJ CGV</div>
-            <div class="timeline-role">IMC팀/브랜드 파트 과장 · 공간사업팀 과장</div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-year">2022–2023</span>
-          <div>
-            <div class="timeline-org">프렌트립</div>
-            <div class="timeline-role">시퀀스팀 Director · 경험3팀 MD</div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-year">2018–2022</span>
-          <div>
-            <div class="timeline-org">공공그라운드</div>
-            <div class="timeline-role">기획 팀장 · 커뮤니티 매니저</div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-year">2021</span>
-          <div>
-            <div class="timeline-org">왈</div>
-            <div class="timeline-role">Operating Director (겸직)</div>
-          </div>
-        </div>
-
+        <div class="timeline-item"><span class="timeline-year">2023–2025</span><div><div class="timeline-org">CJ CGV</div><div class="timeline-role">IMC팀/브랜드 파트 과장</div></div></div>
+        <div class="timeline-item"><span class="timeline-year">2022–2023</span><div><div class="timeline-org">프렌트립</div><div class="timeline-role">시퀀스팀 Director</div></div></div>
+        <div class="timeline-item"><span class="timeline-year">2018–2022</span><div><div class="timeline-org">공공그라운드</div><div class="timeline-role">기획 팀장</div></div></div>
+        <div class="timeline-item"><span class="timeline-year">2021</span><div><div class="timeline-org">왈</div><div class="timeline-role">Operating Director (겸직)</div></div></div>
         <p class="timeline-label">학력</p>
-        <div class="timeline-item">
-          <span class="timeline-year">2013–2015</span>
-          <div>
-            <div class="timeline-org">건국대학교 일반대학원</div>
-            <div class="timeline-role">문화콘텐츠·커뮤니케이션학 석사</div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-year">2009–2013</span>
-          <div>
-            <div class="timeline-org">건국대학교</div>
-            <div class="timeline-role">커뮤니케이션학</div>
-          </div>
-        </div>
-
-        <p class="timeline-label">스킬</p>
-        <div class="skill-item">
-          <div class="skill-name">Brand Marketing</div>
-          <div class="skill-detail">브랜드 런칭 · 캠페인 기획 · 사업 전략 연계</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name">Experience</div>
-          <div class="skill-detail">온오프라인 통합 기획 · 경험 시퀀스 설계 · 공간 연출</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name">Community</div>
-          <div class="skill-detail">유저 플로우 설계 · 팬덤·리텐션 전략 · BM 고도화</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name">Contents</div>
-          <div class="skill-detail">채널 스토리텔링 · 카피라이팅 · 온드채널 운영</div>
-        </div>
+        <div class="timeline-item"><span class="timeline-year">2013–2015</span><div><div class="timeline-org">건국대학교 일반대학원</div><div class="timeline-role">문화콘텐츠·커뮤니케이션학 석사</div></div></div>
+        <div class="timeline-item"><span class="timeline-year">2009–2013</span><div><div class="timeline-org">건국대학교</div><div class="timeline-role">커뮤니케이션학</div></div></div>
       </div>
     </div>
   </div>
@@ -749,21 +340,27 @@
 <section id="works">
   <div class="container">
     <p class="section-label">Works</p>
-    <p class="section-subtitle">브랜드 경험을 세 가지 축으로 설계합니다.</p>
-
-    <div class="filter-tabs">
-      <button class="filter-tab active" data-category="community">브랜드 커뮤니티</button>
-      <button class="filter-tab" data-category="campaign">브랜드 캠페인</button>
-      <button class="filter-tab" data-category="launch">브랜드 런치+콘텐츠</button>
+    <div class="works-intro">
+      <p>브랜드 경험을 세 가지 축으로 설계합니다. 커뮤니티 · 캠페인 · 콘텐츠는 하나의 관점으로 이어집니다.</p>
+      <p>브랜드 미션을 기반으로 다양한 형태의 경험 콘텐츠를 설계합니다.</p>
+      <p>기획자는 세계관을 만드는 사람이기에 모든 기획에는 '이유'를 둡니다.</p>
+      <p>콘텐츠를 통해 영감과 삶의 변화를 얻을 수 있도록 모든 경험에 깊이와 의미를 더합니다.</p>
+      <p>신사업 프로젝트의 경우 탄탄한 브랜드가 될 수 있도록 브랜드 미션과 가치를 정돈합니다.</p>
+      <p>리서치, 간단한 브랜딩 워크샵 등을 통해 팀과 함께 맥락을 구축합니다.</p>
     </div>
+    <div class="filter-tabs">
+      <button class="filter-tab active" data-category="all">전체</button>
+      <button class="filter-tab" data-category="community">브랜드 커뮤니티</button>
+      <button class="filter-tab" data-category="campaign">브랜드 캠페인</button>
+      <button class="filter-tab" data-category="launch">브랜드 런칭/콘텐츠</button>
+    </div>
+    <div class="gallery" id="gallery"></div>
 
-    <p class="category-desc" id="category-desc">
-      주고 받음으로부터 안전함이, 안전함으로부터 건강한 삶이 시작된다고 믿습니다.<br>
-      커뮤니티의 목적과 목표를 설정하고, 구성원이 최상의 경험을 할 수 있도록 전용 콘텐츠를 기획·운영합니다.
-    </p>
-
-    <div class="works-grid" id="works-grid">
-      <!-- Cards injected by JS -->
+    <div class="services">
+      <div class="services-text">
+        새로운 브랜드 경험이 필요하시다면 함께 이야기 나눠요.
+      </div>
+      <a href="#contact" class="btn-fill">협업 문의하기</a>
     </div>
   </div>
 </section>
@@ -772,65 +369,35 @@
 <section id="playground">
   <div class="container">
     <p class="section-label">Playground</p>
-    <p class="section-subtitle">일 밖에서 나를 드러내는 것들</p>
-    <div class="playground-grid">
-
-      <!-- Card A -->
-      <div class="playground-card">
-        <div class="img-placeholder" data-slot="playground-book-01">이미지 준비 중</div>
-        <div class="playground-card-body">
-          <div class="pg-card-tags">
-            <span class="tag">독립출판</span>
-            <span class="tag">개인 프로젝트</span>
-          </div>
-          <h3 class="pg-card-title">포토에세이 『마음의 실루엣』</h3>
-          <p class="pg-card-period">2023.01 출간, 2쇄 판매 중</p>
-          <p class="pg-card-desc">
-            2,547일 동안 모은 그림자 사진과 마음의 기록을 담은 그림자책.<br>
-            무언가의 뒷면, 숨겨진 이야기를 사랑하는 분들에게 닿기를 바라며 만들었습니다.
-          </p>
-          <p class="pg-card-stat">텀블벅 펀딩 266% 달성</p>
+    <p class="section-subtitle">가능성과 호기심을 따라 재미있는 경험을 만듭니다.</p>
+    <div class="gallery">
+      <div class="g-card pg-static">
+        <div class="cover img-ph" data-slot="images/playground/book-cover.webp">
+          <span class="g-num">01</span>
+          포토에세이 『마음의 실루엣』
+          <img src="images/playground/book-cover.webp" alt="마음의 실루엣" onerror="this.style.display='none'" loading="lazy">
         </div>
+        <div class="g-title">포토에세이 『마음의 실루엣』</div>
+        <div class="g-line">2,547일의 그림자 사진을 엮은 독립출판 포토에세이 · 텀블벅 펀딩 266%</div>
       </div>
-
-      <!-- Card B -->
-      <div class="playground-card">
-        <div class="img-placeholder" data-slot="playground-art-01">이미지 준비 중</div>
-        <div class="playground-card-body">
-          <div class="pg-card-tags">
-            <span class="tag">외부 필진</span>
-            <span class="tag">유튜브/인스타그램 콘텐츠</span>
-          </div>
-          <h3 class="pg-card-title">널 위한 문화예술</h3>
-          <p class="pg-card-period">2022–현재</p>
-          <p class="pg-card-desc">
-            예술문화 미디어 '널 위한 문화예술'의 외부 필진으로서
-            '이달의 문화예술'을 중심으로 유튜브 원고 및 인스타그램 카드뉴스를 구성·제작합니다.
-          </p>
-          <p class="pg-card-stat">누적 발행 콘텐츠 22건+ · 최고 조회수 15만</p>
-          <a href="https://www.youtube.com/@art_for_you/videos" target="_blank" rel="noopener" class="btn-link">유튜브 채널 →</a>
+      <div class="g-card pg-static">
+        <div class="cover img-ph" data-slot="images/playground/seed.webp">
+          <span class="g-num">02</span>
+          씨앗실험실
+          <img src="images/playground/seed.webp" alt="씨앗실험실" onerror="this.style.display='none'" loading="lazy">
         </div>
+        <div class="g-title">씨앗실험실</div>
+        <div class="g-line">창조성과 고유성을 발견하는 성장 커뮤니티 · 참여자 20명, 73% 완주</div>
       </div>
-
-      <!-- Card C -->
-      <div class="playground-card">
-        <div class="img-placeholder" data-slot="playground-seed-01">이미지 준비 중</div>
-        <div class="playground-card-body">
-          <div class="pg-card-tags">
-            <span class="tag">커뮤니티</span>
-            <span class="tag">개인 프로젝트</span>
-          </div>
-          <h3 class="pg-card-title">씨앗실험실</h3>
-          <p class="pg-card-period">2021–현재</p>
-          <p class="pg-card-desc">
-            창조성과 고유성을 발견하는 성장 커뮤니티.<br>
-            회사·나이·직업의 꼬리표를 떼고 솔직한 나를 마주하는 공간입니다.<br>
-            줄리아 카메론의 &lt;아티스트 웨이&gt; 12주 과정을 함께 걷습니다.
-          </p>
-          <p class="pg-card-stat">참여자 20명 · 73% 이상 12주 완주</p>
+      <a class="g-card" href="https://www.youtube.com/@art_for_you/videos" target="_blank" rel="noopener">
+        <div class="cover img-ph" data-slot="images/playground/art.webp">
+          <span class="g-num">03</span>
+          널 위한 문화예술
+          <img src="images/playground/art.webp" alt="널 위한 문화예술" onerror="this.style.display='none'" loading="lazy">
         </div>
-      </div>
-
+        <div class="g-title">널 위한 문화예술 ↗</div>
+        <div class="g-line">문화예술 미디어 외부 필진 · 누적 콘텐츠 22건+, 최고 조회수 15만</div>
+      </a>
     </div>
   </div>
 </section>
@@ -840,46 +407,28 @@
   <div class="container">
     <p class="section-label">Contact</p>
     <h2 class="contact-heading">함께 만들어볼까요?</h2>
-    <p class="contact-sub">브랜드 경험 기획, 콘텐츠 전략, 커뮤니티 운영에 대해 이야기 나눠요.</p>
+    <p class="contact-sub">브랜드 경험 기획, 콘텐츠 전략, 커뮤니티 빌딩에 대해 이야기 나눠요.</p>
     <button class="email-btn" id="email-btn">oozoo.work@gmail.com</button>
-    <div class="contact-links">
-      <a href="https://www.instagram.com/oozoo.with" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://www.linkedin.com/in/eunyong-chung/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://oozoowith.notion.site/portfolio" target="_blank" rel="noopener">Portfolio (Notion)</a>
-    </div>
   </div>
 </section>
 
-<footer>
-  <p>ⓒ 2026. 정은용. All rights reserved.</p>
-</footer>
+<footer><p>ⓒ 2026. 정은용. All rights reserved.</p></footer>
 
-<!-- MODAL -->
-<div class="modal-overlay" id="modal-overlay">
-  <div class="modal-box" id="modal-box">
-    <button class="modal-close" id="modal-close" aria-label="닫기">×</button>
-    <div class="modal-body" id="modal-body">
-      <!-- Injected by JS -->
-    </div>
-  </div>
+<!-- DETAIL PAGE -->
+<div class="detail" id="detail">
+  <div class="detail-inner" id="detail-inner"></div>
 </div>
 
 <script>
-  // ─── DATA ───
-  const categoryDescs = {
-    community: '주고 받음으로부터 안전함이, 안전함으로부터 건강한 삶이 시작된다고 믿습니다.<br>커뮤니티의 목적과 목표를 설정하고, 구성원이 최상의 경험을 할 수 있도록 전용 콘텐츠를 기획·운영합니다.',
-    campaign: '브랜드 미션을 기반으로 다양한 형태의 경험 콘텐츠를 설계합니다.<br>기획자는 세계관을 만드는 사람이기에 모든 기획에는 \'이유\'를 둡니다.<br>콘텐츠를 통해 영감과 삶의 변화를 얻을 수 있도록 모든 경험에 깊이와 의미를 더합니다.',
-    launch: '브랜드의 미션과 톤앤매너를 담은 디지털 콘텐츠를 기획·제작합니다.<br>프리랜서 에디터로 활동하며 직접 글을 쓰거나 에디팅, 카피라이팅에 참여합니다.'
-  };
-
   const works = [
     {
-      id: 'moints',
-      category: 'community',
+      id: 'moints', category: 'community', folder: 'moints',
       title: 'MOINTS (모인츠)',
-      org: 'CJ CGV 공간사업팀 | 2023.07–2024.07',
-      role: 'PM — 사업 초기 단계부터 종료까지 전 과정 총괄 (기여도 100%)',
-      oneliner: '취향이 통하는 순간, 모인츠 — 극장 최초 영화 기반 라이프스타일 커뮤니티',
+      tagline: '취향이 통하는 순간, 모인츠 — 극장 최초 영화 기반 라이프스타일 커뮤니티',
+      line: '극장 최초 영화 커뮤니티로 리텐션 고객 누적매출 2.3배',
+      metric: '매출 2.3배',
+      role: 'PM — 전 과정 총괄 (기여도 100%)',
+      org: 'CJ CGV 공간사업팀', period: '2023.07–2024.07',
       tags: ['사업 모델 고도화', '브랜딩·콘텐츠 전략', '외부 협력사 발굴', '프로그램 기획운영', '공간 개발·운영'],
       goal: '극장 최초 영화 커뮤니티 구축 및 고객 리텐션 유도',
       strategy: [
@@ -887,44 +436,23 @@
         '고단가 상품 개발을 통한 평균 객당 매출 증대',
         'B2C BM 다각화 (정규클럽, 올패스 멤버십, 원데이 프로그램 등)',
         'B2B 모델: 영화 관람 후 브랜드 주제 토크 연계 원데이 세션',
-        '멤버 전용 공간 \'모인츠 하우스\' 기획운영 (레어로우 협업)'
+        "멤버 전용 공간 '모인츠 하우스' 기획운영 (레어로우 협업)"
       ],
       results: [
         '동기간 전체 회원 대비 모인츠 고객 등급 상향 비율 <span class="result-num">3배▲</span>',
         '리텐션 고객 중 VIP 이상 등급 비율 <span class="result-num">60%</span>',
         '리텐션 고객의 누적매출비중 <span class="result-num">2.3배▲</span> (19% → 44%)',
         '커뮤니티 만족도 <span class="result-num">9.0점</span> / 재방문 의향 <span class="result-num">8.7점</span> / 평균 출석률 <span class="result-num">85%</span>'
-      ],
-      slot: 'works-moints-01'
+      ]
     },
     {
-      id: 'seed',
-      category: 'community',
-      title: '씨앗실험실',
-      org: '개인 프로젝트 | 2021–현재',
-      role: '커뮤니티 대표·총괄 (기여도 100%)',
-      oneliner: '창조성과 고유성을 발견하는 성장 커뮤니티',
-      tags: ['커뮤니티 기획', '운영', '브랜딩'],
-      goal: '창조성과 고유성 발견하기 / 나를 응원해줄 느슨한 동료 만들기',
-      strategy: [
-        '줄리아 카메론의 <아티스트 웨이> 12주 과정 커뮤니티로 기획',
-        '2021년 무료 커뮤니티 시작 → 2022년 유료 전환',
-        '참여자가 창조성이라는 씨앗을 탐구할 수 있는 안전한 공간 설계'
-      ],
-      results: [
-        '참여자 총 <span class="result-num">20명</span>과 커뮤니티 활동 수행 (시즌 1·2)',
-        '전체의 <span class="result-num">73%</span>가 12주 중 6주 이상 참여',
-        '멤버 간 연대감 확인, 지속 운영 중'
-      ],
-      slot: 'works-seed-01'
-    },
-    {
-      id: 'gongil',
-      category: 'community',
+      id: 'gongil', category: 'community', folder: 'gongil',
       title: '공공일호 사람들',
-      org: '공공그라운드 | 2018.03–2020.02',
-      role: '커뮤니티 매니저 — 입주사 커뮤니티 구축 및 공간 운영 (기여도 100%)',
-      oneliner: '공공그라운드 공공일호 입주사 간 네트워크 구축·강화 커뮤니티',
+      tagline: '공공그라운드 공공일호 입주사 간 네트워크 구축·강화 커뮤니티',
+      line: '입주사 네트워크 구축, 입주 멤버 만족도 8.8점',
+      metric: '만족도 8.8',
+      role: '커뮤니티 매니저 (기여도 100%)',
+      org: '공공그라운드', period: '2018.03–2020.02',
       tags: ['커뮤니티 기획운영', '내외부 정책 수립', '고객 경험 개선', '공간 운영'],
       goal: '입주사 및 소셜섹터 커뮤니티 구축',
       strategy: [
@@ -936,41 +464,58 @@
         '입주사 네트워킹 프로그램 <span class="result-num">20회▲</span>',
         '공식 SNS 채널 콘텐츠 발신 월 <span class="result-num">3회▲</span>',
         '입주 멤버 만족도 <span class="result-num">8.8점</span>'
-      ],
-      slot: 'works-gongil-01'
+      ]
     },
     {
-      id: 'ccbook',
-      category: 'campaign',
+      id: 'wal', category: 'community', folder: 'wal',
+      title: '왈 커뮤니티',
+      tagline: '왈(WAL) — Operating Director로 참여한 커뮤니티 프로젝트',
+      line: '왈 운영 디렉터로 참여한 커뮤니티 프로젝트',
+      metric: '',
+      role: 'Operating Director (겸직)',
+      org: '왈', period: '2021',
+      tags: ['커뮤니티 기획', '운영'],
+      goal: '(상세 내용 입력 예정)',
+      strategy: [
+        '(상세 내용 입력 예정)'
+      ],
+      results: [
+        '(상세 내용 입력 예정)'
+      ]
+    },
+    {
+      id: 'ccbook', category: 'campaign', folder: 'ccbook',
       title: '씨집책방',
-      org: 'CJ CGV IMC팀/브랜드 파트 | 2025.03–04',
-      role: 'PM — 준비~실행까지 전 과정 기획·총괄 (기여도 100%, 대행사 관리 병행)',
-      oneliner: '문장과 장면 사이, 씨집책방 — 만우절 시즌 온·오프라인 통합 캠페인',
+      tagline: '문장과 장면 사이, 씨집책방 — 만우절 시즌 온·오프라인 통합 캠페인',
+      line: '만우절 시즌 통합 캠페인으로 인스타그램 도달 255만',
+      metric: '도달 255만',
+      role: 'PM — 전 과정 기획·총괄 (기여도 100%)',
+      org: 'CJ CGV IMC팀/브랜드 파트', period: '2025.03–04',
       tags: ['상영 기획전·공간·이벤트 기획', '컨셉·스토리텔링', '브랜드 협업', '통합 마케팅 전략 수립', '콘텐츠 QC'],
-      goal: '시즈널 화제성 확보 및 브랜드 인지도 개선',
+      goal: '시즈널 화제성 확보 및 브랜드 인지도 개선 (타겟: 텍스트힙·아날로그 경험 선호 2030)',
       strategy: [
         '영화관 저관여 고객까지 아우르는 화제성 확보',
         '온·오프라인 경계 없이 캠페인 세계관 확장',
         '오프라인: 문학동네 협업 팝업 공간 운영 (30일, CGV용산아이파크몰), 정세랑 작가 이벤트',
-        '온라인: 자사 APP 메인·로고·스플래시 변경, 무비차트 \'씨집책방\' 탭 신설'
+        "온라인: 자사 APP 메인·로고·스플래시 변경, 무비차트 '씨집책방' 탭 신설"
       ],
       results: [
         '인스타그램 도달 <span class="result-num">255만</span>',
         '인스타그램 인터랙션 <span class="result-num">8.5천</span>',
         '보도자료·고객 SNS 후기 <span class="result-num">120+건</span>',
         '전사 단위 연간 캠페인으로 확대 운영 논의'
-      ],
-      slot: 'works-ccbook-01'
+      ]
     },
     {
-      id: 'ccin',
-      category: 'campaign',
+      id: 'ccin', category: 'campaign', folder: 'ccin',
       title: 'CCIN (씬)',
-      org: 'CJ CGV IMC팀/브랜드 파트 | 2024.08–2025.02',
-      role: 'PM — 월간 운영 시스템 구축, 월간 프로그램 실행까지 전 과정 기획·운영 (기여도 80%)',
-      oneliner: '우리가 만드는 취향 씬 — 취향 기반 영화 큐레이션 서비스',
+      tagline: '우리가 만드는 취향 씬 — 취향 기반 영화 큐레이션 서비스',
+      line: '취향 큐레이션으로 CGV 브랜드 호감도 2.9배',
+      metric: '호감도 2.9배',
+      role: 'PM — 운영 시스템 구축·실행 (기여도 80%)',
+      org: 'CJ CGV IMC팀/브랜드 파트', period: '2024.08–2025.02',
       tags: ['통합 마케팅 전략 수립', '월간 이벤트 기획운영', '공간 연출', '굿즈 기획', '아티스트 커뮤니케이션'],
-      goal: '브랜드 호감도 개선',
+      goal: '브랜드 호감도 개선 (타겟: 취향 기반 소비 성향 2030 및 씨네필)',
       strategy: [
         '큐레이터의 영감과 관객의 취향 연결',
         '관람 전·후까지 전 과정을 하나의 시퀀스(sequence)로 연계',
@@ -981,64 +526,64 @@
         'CGV 브랜드 호감도 <span class="result-num">2.9배▲</span> (9% → 26%)',
         '평균 객석률 동기간 일반영화 대비 <span class="result-num">5배▲</span>',
         '고객 만족도 <span class="result-num">9.3점</span>'
-      ],
-      slot: 'works-ccin-01'
+      ]
     },
     {
-      id: 'sqnc',
-      category: 'launch',
+      id: 'sqnc', category: 'launch', folder: 'sqnc',
       title: 'SQNC (시퀀스)',
-      org: '프렌트립 시퀀스팀 | 2023.04–06',
-      role: 'PM — 브랜드 런칭 준비~실행까지 전 과정 기획·총괄 (기여도 100%)',
-      oneliner: 'INSPIRE YOUR LIFE, SEQUENCE — 프렌트립 신규 프리미엄 큐레이션 브랜드',
+      tagline: 'INSPIRE YOUR LIFE, SEQUENCE — 프렌트립 신규 프리미엄 큐레이션 브랜드',
+      line: '신규 프리미엄 브랜드 0→1 런칭, 운영 타임라인 5주로 단축',
+      metric: '런칭 0→1',
+      role: 'PM — 런칭 전 과정 기획·총괄 (기여도 100%)',
+      org: '프렌트립 시퀀스팀', period: '2023.04–06',
       tags: ['초기 브랜딩', '경험 상품 큐레이션·소싱', '월간 운영 시스템 구축', '스토리텔링', '콘텐츠 구성·제작'],
-      goal: '프립 플랫폼 MAU 및 매출 증대',
+      goal: '프립 플랫폼 MAU 및 매출 증대 (타겟: 소비력 높은 30–35 여성, 취향 탐구자)',
       strategy: [
-        '한국의 \'Fine Experience\' 소개·판매 플랫폼으로 확장',
-        '\'감도 높은 경험\' 척도 및 큐레이션 기준 개발',
+        "한국의 'Fine Experience' 소개·판매 플랫폼으로 확장",
+        "'감도 높은 경험' 척도 및 큐레이션 기준 개발",
         '차별화 콘텐츠: 브랜드 인터뷰 매거진, 상세 페이지 스토리텔링'
       ],
       results: [
-        '2023.05 런칭',
+        '<span class="result-num">2023.05</span> 런칭',
         '5~6월간 상품 <span class="result-num">11건</span> 소싱·기획운영',
         '업무 효율화로 월간 타임라인 <span class="result-num">5주로 단축</span>',
         '플랫폼 MAU 활성화 기여'
-      ],
-      slot: 'works-sqnc-01'
+      ]
     },
     {
-      id: 'txtclub',
-      category: 'launch',
-      title: '텍스트클럽 (TXT CLUB)',
-      org: '공공그라운드 | 2020.01–2022.04',
-      role: 'PM — 브랜드 런칭부터 개별 회차 실행까지 전 과정 기획·총괄 (기여도 100%)',
-      oneliner: '텍스트 너머의 이야기, 텍스트클럽 — 공간 맥락을 살린 북토크 브랜드',
+      id: 'txtclub', category: 'launch', folder: 'txtclub',
+      title: 'TXT CLUB(텍스트클럽)',
+      tagline: '텍스트 너머의 이야기, 텍스트클럽 — 공간 맥락을 살린 북토크 브랜드',
+      line: '공간 맥락 북토크 브랜드로 BEP 달성, 만족도 9.5점',
+      metric: '만족도 9.5',
+      role: 'PM — 런칭·회차 실행 전 과정 총괄 (기여도 100%)',
+      org: '공공그라운드', period: '2020.01–2022.04',
       tags: ['기획운영 총괄', '콘텐츠 스토리텔링', '외부 협력·커뮤니케이션', '통합 마케팅', '공간 연출'],
-      goal: '파랑새극장 활용한 브랜디드 콘텐츠 개발',
+      goal: '파랑새극장 활용한 브랜디드 콘텐츠 개발 (타겟: 얼리버드, 책 콘텐츠 관심자)',
       strategy: [
-        '\'파랑새극장\'의 공간 맥락 연계',
+        "'파랑새극장'의 공간 맥락 연계",
         '새로운 방식의 텍스트 경험 상품 시도',
         '독자의 사연과 질문을 북토크의 중심 재료로 활용, 낭독과 토크 연결',
         '총 7개 출판사 및 작가 12명과 커뮤니케이션'
       ],
       results: [
-        '프로젝트 BEP 달성',
+        '프로젝트 <span class="result-num">BEP 달성</span>',
         '평균 티켓 예매율 <span class="result-num">87%</span>',
         '고객 만족도 <span class="result-num">9.5점</span> / 추천 의향 <span class="result-num">9.5점</span> / 재방문 의향 <span class="result-num">9.3점</span>'
-      ],
-      slot: 'works-txtclub-01'
+      ]
     },
     {
-      id: 'friporiginal',
-      category: 'launch',
+      id: 'frip', category: 'launch', folder: 'frip',
       title: 'Frip Original',
-      org: '프렌트립 경험3팀 | 2022.08–2023.03',
-      role: 'PM — 개별 콘텐츠의 준비~실행까지 전 과정 기획·운영 (기여도 90%)',
-      oneliner: '자기계발/자기발견 카테고리 오리지널 콘텐츠 기획·운영',
+      tagline: '자기계발/자기발견 카테고리 오리지널 콘텐츠 기획·운영',
+      line: '자기계발 콘텐츠 브랜드화로 사업부 BEP 달성률 110%',
+      metric: '달성률 110%',
+      role: 'PM — 콘텐츠 전 과정 기획·운영 (기여도 90%)',
+      org: '프렌트립 경험3팀', period: '2022.08–2023.03',
       tags: ['상품 기획운영', '콘텐츠 스토리텔링', '연사 섭외·외부 협력', '상품 브랜드 기획·고도화'],
-      goal: '프립 플랫폼 MAU 및 매출 증대',
+      goal: '프립 플랫폼 MAU 및 매출 증대 (타겟: 자기계발 관심 25–35 직장인)',
       strategy: [
-        '1회성 행사가 아닌 \'브랜드\'로서의 가치 부여',
+        "1회성 행사가 아닌 '브랜드'로서의 가치 부여",
         'JTBC "차이나는 클라스" × FRIP "랜턴캠핑" IP 협업',
         '커뮤니티성 가미된 콘텐츠 브랜드 고도화'
       ],
@@ -1047,101 +592,115 @@
         '기간 내 직접 소싱 상품 <span class="result-num">25건▲</span>',
         '플랫폼 가입 후 첫 구매가 자기계발 카테고리인 고객 비중 <span class="result-num">57%</span>',
         '자기계발 카테고리 구매 유저의 플랫폼 리텐션율 <span class="result-num">25%</span>'
-      ],
-      slot: 'works-frip-01'
+      ]
     }
   ];
 
-  const categoryLabels = {
-    community: '브랜드 커뮤니티',
-    campaign: '브랜드 캠페인',
-    launch: '브랜드 런치+콘텐츠'
-  };
+  const categoryLabels = { community: '브랜드 커뮤니티', campaign: '브랜드 캠페인', launch: '브랜드 런칭/콘텐츠' };
 
-  // ─── RENDER CARDS ───
-  let activeCategory = 'community';
+  function imgPh(src, label, extraClass) {
+    return `<div class="img-ph ${extraClass || ''}" data-slot="${src}">${label}<img src="${src}" alt="${label}" onerror="this.style.display='none'" loading="lazy"></div>`;
+  }
 
-  function renderCards(category) {
-    const grid = document.getElementById('works-grid');
-    const filtered = works.filter(w => w.category === category);
-    grid.innerHTML = filtered.map(w => `
-      <div class="work-card" data-id="${w.id}" tabindex="0" role="button" aria-label="${w.title} 상세보기">
-        <p class="card-category">${categoryLabels[w.category]}</p>
-        <h3 class="card-title">${w.title}</h3>
-        <p class="card-org">${w.org}</p>
-        <p class="card-desc">${w.oneliner}</p>
+  // ─── GALLERY ───
+  let activeCategory = 'all';
+  let visibleWorks = works;
+
+  function renderGallery(category) {
+    visibleWorks = category === 'all' ? works : works.filter(w => w.category === category);
+    const grid = document.getElementById('gallery');
+    grid.innerHTML = visibleWorks.map((w, i) => `
+      <div class="g-card" data-id="${w.id}" tabindex="0" role="button" aria-label="${w.title} 상세보기">
+        <div class="cover img-ph" data-slot="images/works/${w.folder}/cover.webp">
+          <span class="g-num">${String(i + 1).padStart(2, '0')}</span>
+          ${w.title}
+          <img src="images/works/${w.folder}/cover.webp" alt="${w.title}" onerror="this.style.display='none'" loading="lazy">
+        </div>
+        <div class="g-title">${w.title}</div>
+        <div class="g-line">${w.line}</div>
       </div>
     `).join('');
-    grid.querySelectorAll('.work-card').forEach(card => {
-      card.addEventListener('click', () => openModal(card.dataset.id));
-      card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openModal(card.dataset.id); });
+    grid.querySelectorAll('.g-card').forEach(card => {
+      card.addEventListener('click', () => openDetail(card.dataset.id));
+      card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openDetail(card.dataset.id); } });
     });
   }
 
-  // ─── FILTER TABS ───
   document.querySelectorAll('.filter-tab').forEach(tab => {
     tab.addEventListener('click', () => {
       document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
       activeCategory = tab.dataset.category;
-      document.getElementById('category-desc').innerHTML = categoryDescs[activeCategory];
-      renderCards(activeCategory);
+      renderGallery(activeCategory);
     });
   });
+  renderGallery(activeCategory);
 
-  renderCards(activeCategory);
-
-  // ─── MODAL ───
-  function openModal(id) {
+  // ─── DETAIL PAGE (Gabriel structure) ───
+  function openDetail(id) {
     const w = works.find(x => x.id === id);
     if (!w) return;
-    const body = document.getElementById('modal-body');
-    body.innerHTML = `
-      <div class="modal-img">
-        <div class="img-placeholder" data-slot="${w.slot}">이미지 준비 중</div>
+    const idx = visibleWorks.findIndex(x => x.id === id);
+    const next = visibleWorks[(idx + 1) % visibleWorks.length];
+
+    document.getElementById('detail-inner').innerHTML = `
+      <button class="detail-back" id="detail-back">← Works</button>
+      <h1 class="detail-title">${w.title}</h1>
+      <p class="detail-tagline">${w.tagline}</p>
+      <div class="detail-cover">${imgPh('images/works/' + w.folder + '/cover.webp', w.title)}</div>
+      <div class="meta-grid">
+        <div><div class="meta-label">역할</div><div class="meta-value">${w.role}</div></div>
+        <div><div class="meta-label">소속</div><div class="meta-value">${w.org}</div></div>
+        <div><div class="meta-label">기간</div><div class="meta-value">${w.period}</div></div>
+        <div><div class="meta-label">카테고리</div><div class="meta-value">${categoryLabels[w.category]}</div></div>
       </div>
-      <h2 class="modal-project-title">${w.title}</h2>
-      <p class="modal-org">${w.org}</p>
-      <p class="modal-role">역할: ${w.role}</p>
-      <p class="modal-oneliner">${w.oneliner}</p>
-      <div class="modal-tags">${w.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
-      <p class="modal-section-label">목표</p>
-      <p class="modal-text">${w.goal}</p>
-      <p class="modal-section-label">전략</p>
-      <div class="modal-text"><ul>${w.strategy.map(s => `<li>${s}</li>`).join('')}</ul></div>
-      <p class="modal-section-label">성과</p>
-      <div class="modal-results">${w.results.map(r => `<div class="result-item">${r}</div>`).join('')}</div>
+      <div class="detail-section">
+        <h3>목표</h3>
+        <p>${w.goal}</p>
+      </div>
+      <div class="detail-section">
+        <h3>전략</h3>
+        <ul>${w.strategy.map(s => `<li>${s}</li>`).join('')}</ul>
+        <div class="detail-imgs">
+          ${imgPh('images/works/' + w.folder + '/01.webp', w.title + ' 01')}
+          ${imgPh('images/works/' + w.folder + '/02.webp', w.title + ' 02')}
+        </div>
+      </div>
+      <div class="detail-section">
+        <h3>수행 업무</h3>
+        <div class="meta-value">${w.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+      </div>
+      <div class="detail-section">
+        <h3>성과</h3>
+        ${w.results.map(r => `<div class="result-item">${r}</div>`).join('')}
+      </div>
+      <div class="next-project" data-id="${next.id}">
+        <div><div class="next-label">다음 프로젝트</div><div class="next-title">${next.title}</div></div>
+        <span style="font-size:24px; color:var(--text-muted);">→</span>
+      </div>
     `;
-    document.getElementById('modal-overlay').classList.add('open');
+    document.getElementById('detail').classList.add('open');
+    document.getElementById('detail').scrollTop = 0;
     document.body.style.overflow = 'hidden';
+    document.getElementById('detail-back').addEventListener('click', closeDetail);
+    document.querySelector('.next-project').addEventListener('click', e => openDetail(e.currentTarget.dataset.id));
   }
 
-  function closeModal() {
-    document.getElementById('modal-overlay').classList.remove('open');
+  function closeDetail() {
+    document.getElementById('detail').classList.remove('open');
     document.body.style.overflow = '';
   }
-
-  document.getElementById('modal-close').addEventListener('click', closeModal);
-  document.getElementById('modal-overlay').addEventListener('click', e => {
-    if (e.target === document.getElementById('modal-overlay')) closeModal();
-  });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDetail(); });
 
   // ─── HAMBURGER ───
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('open');
-    mobileMenu.classList.toggle('open');
-  });
+  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
   document.querySelectorAll('.mobile-link').forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger.classList.remove('open');
-      mobileMenu.classList.remove('open');
-    });
+    link.addEventListener('click', () => { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); });
   });
 
-  // ─── EMAIL BUTTON ───
+  // ─── EMAIL ───
   const emailBtn = document.getElementById('email-btn');
   const EMAIL = 'oozoo.work@gmail.com';
   emailBtn.addEventListener('click', () => {
