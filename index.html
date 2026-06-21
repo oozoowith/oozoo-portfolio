@@ -79,10 +79,10 @@
     .works-intro { max-width: 760px; margin-bottom: 40px; }
     .works-intro p { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 12px; }
     .works-intro p:last-child { margin-bottom: 0; }
-    .works-intro-list { margin: 14px 0 0; padding-left: 0; list-style: none; }
-    .works-intro-list li { position: relative; padding-left: 16px; font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 6px; }
-    .works-intro-list li:last-child { margin-bottom: 0; }
-    .works-intro-list li::before { content: '•'; position: absolute; left: 2px; color: var(--text-muted); }
+    .works-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }
+    .works-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; }
+    .works-card-title { font-size: 14px; font-weight: 700; color: var(--accent); margin-bottom: 6px; }
+    .works-card-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
 
     /* ─── HOME (perryw.ca 스타일) ─── */
     #home { min-height: calc(100vh - 61px); display: flex; align-items: center; padding: 0; }
@@ -216,6 +216,13 @@
     .strat-list li::before { content: '•'; position: absolute; left: 4px; color: var(--text-muted); }
     .strat-list li.lv2 { padding-left: 40px; }
     .strat-list li.lv2::before { content: '–'; left: 26px; }
+    .strat-list li.lv3 { padding-left: 60px; }
+    .strat-list li.lv3::before { content: '·'; left: 46px; }
+    .detail-quote { border-left: 3px solid var(--accent); padding: 6px 0 6px 16px; margin: 0 0 14px; font-size: 15px; line-height: 1.7; color: var(--text-secondary); }
+    .detail-quote:last-child { margin-bottom: 0; }
+    .seed-intro-box { margin-top: 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; }
+    .seed-intro-box p { font-size: 15px; line-height: 1.8; color: var(--text-secondary); margin: 0 0 10px; }
+    .seed-intro-box p:last-child { margin-bottom: 0; }
     /* results: distinct metric cards, centered */
     .results-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(124px, 1fr)); gap: 12px; }
     .result-card {
@@ -307,6 +314,7 @@
       .skill-cards { grid-template-columns: repeat(2, 1fr); margin-top: 36px; padding-top: 32px; }
       .gallery { grid-template-columns: 1fr; gap: 24px; }
       .playground-grid { grid-template-columns: 1fr; }
+      .works-cards { grid-template-columns: 1fr; }
       .services { flex-direction: column; align-items: flex-start; padding: 28px 24px; }
       .contact-heading { font-size: 28px; }
       .contact-links { flex-direction: column; align-items: center; gap: 16px; }
@@ -396,7 +404,7 @@
       <div>
         <p class="timeline-label">논문 · 학술활동</p>
         <div class="paper-item">
-          <div class="paper-title">모바일 커뮤니케이션의 메시지 정서 해석에서 텍스트와 이모티콘의 역할: ERP 연구</div>
+          <a class="paper-link" href="https://www.riss.kr/link?id=T13852399" target="_blank" rel="noopener">모바일 커뮤니케이션의 메시지 정서 해석에서 텍스트와 이모티콘의 역할: ERP 연구 ↗</a>
           <div class="paper-meta">석사학위논문 · 정은용 (2015)</div>
         </div>
         <div class="paper-item">
@@ -404,7 +412,7 @@
           <div class="paper-meta">Eunyong Chung & Yunju Nam (2015) · XII International Symposium of Psycholinguistics, Poster</div>
         </div>
         <div class="paper-item">
-          <div class="paper-title">그림정보의 명확성이 비주얼 광고텍스트의 이해전략에 미치는 영향: 안구운동추적(Eye-tracking) 연구</div>
+          <a class="paper-link" href="https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART001890589" target="_blank" rel="noopener">그림정보의 명확성이 비주얼 광고텍스트의 이해전략에 미치는 영향: 안구운동추적(Eye-tracking) 연구 ↗</a>
           <div class="paper-meta">정은용·남윤주 (2014) · 텍스트언어학 36집</div>
         </div>
       </div>
@@ -436,17 +444,18 @@
     <p class="section-label">Works</p>
     <div class="works-intro">
       <p>
-        브랜드 경험을 세 가지 축으로 설계합니다. 커뮤니티 · 캠페인 · 콘텐츠는 하나의 관점으로 이어집니다.<br>
-        브랜드 미션을 기반으로 다양한 형태의 경험 콘텐츠를 설계합니다.<br>
-        기획자는 세계관을 만드는 사람이기에 모든 기획에는 '이유'를 둡니다.<br>
-        콘텐츠를 통해 영감과 삶의 변화를 얻을 수 있도록 모든 경험에 깊이와 의미를 더합니다.
+        기획자는 세계관을 만드는 사람이기에, 모든 기획에는 '이유'를 둡니다.<br>
+        커뮤니티 · 브랜딩 · 콘텐츠는 하나의 관점으로 이어집니다.
       </p>
-      <ul class="works-intro-list">
-        <li>신사업 프로젝트의 경우 탄탄한 브랜드가 될 수 있도록 브랜드 미션과 가치를 정돈합니다.</li>
-        <li>커뮤니티의 목적과 목표를 설정하고, 구성원이 최상의 경험을 할 수 있도록 전용 콘텐츠를 기획∙운영합니다.</li>
-        <li>브랜드의 미션과 톤앤매너를 담은 디지털 콘텐츠를 기획∙제작합니다.</li>
-        <li>프리랜서 에디터로 활동하며 직접 글을 쓰거나 에디팅, 카피라이팅에 참여하며, 책자 작업도 함께 진행합니다.</li>
-      </ul>
+      <p>
+        브랜드 미션을 기반으로 다양한 형태의 경험 콘텐츠를 설계합니다.<br>
+        영감과 삶의 변화를 얻을 수 있도록 모든 경험에 깊이와 의미를 더합니다.
+      </p>
+      <div class="works-cards">
+        <div class="works-card"><div class="works-card-title">커뮤니티</div><div class="works-card-desc">목적과 목표를 설정하고, 구성원이 최상의 경험을 할 수 있도록 전용 콘텐츠를 기획·운영합니다.</div></div>
+        <div class="works-card"><div class="works-card-title">브랜딩</div><div class="works-card-desc">탄탄한 브랜드가 될 수 있도록 브랜드 미션과 가치를 정돈합니다.</div></div>
+        <div class="works-card"><div class="works-card-title">콘텐츠</div><div class="works-card-desc">브랜드의 미션과 톤앤매너를 담은 디지털 콘텐츠를 기획·제작합니다.<br>프리랜서 에디터로 직접 글을 쓰거나 에디팅·카피라이팅, 책자 작업도 진행합니다.</div></div>
+      </div>
     </div>
     <div class="filter-tabs">
       <button class="filter-tab active" data-category="all">전체</button>
@@ -480,14 +489,14 @@
         <div class="g-title">포토에세이 『마음의 실루엣』</div>
         <div class="g-line">2,547일의 그림자 사진을 엮은 독립출판 포토에세이 · 텀블벅 펀딩 266%</div>
       </div>
-      <div class="g-card pg-static">
+      <div class="g-card" id="seed-card" tabindex="0" role="button" aria-label="씨앗실험실 상세보기">
         <div class="cover img-ph" data-slot="images/playground/seed.webp">
           <span class="g-num">02</span>
           씨앗실험실
           <img src="images/playground/seed.webp" alt="씨앗실험실" onerror="this.style.display='none'" loading="lazy">
         </div>
         <div class="g-title">씨앗실험실</div>
-        <div class="g-line">창조성과 고유성을 발견하는 성장 커뮤니티 · 참여자 20명, 73% 완주</div>
+        <div class="g-line">가능성을 탐구하는 성장 커뮤니티 · 5개 프로그램, 누적 33명 참여</div>
       </div>
       <a class="g-card" href="https://www.youtube.com/@art_for_you/videos" target="_blank" rel="noopener">
         <div class="cover img-ph" data-slot="images/playground/art.webp">
@@ -918,6 +927,78 @@
     document.body.style.overflow = '';
   }
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDetail(); });
+
+  // ─── PLAYGROUND DETAIL (씨앗실험실) ───
+  const seedDetail = {
+    title: '씨앗실험실',
+    tagline: '가능성을 탐구하는 커뮤니티.',
+    cover: 'images/playground/seed.webp',
+    intro: [
+      '나의 창조성을 발견한다는 것은 나의 고유한 무언가를 찾는 것이고, 고유함은 원래부터 가지고 있어 특유하다는 뜻이니 곧 나의 씨앗이 되겠지요.',
+      "내 씨앗이 어떤 모양으로 싹을 틔울지, 어떤 방식으로 기르면 잘 클지 이리저리 연구해보자는 의미에서 '실험실'을 붙였어요.",
+      '실험실에서는 망해도 되고 이상해도 되거든요. 즐겁게 실험해봅시다.'
+    ],
+    meta: [
+      { label: '유형', value: '개인 사이드 프로젝트 · 기획/운영' },
+      { label: '기간', value: '2021.08 ~ 현재' }
+    ],
+    sections: [
+      { h: '세계관', list: [
+        { t: "일·나이·직업·성별로 나를 설명하는 대신 '솔직한 나'를 마음껏 드러낼 수 있는 커뮤니티", lv: 1 },
+        { t: "참여자는 '연구원', 모임의 호스트는 '연구책임자'", lv: 1 },
+        { t: '목적: 나의 욕구와 마음을 솔직하게 들여다보고, 그 과정을 응원하고 지지해줄 느슨한 동료 만들기', lv: 1 }
+      ]},
+      { h: '참여자 피드백', quotes: [
+        "씨앗실험실에선 세상과 다른 규칙이 흐른다는 생각을 해요. 밖에선 정신차리게 해주려고 현실적인 조언을 하잖아요. 그런데 여기선 '너의 그런 점이 왜 나빠? 그런 꿈이 왜 안 돼? 이미 충분해! 한 번 해봐!' 하고 말해주는 곳이에요.",
+        '해야 하는 일이 하고 싶은 일을 압도하는 것이 당연한 게 아니라는 걸, 머리가 아닌 몸으로 경험했어요.',
+        '지금의 제가 정말 새롭다는 걸 스스로는 느껴요. 진짜 진짜 선물같은 경험이 쌓였어요.'
+      ]},
+      { h: '운영 이력', list: [
+        { t: '2021년 8월 사이드 프로젝트로 개설, 총 5개 프로그램 직접 기획·운영', lv: 1 },
+        { t: "줄리아 카메론의 &lt;아티스트 웨이&gt; 기반 12주 과정, '모닝페이지반' 등 온라인 진행 (누적 33명 참여)", lv: 2 },
+        { t: '매 기수 프로그램 설명서·커뮤니티 규칙·보증금/장학금 제도 설계·운영', lv: 2 },
+        { t: '2026년 6월부터 다시 커뮤니티 재개', lv: 1 },
+        { t: '온라인 과정: 기존 12주 과정 확장 진행 예정', lv: 2 },
+        { t: '오프라인 과정: 1회성/단발성 프로그램 중심으로 진행 예정', lv: 2 },
+        { t: "아직 공간이 없어 '친구 공간'을 옮겨다니며 진행하는 형태로 구상 중", lv: 3 },
+        { t: "'가능성을 탐구한다'는 미션과 닿아있는 프로그램(일·라이프스타일 주제)으로 구상", lv: 3 }
+      ]}
+    ]
+  };
+
+  function openSeedDetail() {
+    const s = seedDetail;
+    const introHTML = (s.intro && s.intro.length) ? `<div class="seed-intro-box">${s.intro.map(p => `<p>${p}</p>`).join('')}</div>` : '';
+    const metaHTML = (s.meta && s.meta.length) ? `<div class="meta-grid">${s.meta.map(m => `<div><div class="meta-label">${m.label}</div><div class="meta-value">${m.value}</div></div>`).join('')}</div>` : '';
+    const sectionsHTML = (s.sections || []).map(sec => {
+      let body = '';
+      if (sec.list && sec.list.length) {
+        body = `<ul class="strat-list">${sec.list.map(i => `<li class="lv${i.lv || 1}">${i.t}</li>`).join('')}</ul>`;
+      } else if (sec.quotes && sec.quotes.length) {
+        body = sec.quotes.map(q => `<blockquote class="detail-quote">${q}</blockquote>`).join('');
+      }
+      return body ? `<div class="detail-section"><h3>${sec.h}</h3>${body}</div>` : '';
+    }).join('');
+    document.getElementById('detail-inner').innerHTML = `
+      <button class="detail-back" id="detail-back">← Playground</button>
+      <h1 class="detail-title">${s.title}</h1>
+      ${s.tagline ? `<p class="detail-tagline">${s.tagline}</p>` : ''}
+      <div class="detail-cover">${imgPh(s.cover, s.title)}</div>
+      ${introHTML}
+      ${metaHTML}
+      ${sectionsHTML}
+    `;
+    document.getElementById('detail').classList.add('open');
+    document.getElementById('detail').scrollTop = 0;
+    document.body.style.overflow = 'hidden';
+    document.getElementById('detail-back').addEventListener('click', closeDetail);
+  }
+
+  const seedCard = document.getElementById('seed-card');
+  if (seedCard) {
+    seedCard.addEventListener('click', openSeedDetail);
+    seedCard.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openSeedDetail(); } });
+  }
 
   // ─── HAMBURGER ───
   const hamburger = document.getElementById('hamburger');
