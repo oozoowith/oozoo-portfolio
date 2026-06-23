@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>정은용 | Experience Designer</title>
-  <meta name="description" content="브랜드 경험 기획자 정은용의 포트폴리오. 브랜드 런칭, 커뮤니티, 캠페인, 콘텐츠 전략을 설계합니다.">
+  <meta name="description" content="브랜드 경험 기획자 정은용의 포트폴리오. 커뮤니티, 캠페인, 콘텐츠 전략을 설계합니다.">
   <meta property="og:title" content="정은용 | Experience Designer">
   <meta property="og:description" content="0→1 브랜드 경험을 설계하고 성과로 증명하는 기획자입니다.">
   <meta property="og:type" content="website">
@@ -33,6 +33,8 @@
       color: var(--text-primary);
       font-size: 16px;
       line-height: 1.75;
+      word-break: keep-all;
+      overflow-wrap: break-word;
     }
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
@@ -195,6 +197,7 @@
     .meta-value .tag { margin: 0 4px 4px 0; display: inline-block; }
     .meta-wide { grid-column: 1 / -1; }
     @media (max-width: 768px) { .meta-grid { grid-template-columns: repeat(2, 1fr); } }
+    .meta-grid.meta-2 { grid-template-columns: repeat(2, 1fr); }
     .detail-section { margin-top: 32px; }
     .detail-section h3 {
       font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
@@ -223,6 +226,13 @@
     .seed-intro-box { margin-top: 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; }
     .seed-intro-box p { font-size: 15px; line-height: 1.8; color: var(--text-secondary); margin: 0 0 10px; }
     .seed-intro-box p:last-child { margin-bottom: 0; }
+    .detail-subhead { font-size: 16px; font-weight: 700; margin: 22px 0 8px; color: var(--text-primary); }
+    .detail-p { font-size: 15px; line-height: 1.8; color: var(--text-secondary); margin: 0 0 10px; }
+    .detail-callout { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; font-size: 14px; line-height: 1.7; color: var(--text-secondary); margin: 0 0 12px; }
+    .detail-callout a, .detail-p a, .strat-list a, .works-card-desc a { color: var(--accent); }
+    .detail-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0 4px; }
+    .sale-list { line-height: 2; }
+    .sale-list a { white-space: nowrap; }
     /* results: distinct metric cards, centered */
     .results-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(124px, 1fr)); gap: 12px; }
     .result-card {
@@ -315,6 +325,7 @@
       .gallery { grid-template-columns: 1fr; gap: 24px; }
       .playground-grid { grid-template-columns: 1fr; }
       .works-cards { grid-template-columns: 1fr; }
+      .detail-cards { grid-template-columns: 1fr; }
       .services { flex-direction: column; align-items: flex-start; padding: 28px 24px; }
       .contact-heading { font-size: 28px; }
       .contact-links { flex-direction: column; align-items: center; gap: 16px; }
@@ -452,9 +463,9 @@
         영감과 삶의 변화를 얻을 수 있도록 모든 경험에 깊이와 의미를 더합니다.
       </p>
       <div class="works-cards">
-        <div class="works-card"><div class="works-card-title">커뮤니티</div><div class="works-card-desc">목적과 목표를 설정하고, 구성원이 최상의 경험을 할 수 있도록 전용 콘텐츠를 기획·운영합니다.</div></div>
+        <div class="works-card"><div class="works-card-title">커뮤니티</div><div class="works-card-desc">커뮤니티의 목적과 목표를 설정하고, 구성원이 최상의 경험을 할 수 있도록 전용 콘텐츠를 기획·운영합니다.</div></div>
         <div class="works-card"><div class="works-card-title">브랜딩</div><div class="works-card-desc">탄탄한 브랜드가 될 수 있도록 브랜드 미션과 가치를 정돈합니다.</div></div>
-        <div class="works-card"><div class="works-card-title">콘텐츠</div><div class="works-card-desc">브랜드의 미션과 톤앤매너를 담은 디지털 콘텐츠를 기획·제작합니다.<br>프리랜서 에디터로 직접 글을 쓰거나 에디팅·카피라이팅, 책자 작업도 진행합니다.</div></div>
+        <div class="works-card"><div class="works-card-title">콘텐츠</div><div class="works-card-desc">브랜드의 미션과 톤앤매너를 담은 디지털 콘텐츠를 기획·제작합니다.<br>에디터로서 직접 원고 작성·편집하며, 카피라이팅이나 책자 작업도 진행합니다.</div></div>
       </div>
     </div>
     <div class="filter-tabs">
@@ -467,7 +478,7 @@
 
     <div class="services">
       <div class="services-text">
-        새로운 브랜드 경험이 필요하시다면 함께 이야기 나눠요.
+        새로운 브랜드 경험이 필요하다면 함께 이야기 나눠요!
       </div>
       <a href="#contact" class="btn-fill">협업 문의하기</a>
     </div>
@@ -478,16 +489,18 @@
 <section id="playground">
   <div class="container">
     <p class="section-label">Playground</p>
-    <p class="section-subtitle">가능성과 호기심을 따라 재미있는 경험을 만듭니다.</p>
+    <p class="section-subtitle">가능성과 호기심을 따라 재미있는 경험을 만듭니다.<br>
+    정의되지 않은 영역에서 마음껏 실험하고 시도하며 새로운 가능성을 발굴합니다.
+    </p>
     <div class="gallery">
-      <div class="g-card pg-static">
+      <div class="g-card" id="photo-card" tabindex="0" role="button" aria-label="포토에세이 마음의 실루엣 상세보기">
         <div class="cover img-ph" data-slot="images/playground/book-cover.webp">
           <span class="g-num">01</span>
           포토에세이 『마음의 실루엣』
           <img src="images/playground/book-cover.webp" alt="마음의 실루엣" onerror="this.style.display='none'" loading="lazy">
         </div>
         <div class="g-title">포토에세이 『마음의 실루엣』</div>
-        <div class="g-line">2,547일의 그림자 사진을 엮은 독립출판 포토에세이 · 텀블벅 펀딩 266%</div>
+        <div class="g-line">2,547일의 그림자 사진을 엮은 독립출판 포토에세이</div>
       </div>
       <div class="g-card" id="seed-card" tabindex="0" role="button" aria-label="씨앗실험실 상세보기">
         <div class="cover img-ph" data-slot="images/playground/seed.webp">
@@ -496,17 +509,17 @@
           <img src="images/playground/seed.webp" alt="씨앗실험실" onerror="this.style.display='none'" loading="lazy">
         </div>
         <div class="g-title">씨앗실험실</div>
-        <div class="g-line">가능성을 탐구하는 성장 커뮤니티 · 5개 프로그램, 누적 33명 참여</div>
+        <div class="g-line">가능성을 탐구하는 커뮤니티</div>
       </div>
-      <a class="g-card" href="https://www.youtube.com/@art_for_you/videos" target="_blank" rel="noopener">
+      <div class="g-card" id="art-card" tabindex="0" role="button" aria-label="널 위한 문화예술 상세보기">
         <div class="cover img-ph" data-slot="images/playground/art.webp">
           <span class="g-num">03</span>
           널 위한 문화예술
           <img src="images/playground/art.webp" alt="널 위한 문화예술" onerror="this.style.display='none'" loading="lazy">
         </div>
-        <div class="g-title">널 위한 문화예술 ↗</div>
-        <div class="g-line">문화예술 미디어 외부 필진 · 누적 콘텐츠 22건+, 최고 조회수 15만</div>
-      </a>
+        <div class="g-title">널 위한 문화예술</div>
+        <div class="g-line">문화예술 미디어 외부 필진</div>
+      </div>
     </div>
   </div>
 </section>
@@ -533,9 +546,8 @@
     {
       id: 'moints', category: 'community', folder: 'moints',
       title: 'MOINTS (모인츠)',
-      tagline: '취향이 통하는 순간, 모인츠 — 극장 최초 영화 기반 라이프스타일 커뮤니티',
-      line: '극장 최초 영화 커뮤니티로 리텐션 고객 누적매출 2.3배',
-      metric: '매출 2.3배',
+      tagline: '"취향이 통하는 순간, 모인츠" - CGV 영화 커뮤니티',
+      line: '극장 최초 영화 기반 라이프스타일 커뮤니티 총괄',
       role: 'PM — 전 과정 총괄 (기여도 100%)',
       org: 'CJ CGV 공간사업팀', period: '2023.07–2024.07',
       tags: ['사업 모델 고도화', '브랜딩·콘텐츠 전략', '외부 협력사 발굴', '프로그램 기획운영', '공간 개발·운영'],
@@ -562,16 +574,15 @@
         { n: '85%', t: '평균 출석률' }
       ],
       photos: [
-        { title: 'B2C·B2B 프로그램 운영', desc: "개봉작 관람 연계 다회차 모임과 파트너사 클래스 '사유하는 목요일' 등 B2C·B2B 프로그램을 직접 기획·운영했습니다. (55건 직접 호스팅)", prefix: 'a' },
+        { title: 'B2C·B2B 모델 검증', desc: "개봉작 관람 연계 다회차 모임과 파트너사 클래스 '사유하는 목요일' 등 B2C·B2B 프로그램을 직접 기획·운영했습니다. (55건 직접 호스팅)", prefix: 'a' },
         { title: '디지털 커뮤니케이션', desc: 'SNS·앱·홈페이지 채널을 구축하고, 호스트·멤버 인터뷰 등 콘텐츠를 제작·발신했습니다.', prefix: 'b' }
       ]
     },
     {
       id: 'gongil', category: 'community', folder: 'gongil',
       title: '공공일호 사람들',
-      tagline: '공공그라운드 공공일호 입주사 간 네트워크 구축·강화 커뮤니티',
-      line: '입주사 네트워크 구축, 입주 멤버 만족도 8.8점',
-      metric: '만족도 8.8',
+      tagline: "공공그라운드 '공공일호' 입주사 네트워크 구축·강화",
+      line: '공공일호 입주사 네트워크 구축',
       role: '커뮤니티 매니저로서 입주사 커뮤니티 구축 및 공간 운영 (기여도 100%)',
       org: '공공그라운드', period: '2018.03–2020.02',
       tags: ['커뮤니티 기획운영 총괄', '내외부 정책 수립', '고객 경험 개선', '공공일호 공간 운영'],
@@ -599,14 +610,13 @@
     },
     {
       id: 'wal', category: 'community', folder: 'wal',
-      title: '왈의 마음약방',
-      tagline: '일상의 마음 관리를 위한 영상 서비스 <왈의 마음단련장> 온라인 커뮤니티',
-      line: '안전한 온라인 커뮤니티 구축, 커뮤니티 만족도 8.5점',
-      metric: '만족도 8.5',
+      title: '왈이의 마음단련장',
+      tagline: '일상적인 마음 관리를 위한 명상 서비스 &lt;왈이의 마음단련장&gt; 온라인 커뮤니티',
+      line: '온라인 명상 서비스 커뮤니티 구축',
       role: '운영 총괄로서 브랜드 커뮤니티 구축 및 운영 (기여도 90%)',
       org: '왈 (겸직)', period: '2021.03–10',
       tags: ['커뮤니티 기획운영 총괄', '고객 경험 개선', '이벤트 세션 기획운영', '정책 수립'],
-      intro: '일상의 마음 관리를 위한 온라인 영상 서비스 <왈의 마음단련장>의 핵심 콘텐츠인 방송과 시너지를 낼 수 있는 온라인 커뮤니티를 구축했습니다. 온라인 커뮤니티의 오픈 시기에 합류하여, 커뮤니티를 안정적으로 구축·유지하기 위한 운영 정책 수립을 담당했습니다. 이외 서비스 콘텐츠와의 시너지를 위한 커뮤니티 프로그램을 다수 기획·진행했습니다.',
+      intro: '일상의 마음 관리를 위한 온라인 영상 서비스 &lt;왈이의 마음단련장&gt;의 핵심 콘텐츠인 방송과 시너지를 낼 수 있는 온라인 커뮤니티를 구축했습니다. 온라인 커뮤니티의 오픈 시기에 합류하여, 커뮤니티를 안정적으로 구축·유지하기 위한 운영 정책 수립을 담당했습니다. 이외 서비스 콘텐츠와의 시너지를 위한 커뮤니티 프로그램을 다수 기획·진행했습니다.',
       goal: '수용·지지 경험 제공 → 서비스 리텐션 유도',
       target: "밀레니얼 여성 + '나다운 삶' 추구자",
       strategyCore: ['안전한 커뮤니티 구축', '서비스 리텐션 장치로서 소구'],
@@ -632,9 +642,8 @@
     {
       id: 'ccbook', category: 'campaign', folder: 'ccbook',
       title: '씨집책방',
-      tagline: '문장과 장면 사이, 씨집책방 — 만우절 시즌 온·오프라인 통합 캠페인',
-      line: '만우절 시즌 통합 캠페인으로 인스타그램 도달 255만',
-      metric: '도달 255만',
+      tagline: '"문장과 장면 사이, 씨집책방" - 만우절 시즌 온·오프라인 통합 캠페인',
+      line: '만우절 시즌 IMC 캠페인 총괄',
       role: 'PM으로서 준비~실행까지 전 과정 기획·총괄 (기여도 100%; 대행사 관리 병행)',
       org: 'CJ CGV IMC팀/브랜드 파트', period: '2025.03–04',
       tags: ['상영 기획전·공간·이벤트 기획', '컨셉·스토리텔링', '브랜드 협업', '통합 마케팅 전략 수립', '콘텐츠 QC'],
@@ -666,9 +675,8 @@
     {
       id: 'ccin', category: 'campaign', folder: 'ccin',
       title: 'CCIN (씬)',
-      tagline: '우리가 만드는 취향 씬 — 취향 기반 영화 큐레이션 서비스',
-      line: '취향 큐레이션으로 CGV 브랜드 호감도 2.9배',
-      metric: '호감도 2.9배',
+      tagline: '"우리가 만드는 취향 씬" — 취향 기반 영화 큐레이션 서비스',
+      line: '취향 기반 영화 큐레이션 서비스 기획운영',
       role: 'PM으로서 월간 운영 시스템 구축, 월간 프로그램 실행까지 전 과정 기획·운영 (기여도 80%)',
       org: 'CJ CGV IMC팀/브랜드 파트', period: '2024.08–2025.02',
       tags: ['통합 마케팅 전략 수립', '월간 이벤트 기획운영', '공간 연출', '굿즈 기획', '아티스트 커뮤니케이션'],
@@ -697,9 +705,8 @@
     {
       id: 'sqnc', category: 'launch', folder: 'sqnc',
       title: 'SQNC (시퀀스)',
-      tagline: 'INSPIRE YOUR LIFE, SEQUENCE — 프렌트립 신규 프리미엄 큐레이션 브랜드',
-      line: '신규 프리미엄 브랜드 0→1 런칭, 운영 타임라인 5주로 단축',
-      metric: '런칭 0→1',
+      tagline: '"INSPIRE YOUR LIFE, SEQUENCE" - 프렌트립 신규 프리미엄 큐레이션 브랜드',
+      line: '신규 큐레이션 브랜드 런칭',
       role: 'PM으로서 브랜드 런칭 준비~실행까지 전 과정 기획·총괄 (기여도 100%)',
       org: '프렌트립 시퀀스팀', period: '2023.04–06',
       tags: ['초기 브랜딩', '경험 상품 큐레이션·소싱', '월간 운영 시스템 구축', '스토리텔링', '콘텐츠 구성·제작'],
@@ -720,7 +727,6 @@
         { n: '11건', t: '5~6월간 소싱·기획운영한 상품 수' },
         { n: '5주', t: '업무 효율화로 월간 타임라인 단축' }
       ],
-      resultNote: '플랫폼 MAU 활성화 기여',
       photos: [
         { title: '브랜드 에셋 & 상품', desc: '브랜드 목표·핵심 가치를 정의하고 디자이너와 함께 브랜드 에셋을 개발했습니다.', prefix: 'a' },
         { title: '매거진 & 상세 콘텐츠', desc: '상품 상세 페이지와 브랜드 인터뷰 매거진을 기획·제작했습니다. (총 2개 시즌, 매거진 5건)', prefix: 'b' }
@@ -729,9 +735,8 @@
     {
       id: 'txtclub', category: 'launch', folder: 'txtclub',
       title: 'TXT CLUB(텍스트클럽)',
-      tagline: '텍스트 너머의 이야기, 텍스트클럽 — 공간 맥락을 살린 북토크 브랜드',
-      line: '공간 맥락 북토크 브랜드로 BEP 달성, 만족도 9.5점',
-      metric: '만족도 9.5',
+      tagline: '"텍스트 너머의 이야기, 텍스트클럽" — 신규 북토크 브랜드',
+      line: '신규 브랜디드 콘텐츠 개발·기획운영 총괄',
       role: 'PM으로서 브랜드 런칭부터 개별 회차 실행까지 전 과정 기획·총괄 (기여도 100%)',
       org: '공공그라운드', period: '2020.01–2022.04',
       tags: ['기획운영 총괄', '콘텐츠 스토리텔링', '외부 협력·커뮤니케이션', '통합 마케팅', '공간 연출'],
@@ -763,8 +768,7 @@
       id: 'frip', category: 'launch', folder: 'frip',
       title: 'Frip Original',
       tagline: '자기계발/자기발견 카테고리 오리지널 콘텐츠 기획·운영',
-      line: '자기계발 콘텐츠 브랜드화로 사업부 BEP 달성률 110%',
-      metric: '달성률 110%',
+      line: '자기계발 콘텐츠 기획운영',
       role: 'PM으로서 개별 콘텐츠의 준비~실행까지 전 과정 기획·운영 (기여도 90%)',
       org: '프렌트립 경험3팀', period: '2022.08–2023.03',
       tags: ['상품 기획운영', '콘텐츠 스토리텔링', '연사 섭외·외부 협력', '상품 브랜드 기획·고도화'],
@@ -906,13 +910,14 @@
 
   // 폴더에 {prefix}1.webp, {prefix}2.webp … 를 순서대로 넣으면 자동으로 표시됨 (없는 번호에서 멈춤)
   function probeImgs(box) {
-    const { folder, prefix } = box.dataset;
+    const prefix = box.dataset.prefix;
+    const base = box.dataset.base || ('images/works/' + box.dataset.folder);
     const found = [];
     (function next(i) {
       const im = new Image();
-      im.onload = () => { found.push(`images/works/${folder}/${prefix}${i}.webp`); next(i + 1); };
+      im.onload = () => { found.push(`${base}/${prefix}${i}.webp`); next(i + 1); };
       im.onerror = () => finish();
-      im.src = `images/works/${folder}/${prefix}${i}.webp`;
+      im.src = `${base}/${prefix}${i}.webp`;
     })(1);
     function finish() {
       const group = box.closest('.photo-group');
@@ -958,10 +963,7 @@
         { t: "줄리아 카메론의 &lt;아티스트 웨이&gt; 기반 12주 과정, '모닝페이지반' 등 온라인 진행 (누적 33명 참여)", lv: 2 },
         { t: '매 기수 프로그램 설명서·커뮤니티 규칙·보증금/장학금 제도 설계·운영', lv: 2 },
         { t: '2026년 6월부터 다시 커뮤니티 재개', lv: 1 },
-        { t: '온라인 과정: 기존 12주 과정 확장 진행 예정', lv: 2 },
-        { t: '오프라인 과정: 1회성/단발성 프로그램 중심으로 진행 예정', lv: 2 },
-        { t: "아직 공간이 없어 '친구 공간'을 옮겨다니며 진행하는 형태로 구상 중", lv: 3 },
-        { t: "'가능성을 탐구한다'는 미션과 닿아있는 프로그램(일·라이프스타일 주제)으로 구상", lv: 3 }
+        { t: '포폴나이트 @카쩨 등 프로그램 운영중', lv: 2 }
       ]}
     ]
   };
@@ -969,7 +971,7 @@
   function openSeedDetail() {
     const s = seedDetail;
     const introHTML = (s.intro && s.intro.length) ? `<div class="seed-intro-box">${s.intro.map(p => `<p>${p}</p>`).join('')}</div>` : '';
-    const metaHTML = (s.meta && s.meta.length) ? `<div class="meta-grid">${s.meta.map(m => `<div><div class="meta-label">${m.label}</div><div class="meta-value">${m.value}</div></div>`).join('')}</div>` : '';
+    const metaHTML = (s.meta && s.meta.length) ? `<div class="meta-grid meta-2">${s.meta.map(m => `<div><div class="meta-label">${m.label}</div><div class="meta-value">${m.value}</div></div>`).join('')}</div>` : '';
     const sectionsHTML = (s.sections || []).map(sec => {
       let body = '';
       if (sec.list && sec.list.length) {
@@ -998,6 +1000,174 @@
   if (seedCard) {
     seedCard.addEventListener('click', openSeedDetail);
     seedCard.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openSeedDetail(); } });
+  }
+
+  // ─── PLAYGROUND DETAIL (포토에세이 『마음의 실루엣』) ───
+  function renderBlocks(blocks) {
+    return blocks.map(b => {
+      if (b.h !== undefined) return `<div class="detail-subhead">${b.h}</div>`;
+      if (b.p !== undefined) return `<p class="detail-p">${b.p}</p>`;
+      if (b.callout !== undefined) return `<div class="detail-callout">${b.callout}</div>`;
+      if (b.quote !== undefined) return `<blockquote class="detail-quote">${b.quote}</blockquote>`;
+      if (b.list !== undefined) return `<ul class="strat-list">${b.list.map(i => `<li class="lv${i.lv || 1}">${i.t}</li>`).join('')}</ul>`;
+      if (b.photo !== undefined) return `<div class="pg-imgs" data-base="${b.photo.base}" data-prefix="${b.photo.prefix}"></div>`;
+      return '';
+    }).join('');
+  }
+
+  const photoDetail = {
+    title: '포토에세이 『마음의 실루엣』',
+    tagline: '2,547일의 그림자와 마음의 기록을 담은 그림자책 (독립출판, 2023~)',
+    cover: 'images/playground/book-cover.webp',
+    meta: [
+      { label: '유형', value: '개인 프로젝트 · 독립출판' },
+      { label: '출간', value: '2023.01.11' },
+      { label: '서지정보', value: '120×180mm · 121쪽 · 15,000원' }
+    ],
+    sale: '<a class="paper-link" href="https://pixelperinch.com/" target="_blank" rel="noopener">픽셀 퍼 인치</a> · <a class="paper-link" href="https://smartstore.naver.com/justorage/products/8330718444" target="_blank" rel="noopener">스토리지북앤필름 본점</a> · <a class="paper-link" href="https://www.instagram.com/at_storage/" target="_blank" rel="noopener">스토리지북앤필름 로터리점</a> · <a class="paper-link" href="https://byeolcheck.kr/shop" target="_blank" rel="noopener">별책부록</a> · <a class="paper-link" href="https://smartstore.naver.com/dasibookshop/products/8420892779" target="_blank" rel="noopener">다시서점</a> · <a class="paper-link" href="https://smartstore.naver.com/allornothing/products/8341695876" target="_blank" rel="noopener">올오어낫싱</a> · <a class="paper-link" href="https://www.instagram.com/dokseogwan/" target="_blank" rel="noopener">독서관</a> · <a class="paper-link" href="https://www.instagram.com/soblue_official/" target="_blank" rel="noopener">쏘블루</a> · <a class="paper-link" href="https://www.instagram.com/nunpulkot/" target="_blank" rel="noopener">눈풀꽃</a> · <a class="paper-link" href="https://www.instagram.com/shape_of_time/" target="_blank" rel="noopener">셰입오프타임</a> · <a class="paper-link" href="https://www.instagram.com/akerbookstore/" target="_blank" rel="noopener">에이커 북스토어</a> · <a class="paper-link" href="https://smartstore.naver.com/lovenfree_book/products/8419496448" target="_blank" rel="noopener">러브앤프리</a> · <a class="paper-link" href="https://www.instagram.com/bamsuzymandramy.bookstore/" target="_blank" rel="noopener">밤수지맨드라미 북스토어</a> · <a class="paper-link" href="https://www.instagram.com/labas.book/" target="_blank" rel="noopener">라바북스</a> · <a class="paper-link" href="https://www.yes24.com/product/goods/138336656" target="_blank" rel="noopener">예스24</a> · <a class="paper-link" href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=352237081" target="_blank" rel="noopener">알라딘</a>',
+    cards: [
+      { title: '텀블벅 펀딩', desc: '266% 달성 (2022.12.15~2023.01.08)<br><a href="https://tumblbug.com/oozoowith" target="_blank" rel="noopener">텀블벅 프로젝트 ↗</a>' },
+      { title: '독립출판 페어 참여', desc: '국내 최대 규모 독립출판물 페어 &lt;서울 퍼블리셔스 테이블 2023&gt; 부스 참여 (2023)' }
+    ],
+    sections: [
+      { h: '소개', blocks: [
+        { h: '보이지 않는 것에 대한 이야기, 『마음의 실루엣』' },
+        { photo: { base: 'images/playground/silhouette', prefix: 'intro' } },
+        { p: '무언가의 뒷면을 본 적이 있나요?' },
+        { p: '그림자는 보이지 않는 것을 이야기합니다. 주목하지 않으면 스쳐 지나가는 일상 풍경일 뿐이지만, 눈여겨볼 때 비로소 아름다움을 발견할 수 있죠.' },
+        { p: '솔직하게 표현하기 어려운 마음은 안쪽에 숨겨두듯이 마음도, 그림자도 이면의 것을 생각하게 합니다.' },
+        { p: '『마음의 실루엣』은 2,547일 동안 모은 그림자와 마음의 기록을 담은 그림자책입니다. 가려진 것을 생각해보는 분, 숨겨진 이야기가 궁금한 분, 아름다움과 연결되고 싶은 분들께 닿기를 바랍니다.' },
+        { h: '작가 우주' },
+        { p: '가능성이 많은 사람. 세상에 있던 것을 새롭게 발견하고, 다르게 보는 것을 좋아한다.' },
+        { p: "숨겨진 것, 아직 드러나지 않은 것을 찾아내어 '영감을 주는 경험'을 만드는 문화기획자다." },
+        { p: '좋아하는 것에 사랑을 주어 기른다. 꾸준히 기르는 것은 마음, 재미, 연결.' },
+        { p: '열심히 재미있게 살고 싶다.' },
+        { h: '책 속의 문장' },
+        { quote: `📍 p.46~47 &lt;행복을 주는 공간은 아름답다&gt; 발췌<br>어떤 공간을 기억하고 아끼는 마음을 갖는 건 경험으로부터 온다. 감각해야만 경험할 수 있으니, 그렇다면 공간은 곧 감각이라고 말할 수도 있을까.<br>무엇이든 어떻게든 느낄 수 있는 곳, 나의 부드러운 마음 하나를 누일 수 있는 곳, 그리하여 '다시'를 다짐할 수 있는 곳. 마음의 아름다움을 지킬 수 있는 공간을 늘 곁에 두고 싶다.` },
+        { quote: `📍 p.98~103 &lt;기획하는 마음&gt; 발췌<br>오래전부터 무대 뒤의 이야기를 쓰고 싶었다. 대체로 엄청 유명한 기획자가 아니면 무대 뒷면의 이야기를 들려줄 기회가 없고, 사람들도 그다지 궁금해하지 않는다. 하지만 나의 일은 뒷면에 있고, 나는 나의 일을 무척 아끼는 사람이라서 나라도 내 이야기를 들어주어야겠다고 생각했다. 그래서 아무도 물어보지 않아도 기획 노트를 차곡차곡 쌓아두었다. 그중에서 내가 가장 사랑하는 &lt;텍스트클럽&gt;의 이야기를 나누고 싶다.<br>(중략)<br>프로젝트의 A부터 Z까지 모든 것을 직접 챙기며 나름의 '기획법'을 만들었다. '모든 기획에는 이유가 있어야 한다'는 것을 가장 주요한 방향으로 두고 있다. 기획자는 그 시간, 그 자리에 바로 '그'가, 또는 '그것'이 있어야 할 이유를 만들어 하나의 세계를 만드는 사람이니까. 생각의 시야를 넓힐수록 고려해야 하는 것도 많아지지만, 더 깊이 생각할수록 더 좋은 경험을 줄 수 있다. 그렇게 믿고 있다.<br>무엇보다도 내가 내 기획에 자신이 있어야 창작자에게도 독자에게도 진심으로 가닿을 수 있다고 생각한다. 이 태도를 뭐라고 부를 수 있을까. 기획자로서의 자신감, 혹은 양심, 심지어 그것이 착각이나 오만이더라도 나의 '렌즈'를 진심으로 힘껏, 믿는 것이 기획을 잘 풀리게 한다. &lt;텍스트클럽&gt;을 만들 때는 기획을 뾰족하게 만들기 위해 자주 들여다보며 가까워지고, 이해의 폭을 늘려가는 과정에 전력을 다했다. 나의 관점이 대상을 새롭게, 다르게 해석할 수 있는 여지를 만들 수 있도록. 내가 진심을 다할수록 이번 프로그램 정말 좋다고, 그러니까 함께 들어보자고 자신 있게 이야기할 수 있는 밑천이 되었다.<br>(중략)<br>힘껏 보내온 마음과 큰 도움, 약간의 운으로 굴러갔던 &lt;텍스트클럽&gt;. 텍스트클러버가 기꺼이 내어준 이야기와 공감 덕분에 나는 조금 더 이해할 수 있는 사람이 되었다. 텍스트를 사이에 두고 이야기하며 '우리의 시간'을 만든다는 것, 말이 아닌 무언가를 나눈다는 것. &lt;텍스트클럽&gt;은 그런 것들을 떠올리게 한다.` },
+        { quote: `📍 p.80~81 &lt;"Would you like some bread?"&gt; 전문<br>서울에서 열 몇 시간 떨어진 도시, 한 달을 기다렸던 미슐랭 코스 직전에 갑작스럽게 배탈이 났다. 피곤한 몸이 날씨를 버티지 못해 미슐랭 요리 대신 더위를 먹어버린 탓이었다. 머리는 딩딩 울리고, 속은 메슥거려 금방이라도 주저앉을 것 같았지만 귀한 미식 찬스를 도저히 놓칠 수는 없었다. 하지만 화장실이라도 가려고 들어간 식당에서도 눈앞이 핑핑 돌아 앉아있기가 어려웠다. '몸이 좋지 않아서 나는 갈 테니, 친구들 주문만 받아주라'는 말에 웨이터 아저씨가 걱정스러운 얼굴로 말했다.<br>"Are you okay? How about a cold napkin or medicine? Or would you like some bread?"<br>큰 컵에 찬물을 가득 따라주던 웨이터 아저씨는, 마치 지금 당장 뭐라도 해주고 싶은데 본인이 줄 수 있는 가장 좋은 것이 오로지 빵뿐인 사람 같았다. 식은땀을 흘리는 와중에도 '약이랑 빵이 어떻게 한 문장에 있을 수 있지? 이 동네는 빵이 약인가?' 싶어 웃음이 비실 새어 나왔다. 나중에 친구들에게 듣기로, 웨이터 아저씨는 디저트 코스가 나올 때까지도 '네 친구 괜찮냐'며 끝까지 걱정했다고 한다.<br>숙소로 돌아와 한참 동안 열을 앓다가 눈을 떴을 때, 친구들이 꽃다발과 함께 돌아왔다. 아프지 말고 행복하자고. 느닷없이 찾아온 일사병은 하루를 넘기지 않았고 나는 그것이 나에게 온 마음 덕분이었을 것이라 생각한다. 어떤 모양이든 사랑은 힘이 된다.` },
+      ]},
+      { h: '북토크', blocks: [
+        { p: '출간 기념 제1회 북토크 (2023)' },
+        { h: '기획 컨셉 - 제1회 그림자책 모임' },
+        { list: [
+          { t: '그림자라는 매개로 모인 사람들이 서로 연결될 수 있는 모임', lv: 1 },
+          { t: '90분 동안은 가까운 이웃처럼 서로 환대해주는 분위기로 만들 것', lv: 1 },
+          { t: '뒷면의 이야기를 알려주는 자리 &gt;&gt; 그간의 작업물도 함께 보여주기', lv: 1 }
+        ]},
+        { photo: { base: 'images/playground/silhouette', prefix: 'booktalk' } }
+      ]}
+    ]
+  };
+
+  function openPhotoDetail() {
+    const s = photoDetail;
+    const metaHTML = `<div class="meta-grid">${s.meta.map(m => `<div><div class="meta-label">${m.label}</div><div class="meta-value">${m.value}</div></div>`).join('')}<div class="meta-wide"><div class="meta-label">판매처</div><div class="meta-value sale-list">${s.sale}</div></div></div>`;
+    const cardsHTML = `<div class="detail-cards">${s.cards.map(c => `<div class="works-card"><div class="works-card-title">${c.title}</div><div class="works-card-desc">${c.desc}</div></div>`).join('')}</div>`;
+    const sectionsHTML = s.sections.map(sec => `<div class="detail-section"><h3>${sec.h}</h3>${renderBlocks(sec.blocks)}</div>`).join('');
+    document.getElementById('detail-inner').innerHTML = `
+      <button class="detail-back" id="detail-back">← Playground</button>
+      <h1 class="detail-title">${s.title}</h1>
+      <p class="detail-tagline">${s.tagline}</p>
+      <div class="detail-cover">${imgPh(s.cover, s.title)}</div>
+      ${metaHTML}
+      ${cardsHTML}
+      ${sectionsHTML}
+    `;
+    document.getElementById('detail').classList.add('open');
+    document.getElementById('detail').scrollTop = 0;
+    document.body.style.overflow = 'hidden';
+    document.getElementById('detail-back').addEventListener('click', closeDetail);
+    document.querySelectorAll('#detail-inner .pg-imgs[data-prefix]').forEach(probeImgs);
+  }
+
+  const photoCard = document.getElementById('photo-card');
+  if (photoCard) {
+    photoCard.addEventListener('click', openPhotoDetail);
+    photoCard.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openPhotoDetail(); } });
+  }
+
+  // ─── PLAYGROUND DETAIL (널 위한 문화예술) ───
+  const artDetail = {
+    title: '널 위한 문화예술',
+    tagline: '예술문화 미디어 외부 필진 — 디지털 콘텐츠 구성·제작 (2022~)',
+    cover: 'images/playground/art.webp',
+    meta: [
+      { label: '유형', value: '프리랜서 · 콘텐츠 구성 작가' },
+      { label: '채널', value: '<a href="https://www.youtube.com/@art_for_you/videos" target="_blank" rel="noopener">널 위한 문화예술 ↗</a>' }
+    ],
+    sections: [
+      { h: '소개', blocks: [
+        { callout: "예술문화 미디어 '널 위한 문화예술' 콘텐츠 구성<br>외부 필진으로서 '이달의 문화예술'을 중심으로 디지털 콘텐츠 원고를 구성·제작합니다." }
+      ]},
+      { h: 'YouTube 영상 원고', blocks: [
+        { list: [
+          { t: '<a href="https://youtu.be/IyR5fVp-5hA" target="_blank" rel="noopener">2022년 6월 이달의 문화예술</a> · 조회수 1.9만', lv: 1 },
+          { t: '<a href="https://youtu.be/xOdmmRvtuKc" target="_blank" rel="noopener">2022년 7월 이달의 문화예술</a> · 조회수 2.1만', lv: 1 },
+          { t: '<a href="https://youtu.be/FkrPqe3mbfE" target="_blank" rel="noopener">2022년 8월 이달의 문화예술</a> · 조회수 4.2만', lv: 1 },
+          { t: '<a href="https://youtu.be/WDiWoA-5BKk" target="_blank" rel="noopener">2022년 9월 이달의 문화예술</a> · 조회수 1.5만', lv: 1 },
+          { t: '<a href="https://youtu.be/mz-G0qxFW8s" target="_blank" rel="noopener">2023년 1월 이달의 문화예술</a> · 조회수 1.2만', lv: 1 },
+          { t: '<a href="https://youtu.be/CbaGJCrZnYw" target="_blank" rel="noopener">2023년 4월 이달의 문화예술</a> · 조회수 3.6만', lv: 1 },
+          { t: "<a href=\"https://post.naver.com/viewer/postView.naver?volumeNo=35814138&memberNo=42349422\" target=\"_blank\" rel=\"noopener\">'아트파인더' 기사 콘텐츠</a>", lv: 1 },
+          { t: '<a href="https://youtu.be/D5q37gqS_DA" target="_blank" rel="noopener">2023년 7월 이달의 문화예술</a> · 조회수 3.7만', lv: 1 },
+          { t: '<a href="https://youtu.be/NS-881Idv4M" target="_blank" rel="noopener">2023년 8월 이달의 문화예술</a> · 조회수 2.3만', lv: 1 },
+          { t: '<a href="https://youtu.be/HeTXWzhR6Ds" target="_blank" rel="noopener">위지윅 스튜디오</a> · 조회수 1.1만', lv: 1 },
+          { t: '<a href="https://youtu.be/3A6VmgCrsE8" target="_blank" rel="noopener">이지현 작가</a> · 조회수 9천', lv: 1 },
+          { t: '<a href="https://youtu.be/cMyef6brIQU" target="_blank" rel="noopener">라이트룸: 데이비드 호크니</a> · 조회수 6.8만', lv: 1 },
+          { t: '<a href="https://youtu.be/GYqoqw9DbQ4" target="_blank" rel="noopener">이함캠퍼스</a> · 조회수 4.3만', lv: 1 },
+          { t: '<a href="https://youtu.be/utWa1B5PwvY" target="_blank" rel="noopener">고상우X시프트 스피리츠</a> · 조회수 5.4천', lv: 1 },
+          { t: '<a href="https://youtu.be/V-NBWZ-fRdk" target="_blank" rel="noopener">스웨덴국립미술관</a> · 조회수 2.1만', lv: 1 },
+          { t: '<a href="https://youtu.be/Y0OGFvYJgL8" target="_blank" rel="noopener">2025년 12월 이달의 문화예술</a> · 조회수 1.9만', lv: 1 },
+          { t: '<a href="https://youtu.be/_ud7vaduz0U" target="_blank" rel="noopener">인상파, 찬란한 순간들</a> · 조회수 15만', lv: 1 },
+          { t: '<a href="https://youtu.be/Uf8J3EBybwE" target="_blank" rel="noopener">룸포원더</a> · 조회수 1.2만', lv: 1 },
+          { t: '<a href="https://youtu.be/rg8r_DtoCl4" target="_blank" rel="noopener">디즈니 아트 컬렉션</a> · 조회수 9.5천', lv: 1 },
+          { t: '<a href="https://youtu.be/Hi-nIyEnleE" target="_blank" rel="noopener">렘브란트부터 고야까지</a> · 조회수 8.1만', lv: 1 },
+          { t: '<a href="https://youtu.be/ZsRLdqAxGnA" target="_blank" rel="noopener">맥스 시덴토프</a> · 조회수 1만', lv: 1 },
+          { t: '<a href="https://youtu.be/_eBpT0rgt1M" target="_blank" rel="noopener">박영숙 작가</a> · 조회수 5.4천', lv: 1 },
+          { t: '<a href="https://youtu.be/O8GA5dIQZ-M" target="_blank" rel="noopener">페르난도 보테로</a> · 조회수 6.9천', lv: 1 }
+        ]}
+      ]},
+      { h: 'Instagram 카드뉴스 원고·제작', blocks: [
+        { list: [
+          { t: '<a href="https://www.instagram.com/p/DR3ccU0gSWH" target="_blank" rel="noopener">헤일리 티프먼</a> · 2025.12', lv: 1 },
+          { t: '<a href="https://www.instagram.com/p/DR4D-bfgdOk" target="_blank" rel="noopener">세그니 모시: Move&Draw</a> · 2025.12', lv: 1 },
+          { t: '<a href="https://www.instagram.com/p/DSWhnQHASJg" target="_blank" rel="noopener">빛의 화가 베르메르의 비밀: 고요 속의 빛 레플리카</a> · 2025.12', lv: 1 },
+          { t: '<a href="https://www.instagram.com/p/DSZN-owgckj" target="_blank" rel="noopener">울트라 백화점</a> · 2025.12', lv: 1 },
+          { t: '<a href="https://www.instagram.com/p/DSeB0aIgdgG" target="_blank" rel="noopener">핑크버블</a> · 2025.12', lv: 1 },
+          { t: "<a href=\"https://www.instagram.com/p/DSjumEFgfhW\" target=\"_blank\" rel=\"noopener\">전시 기록 앱 '켜켜이' 소개</a> · 2025.12", lv: 1 },
+          { t: '<a href="https://www.instagram.com/p/DT190zTgaoz/" target="_blank" rel="noopener">Behind the scene</a> · 2025.12', lv: 1 },
+          { t: '<a href="https://www.instagram.com/p/DTunROvgX5v" target="_blank" rel="noopener">월드 아트 페스타</a> · 2026.01', lv: 1 },
+          { t: '<a href="https://www.instagram.com/p/DTuZnCnAbFD" target="_blank" rel="noopener">쿠키런</a> · 2026.01', lv: 1 },
+          { t: '<a href="https://www.instagram.com/p/DUZo2mIAVC5" target="_blank" rel="noopener">요시고 사진전</a> · 2026.02', lv: 1 },
+          { t: '<a href="https://www.instagram.com/p/DUxIipTARaW" target="_blank" rel="noopener">맥스 시덴토프</a> · 2026.02', lv: 1 },
+          { t: '<a href="https://www.instagram.com/p/DUafvFDAXrU" target="_blank" rel="noopener">알폰스 무하</a> · 2026.02', lv: 1 }
+        ]}
+      ]}
+    ]
+  };
+
+  function openArtDetail() {
+    const s = artDetail;
+    const metaHTML = `<div class="meta-grid meta-2">${s.meta.map(m => `<div><div class="meta-label">${m.label}</div><div class="meta-value">${m.value}</div></div>`).join('')}</div>`;
+    const sectionsHTML = s.sections.map(sec => `<div class="detail-section"><h3>${sec.h}</h3>${renderBlocks(sec.blocks)}</div>`).join('');
+    document.getElementById('detail-inner').innerHTML = `
+      <button class="detail-back" id="detail-back">← Playground</button>
+      <h1 class="detail-title">${s.title}</h1>
+      <p class="detail-tagline">${s.tagline}</p>
+      <div class="detail-cover">${imgPh(s.cover, s.title)}</div>
+      ${metaHTML}
+      ${sectionsHTML}
+    `;
+    document.getElementById('detail').classList.add('open');
+    document.getElementById('detail').scrollTop = 0;
+    document.body.style.overflow = 'hidden';
+    document.getElementById('detail-back').addEventListener('click', closeDetail);
+  }
+
+  const artCard = document.getElementById('art-card');
+  if (artCard) {
+    artCard.addEventListener('click', openArtDetail);
+    artCard.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openArtDetail(); } });
   }
 
   // ─── HAMBURGER ───
