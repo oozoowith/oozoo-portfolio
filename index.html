@@ -81,7 +81,7 @@
     .works-intro { max-width: 760px; margin-bottom: 40px; }
     .works-intro p { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 12px; }
     .works-intro p:last-child { margin-bottom: 0; }
-    .works-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }
+    .works-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 8px 0 40px; align-items: stretch; }
     .works-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; }
     .works-card-title { font-size: 14px; font-weight: 700; color: var(--accent); margin-bottom: 6px; }
     .works-card-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
@@ -234,14 +234,15 @@
     .sale-list { line-height: 2; }
     .sale-list a { white-space: nowrap; }
     /* results: distinct metric cards, centered */
-    .results-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(124px, 1fr)); gap: 12px; }
+    .results-row { display: grid; grid-template-columns: repeat(var(--rc-cols, 3), 1fr); gap: 12px; margin-top: 16px; }
     .result-card {
-      text-align: center; padding: 20px 12px; background: var(--surface);
-      border: 1px solid var(--border); border-radius: 12px;
-      display: flex; flex-direction: column; justify-content: flex-start;
+      text-align: center; padding: 22px 14px; min-height: 112px;
+      background: rgba(36, 56, 212, 0.05); border-radius: 14px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
     }
-    .rc-num { font-size: 28px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; color: var(--accent); }
-    .rc-label { margin-top: 9px; font-size: 12.5px; color: var(--text-secondary); line-height: 1.45; }
+    .rc-num { font-size: 30px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.12; color: var(--accent); }
+    .rc-label { margin-top: 8px; font-size: 12.5px; color: var(--text-secondary); line-height: 1.5; }
+    @media (max-width: 768px) { .results-row { grid-template-columns: repeat(2, 1fr); } }
     .result-note { margin-top: 14px; font-size: 13px; color: var(--text-muted); }
     .result-note::before { content: '※ '; }
     .detail-intro { margin-top: 20px; font-size: 16px; color: var(--text-secondary); line-height: 1.8; }
@@ -462,11 +463,11 @@
         브랜드 미션을 기반으로 다양한 형태의 경험 콘텐츠를 설계합니다.<br>
         영감과 삶의 변화를 얻을 수 있도록 모든 경험에 깊이와 의미를 더합니다.
       </p>
-      <div class="works-cards">
-        <div class="works-card"><div class="works-card-title">커뮤니티</div><div class="works-card-desc">커뮤니티의 목적과 목표를 설정하고, 구성원이 최상의 경험을 할 수 있도록 전용 콘텐츠를 기획·운영합니다.</div></div>
-        <div class="works-card"><div class="works-card-title">브랜딩</div><div class="works-card-desc">탄탄한 브랜드가 될 수 있도록 브랜드 미션과 가치를 정돈합니다.</div></div>
-        <div class="works-card"><div class="works-card-title">콘텐츠</div><div class="works-card-desc">브랜드의 미션과 톤앤매너를 담은 디지털 콘텐츠를 기획·제작합니다.<br>에디터로서 직접 원고 작성·편집하며, 카피라이팅이나 책자 작업도 진행합니다.</div></div>
-      </div>
+    </div>
+    <div class="works-cards">
+      <div class="works-card"><div class="works-card-title">커뮤니티</div><div class="works-card-desc">커뮤니티의 목적과 목표를 설정하고, 구성원이 최상의 경험을 할 수 있도록 전용 콘텐츠를 기획·운영합니다.</div></div>
+      <div class="works-card"><div class="works-card-title">브랜딩</div><div class="works-card-desc">탄탄한 브랜드가 될 수 있도록 브랜드 미션과 가치를 정돈합니다.</div></div>
+      <div class="works-card"><div class="works-card-title">콘텐츠</div><div class="works-card-desc">브랜드의 미션과 톤앤매너를 담은 디지털 콘텐츠를 기획·제작합니다.<br>에디터로서 직접 원고 작성·편집하며, 카피라이팅이나 책자 작업도 진행합니다.</div></div>
     </div>
     <div class="filter-tabs">
       <button class="filter-tab active" data-category="all">전체</button>
@@ -844,8 +845,10 @@
     const idx = visibleWorks.findIndex(x => x.id === id);
     const next = visibleWorks[(idx + 1) % visibleWorks.length];
 
-    const resultsHTML = (w.results.length && typeof w.results[0] === 'object')
-      ? `<div class="results-row">${w.results.map(r => `<div class="result-card"><div class="rc-num">${r.n}</div><div class="rc-label">${r.t}</div></div>`).join('')}</div>`
+    const rn = w.results.length;
+    const rcCols = (rn % 2 === 0 && rn / 2 <= 4) ? rn / 2 : Math.min(rn, 4);
+    const resultsHTML = (rn && typeof w.results[0] === 'object')
+      ? `<div class="results-row" style="--rc-cols:${rcCols}">${w.results.map(r => `<div class="result-card"><div class="rc-num">${r.n.replace(/▲/g, ' ▲')}</div><div class="rc-label">${r.t}</div></div>`).join('')}</div>`
       : w.results.map(r => `<div class="result-item">${r}</div>`).join('');
 
     const photosHTML = (w.photos && w.photos.length) ? `
@@ -932,6 +935,21 @@
     document.body.style.overflow = '';
   }
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDetail(); });
+
+  // 상세 페이지 좌우 스와이프: 왼쪽 → 다음 프로젝트, 오른쪽 → 닫기
+  (function () {
+    const d = document.getElementById('detail');
+    let sx = 0, sy = 0, tracking = false;
+    d.addEventListener('touchstart', e => { const t = e.changedTouches[0]; sx = t.clientX; sy = t.clientY; tracking = true; }, { passive: true });
+    d.addEventListener('touchend', e => {
+      if (!tracking) return; tracking = false;
+      const t = e.changedTouches[0];
+      const dx = t.clientX - sx, dy = t.clientY - sy;
+      if (Math.abs(dx) < 70 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+      if (dx < 0) { const np = d.querySelector('.next-project'); if (np) openDetail(np.dataset.id); }
+      else { closeDetail(); }
+    }, { passive: true });
+  })();
 
   // ─── PLAYGROUND DETAIL (씨앗실험실) ───
   const seedDetail = {
