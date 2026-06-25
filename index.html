@@ -250,7 +250,7 @@
       background: rgba(36, 56, 212, 0.05); border-radius: 14px;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
     }
-    .rc-num { font-size: 30px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.12; color: var(--accent); }
+    .rc-num { font-family: 'Pretendard', sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.12; color: var(--accent); }
     .rc-label { margin-top: 8px; font-size: 12.5px; color: var(--text-secondary); line-height: 1.5; }
     @media (max-width: 768px) { .results-row { grid-template-columns: repeat(2, 1fr); } }
     .result-note { margin-top: 14px; font-size: 13px; color: var(--text-muted); }
@@ -273,7 +273,7 @@
     }
     /* 사진 레이아웃: crop 그리드(세로폭 통일·crop) / justified 행(원본비·세로폭 자동통일) */
     .pg-grid { margin-top: 18px; display: grid; grid-template-columns: repeat(var(--cols), 1fr); gap: 12px; }
-    .pg-cell { width: 100%; aspect-ratio: var(--ar); object-fit: cover; object-position: center; display: block; border-radius: 10px; background: var(--border); }
+    .pg-cell { width: 100%; aspect-ratio: var(--ar); object-fit: cover; object-position: var(--pos, center); display: block; border-radius: 10px; background: var(--border); }
     .pg-row { margin-top: 12px; display: flex; gap: 12px; }
     .pg-row:first-of-type { margin-top: 18px; }
     .pg-jimg { flex-basis: 0; min-width: 0; height: auto; display: block; border-radius: 10px; background: var(--border); }
@@ -640,7 +640,7 @@
         { n: '8.8점', t: '입주 멤버 만족도' }
       ],
       photos: [
-        { title: '공공일호 공간', crop: 1.3333, cols: 5, imgs: ['a1', 'a2', 'a3', 'a4', 'a5'] },
+        { title: '공공일호 공간', desc: "'공공일호' 건물 및 내부 공간을 운영했습니다.", crop: 1.3333, cols: 3, imgs: ['a1', 'a2', 'a3'] },
         { title: '커뮤니티 프로그램 기획·운영', desc: '월 1회 타운홀미팅, 원데이 클래스 등 내·외부 커뮤니티 이벤트를 기획·운영했습니다.', crop: 1.3333, cols: 4, imgs: ['b1', 'b2', 'b3', 'b4'] }
       ]
     },
@@ -672,7 +672,10 @@
         { n: '8.6점', t: '온라인 라이브 세션 만족도' }
       ],
       photos: [
-        { title: '서비스 & 커뮤니티', desc: '&lt;왈이의 마음단련장&gt; 서비스와 온라인 커뮤니티를 운영하며 라이브 세션 등 프로그램을 진행했습니다.', prefix: 'a' }
+        { title: '서비스 & 커뮤니티 운영', desc: '&lt;왈이의 마음단련장&gt; 서비스와 온라인 커뮤니티를 운영하며 라이브 세션 등 프로그램을 진행했습니다.', justified: [
+          [['a1', 0.863], ['a2', 0.776], ['a3', 0.75], ['a4', 0.75], ['a5', 0.75]]
+        ]},
+        { title: '온라인 세션 기획·운영', crop: 1.0, cols: 4, pos: 'top', imgs: ['b1', 'b2', 'b3', 'b4', 'b5', 'b6', 'b7', 'b8'] }
       ]
     },
     {
@@ -942,6 +945,7 @@
       </div>
     `;
     document.getElementById('detail').classList.add('open');
+    markDetailOpen();
     document.getElementById('detail').scrollTop = 0;
     document.body.style.overflow = 'hidden';
     document.getElementById('detail-back').addEventListener('click', closeDetail);
@@ -974,7 +978,7 @@
   }
   function renderPhotoImgs(folder, g) {
     if (g.crop) {
-      return `<div class="pg-grid" style="--cols:${g.cols}; --ar:${g.crop};">${g.imgs.map(n => pgImgTag(folder, n, 'pg-cell')).join('')}</div>`;
+      return `<div class="pg-grid" style="--cols:${g.cols}; --ar:${g.crop};${g.pos ? ` --pos:${g.pos};` : ''}">${g.imgs.map(n => pgImgTag(folder, n, 'pg-cell')).join('')}</div>`;
     }
     if (g.justified) {
       return g.justified.map(row => `<div class="pg-row">${row.map(it => pgImgTag(folder, it[0], 'pg-jimg', `flex-grow:${it[1]}`)).join('')}</div>`).join('');
@@ -992,10 +996,23 @@
     </div>`;
   }
 
+  // 상세 오버레이를 브라우저 히스토리에 연동: 열 때 state push → 뒤로가기가 사이트 이탈 대신 오버레이만 닫음
+  let detailHistoryActive = false;
+  function markDetailOpen() {
+    if (!detailHistoryActive) { history.pushState({ detailOpen: true }, ''); detailHistoryActive = true; }
+  }
   function closeDetail() {
     document.getElementById('detail').classList.remove('open');
     document.body.style.overflow = '';
+    if (detailHistoryActive) { detailHistoryActive = false; history.back(); }
   }
+  window.addEventListener('popstate', () => {
+    if (document.getElementById('detail').classList.contains('open')) {
+      detailHistoryActive = false;
+      document.getElementById('detail').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDetail(); });
 
   // 상세 페이지 좌우 스와이프: 왼쪽 → 다음 프로젝트, 오른쪽 → 닫기
@@ -1085,6 +1102,7 @@
       ${sectionsHTML}
     `;
     document.getElementById('detail').classList.add('open');
+    markDetailOpen();
     document.getElementById('detail').scrollTop = 0;
     document.body.style.overflow = 'hidden';
     document.getElementById('detail-back').addEventListener('click', closeDetail);
@@ -1169,6 +1187,7 @@
       ${sectionsHTML}
     `;
     document.getElementById('detail').classList.add('open');
+    markDetailOpen();
     document.getElementById('detail').scrollTop = 0;
     document.body.style.overflow = 'hidden';
     document.getElementById('detail-back').addEventListener('click', closeDetail);
@@ -1253,6 +1272,7 @@
       ${sectionsHTML}
     `;
     document.getElementById('detail').classList.add('open');
+    markDetailOpen();
     document.getElementById('detail').scrollTop = 0;
     document.body.style.overflow = 'hidden';
     document.getElementById('detail-back').addEventListener('click', closeDetail);
@@ -1338,6 +1358,7 @@
       ${sectionsHTML}
     `;
     document.getElementById('detail').classList.add('open');
+    markDetailOpen();
     document.getElementById('detail').scrollTop = 0;
     document.body.style.overflow = 'hidden';
     document.getElementById('detail-back').addEventListener('click', closeDetail);
