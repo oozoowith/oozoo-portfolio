@@ -90,9 +90,10 @@
     .works-intro p { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 12px; }
     .works-intro p:last-child { margin-bottom: 0; }
     .works-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 8px 0 40px; align-items: stretch; }
-    .works-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; }
+    .works-card { position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 16px; overflow: hidden; }
+    .works-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); }
     .works-card-title { font-size: 14px; font-weight: 700; color: var(--accent); margin-bottom: 6px; }
-    .works-card-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+    .works-card-desc { font-size: 12.5px; color: var(--text-secondary); line-height: 1.6; }
 
     /* ─── HOME (perryw.ca 스타일) ─── */
     #home { min-height: calc(100vh - 61px); display: flex; align-items: center; padding: 0; }
@@ -165,7 +166,8 @@
     .g-card .cover img { transition: transform 0.4s ease; }
     .g-card:hover .cover img { transform: scale(1.04); }
     .g-num { position: absolute; top: 12px; left: 14px; z-index: 2; font-size: 12px; font-weight: 500; color: #fff; mix-blend-mode: difference; }
-    .g-title { margin-top: 14px; font-size: 19px; font-weight: 700; }
+    .g-title { margin-top: 14px; font-size: 19px; font-weight: 700; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .g-tag { font-size: 11px; font-weight: 600; color: var(--accent); background: var(--accent-light); border-radius: 999px; padding: 3px 10px; line-height: 1.5; letter-spacing: -0.01em; white-space: nowrap; }
     .g-line { margin-top: 4px; font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
 
     /* ─── SERVICES (bottom block) ─── */
@@ -268,6 +270,17 @@
     .pg-imgs[data-count="5"], .pg-imgs[data-count="6"] { grid-template-columns: repeat(3, 1fr); }
     @media (max-width: 768px) {
       .pg-imgs[data-count="3"], .pg-imgs[data-count="5"], .pg-imgs[data-count="6"] { grid-template-columns: 1fr 1fr; }
+    }
+    /* 사진 레이아웃: crop 그리드(세로폭 통일·crop) / justified 행(원본비·세로폭 자동통일) */
+    .pg-grid { margin-top: 18px; display: grid; grid-template-columns: repeat(var(--cols), 1fr); gap: 12px; }
+    .pg-cell { width: 100%; aspect-ratio: var(--ar); object-fit: cover; object-position: center; display: block; border-radius: 10px; background: var(--border); }
+    .pg-row { margin-top: 12px; display: flex; gap: 12px; }
+    .pg-row:first-of-type { margin-top: 18px; }
+    .pg-jimg { flex-basis: 0; min-width: 0; height: auto; display: block; border-radius: 10px; background: var(--border); }
+    .pg-subgroup { margin-top: 22px; }
+    .pg-subsub { font-size: 15px; font-weight: 600; color: var(--text-secondary); letter-spacing: -0.01em; line-height: 1.4; }
+    @media (max-width: 768px) {
+      .pg-grid { grid-template-columns: repeat(min(var(--cols), 3), 1fr); }
     }
     .result-item {
       font-size: 16px; color: var(--text-secondary); padding: 14px 0;
@@ -508,7 +521,7 @@
           포토에세이 『마음의 실루엣』
           <img src="images/playground/book-cover.webp" alt="마음의 실루엣" onerror="this.style.display='none'" loading="lazy">
         </div>
-        <div class="g-title">포토에세이 『마음의 실루엣』</div>
+        <div class="g-title">포토에세이 『마음의 실루엣』<span class="g-tag">독립출판</span></div>
         <div class="g-line">2,547일의 그림자 사진을 엮은 독립출판 포토에세이</div>
       </div>
       <div class="g-card" id="seed-card" tabindex="0" role="button" aria-label="씨앗실험실 상세보기">
@@ -517,16 +530,25 @@
           씨앗실험실
           <img src="images/playground/seed.webp" alt="씨앗실험실" onerror="this.style.display='none'" loading="lazy">
         </div>
-        <div class="g-title">씨앗실험실</div>
+        <div class="g-title">씨앗실험실<span class="g-tag">커뮤니티</span></div>
         <div class="g-line">가능성을 탐구하는 커뮤니티</div>
+      </div>
+      <div class="g-card" id="tmt-card" tabindex="0" role="button" aria-label="TMT TOWN 상세보기">
+        <div class="cover img-ph" data-slot="images/playground/tmt.webp">
+          <span class="g-num">03</span>
+          TMT TOWN
+          <img src="images/playground/tmt.webp" alt="TMT TOWN" onerror="this.style.display='none'" loading="lazy">
+        </div>
+        <div class="g-title">TMT TOWN<span class="g-tag">팟캐스트</span></div>
+        <div class="g-line">생각 많은 애들의 시시콜콜한 이야기, 오리지널 팟캐스트</div>
       </div>
       <div class="g-card" id="art-card" tabindex="0" role="button" aria-label="널 위한 문화예술 상세보기">
         <div class="cover img-ph" data-slot="images/playground/art.webp">
-          <span class="g-num">03</span>
+          <span class="g-num">04</span>
           널 위한 문화예술
           <img src="images/playground/art.webp" alt="널 위한 문화예술" onerror="this.style.display='none'" loading="lazy">
         </div>
-        <div class="g-title">널 위한 문화예술</div>
+        <div class="g-title">널 위한 문화예술<span class="g-tag">프리랜서</span></div>
         <div class="g-line">문화예술 미디어 외부 필진</div>
       </div>
     </div>
@@ -583,8 +605,13 @@
         { n: '85%', t: '평균 출석률' }
       ],
       photos: [
-        { title: 'B2C·B2B 모델 검증', desc: "개봉작 관람 연계 다회차 모임과 파트너사 클래스 '사유하는 목요일' 등 B2C·B2B 프로그램을 직접 기획·운영했습니다. (55건 직접 호스팅)", prefix: 'a' },
-        { title: '디지털 커뮤니케이션', desc: 'SNS·앱·홈페이지 채널을 구축하고, 호스트·멤버 인터뷰 등 콘텐츠를 제작·발신했습니다.', prefix: 'b' }
+        { title: '모인츠 라운지', crop: 1.5, cols: 4, imgs: ['a1', 'a2', 'a3', 'a4'] },
+        { title: 'B2C·B2B 프로그램 기획·운영', desc: "개봉작 관람 연계 다회차 모임과 파트너사 클래스 '사유하는 목요일' 등 B2C·B2B 프로그램을 직접 기획·운영했습니다. (55건 직접 호스팅)", crop: 1.3333, cols: 4, imgs: ['b1', 'b2', 'b3', 'b4', 'b5', 'b6', 'b7'] },
+        { title: '디지털 커뮤니케이션', desc: 'SNS·앱·홈페이지 채널을 구축하고, 호스트·멤버 인터뷰 등 콘텐츠를 제작·발신했습니다.', subgroups: [
+          { title: 'SNS', crop: 0.64, cols: 3, imgs: ['c1-1', 'c1-2', 'c1-3'] },
+          { title: 'APP', crop: 0.661, cols: 4, imgs: ['c2-1', 'c2-2', 'c2-3', 'c2-4'] },
+          { title: '홈페이지', crop: 0.632, cols: 3, imgs: ['c3-1', 'c3-2', 'c3-3'] }
+        ]}
       ]
     },
     {
@@ -613,8 +640,8 @@
         { n: '8.8점', t: '입주 멤버 만족도' }
       ],
       photos: [
-        { title: '커뮤니티 운영', desc: '월 1회 타운홀미팅, 원데이 클래스 등 내·외부 커뮤니티 이벤트를 기획·운영했습니다.', prefix: 'a' },
-        { title: '채널 & 운영', desc: '브랜드 채널을 운영하고, 공간 운영 정책·입주 멤버 가이드라인을 수립·관리했습니다.', prefix: 'b' }
+        { title: '공공일호 공간', crop: 1.3333, cols: 5, imgs: ['a1', 'a2', 'a3', 'a4', 'a5'] },
+        { title: '커뮤니티 프로그램 기획·운영', desc: '월 1회 타운홀미팅, 원데이 클래스 등 내·외부 커뮤니티 이벤트를 기획·운영했습니다.', crop: 1.3333, cols: 4, imgs: ['b1', 'b2', 'b3', 'b4'] }
       ]
     },
     {
@@ -769,8 +796,11 @@
         { n: '9.3점', t: '재방문 의향' }
       ],
       photos: [
-        { title: '북토크 현장', desc: '독자 사연을 중심 재료로 한 북토크를 기획·운영했습니다. (작가·셀럽과 총 12회 진행)', prefix: 'a' },
-        { title: '콘텐츠 & 채널', desc: '공식 채널 콘텐츠와 통합 디지털 커뮤니케이션을 전개했습니다.', prefix: 'b' }
+        { title: '현장 사진', desc: '독자 사연을 중심 재료로 한 북토크를 기획·운영했습니다. (작가·셀럽과 총 12회 진행)', crop: 1.505, cols: 4, imgs: ['a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7', 'a8', 'a9', 'a10', 'a11', 'a12'] },
+        { title: 'BI 개발', justified: [
+          [['b1', 0.7075], ['b2', 0.667], ['b3', 1.0], ['b4', 1.0]],
+          [['b5', 0.75], ['b6', 0.75], ['b7', 0.75]]
+        ]}
       ]
     },
     {
@@ -862,13 +892,13 @@
     const photosHTML = (w.photos && w.photos.length) ? `
       <div class="detail-section detail-photos">
         <h3>프로젝트 살펴보기</h3>
-        ${w.photos.map(g => `
+        ${w.photos.map(g => g.prefix ? `
           <div class="photo-group">
             ${g.title ? `<div class="pg-sub">${g.title}</div>` : ''}
             ${g.desc ? `<p class="pg-desc">${g.desc}</p>` : ''}
             <div class="pg-imgs" data-folder="${w.folder}" data-prefix="${g.prefix}"></div>
           </div>
-        `).join('')}
+        ` : renderPhotoGroup(w.folder, g)).join('')}
       </div>` : '';
 
     document.getElementById('detail-inner').innerHTML = `
@@ -936,6 +966,30 @@
       box.dataset.count = Math.min(found.length, 6);
       box.innerHTML = found.map(src => `<img class="pg-img" src="${src}" alt="" loading="lazy">`).join('');
     }
+  }
+
+  // 사진 그룹 렌더러 (명시적 레이아웃) — crop: 세로폭 통일+crop / justified: 원본비로 한 줄 가로폭 맞춤
+  function pgImgTag(folder, n, cls, style) {
+    return `<img class="${cls}"${style ? ` style="${style}"` : ''} src="images/works/${folder}/${n}.webp" alt="" loading="lazy">`;
+  }
+  function renderPhotoImgs(folder, g) {
+    if (g.crop) {
+      return `<div class="pg-grid" style="--cols:${g.cols}; --ar:${g.crop};">${g.imgs.map(n => pgImgTag(folder, n, 'pg-cell')).join('')}</div>`;
+    }
+    if (g.justified) {
+      return g.justified.map(row => `<div class="pg-row">${row.map(it => pgImgTag(folder, it[0], 'pg-jimg', `flex-grow:${it[1]}`)).join('')}</div>`).join('');
+    }
+    return '';
+  }
+  function renderPhotoGroup(folder, g) {
+    const inner = g.subgroups
+      ? g.subgroups.map(sg => `<div class="pg-subgroup"><div class="pg-subsub">${sg.title}</div>${renderPhotoImgs(folder, sg)}</div>`).join('')
+      : renderPhotoImgs(folder, g);
+    return `<div class="photo-group">
+      ${g.title ? `<div class="pg-sub">${g.title}</div>` : ''}
+      ${g.desc ? `<p class="pg-desc">${g.desc}</p>` : ''}
+      ${inner}
+    </div>`;
   }
 
   function closeDetail() {
@@ -1208,6 +1262,91 @@
   if (artCard) {
     artCard.addEventListener('click', openArtDetail);
     artCard.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openArtDetail(); } });
+  }
+
+  // ─── PLAYGROUND DETAIL (TMT TOWN) ───
+  const tmtDetail = {
+    title: 'TMT TOWN',
+    tagline: '생각 많은 애들의 시시콜콜한 이야기를 나누는 오리지널 팟캐스트 (2024~)',
+    cover: 'images/playground/tmt.webp',
+    meta: [
+      { label: '유형', value: '개인 사이드 프로젝트 · 오리지널 팟캐스트' },
+      { label: '기간', value: '2024 ~ 현재' }
+    ],
+    sections: [
+      { h: '소개', blocks: [
+        { callout: '생각 많은 애들의 시시콜콜한 이야기, TMT 타운에 온 걸 환영해!<br>TMT 타운은 생각이 많아도 너~무 많은 우리가 잡다한 이야기를 나누는 곳이야.<br>별 것 아닌 이야기도 딱 한 뼘만큼 깊게 들여다보는 우리의 생각, 한번 들어볼래?' },
+        { h: '채널 · 바로 듣기' },
+        { list: [
+          { t: "<a href=\"https://www.youtube.com/@TMTTOWN\" target=\"_blank\" rel=\"noopener\">공식 유튜브 '생각 많은 애들'</a>", lv: 1 },
+          { t: '<a href="https://www.instagram.com/tmt.town/" target="_blank" rel="noopener">공식 인스타그램</a>', lv: 1 },
+          { t: '<a href="https://www.podbbang.com/channels/1790160" target="_blank" rel="noopener">팟빵</a>', lv: 1 },
+          { t: '<a href="https://open.spotify.com/show/2WeXDKe5NDcyiw6PJr6vE5" target="_blank" rel="noopener">스포티파이</a>', lv: 1 },
+          { t: '<a href="https://podcasts.apple.com/us/podcast/tmt-town/id1748928298" target="_blank" rel="noopener">애플 팟캐스트</a>', lv: 1 }
+        ]}
+      ]},
+      { h: '시즌 3 — 이야기는 계속 되어야 하니까', blocks: [
+        { callout: '재밌으려고 시작한 놀이가 진지한 프로젝트가 되었다! 본업 사이 단비 같은 이야기를 나누며 꾸준함을 꾸준히 이어가보는 시즌. 무슨 얘기를 나눌지는 우리도 몰라~' },
+        { list: [
+          { t: 'ep.15-1 근데… 무슨 일 하세요? (우리의 일 이야기 Part 1)', lv: 1 },
+          { t: 'ep.15-2 내 일에서 가장 중요한 것 (우리의 일 이야기 Part 2)', lv: 1 },
+          { t: 'ep.16 가족 같은 사이', lv: 1 },
+          { t: 'ep.17 와! 여름이다!', lv: 1 },
+          { t: 'ep.18 헤맨만큼 내 땅이다', lv: 1 },
+          { t: 'ep.19 사이드 프로젝트의 기쁨과 슬픔', lv: 1 },
+          { t: 'ep.20 요즘 콘텐츠 뭐봄? (ft. OTT부터 공연까지)', lv: 1 }
+        ]}
+      ]},
+      { h: '시즌 2 — 감정과 마음', blocks: [
+        { callout: '다양한 마음에 관해 이야기하는 시즌! 감정과 마음은 이야기의 시작점이고 통로이기도 하다. 최근 나의 감정, 자주 떠올리는 생각, 마음의 상태나 기분을 솔직하게 나눈다. 답이 없는 마음일지라도 입 밖으로 꺼내어 나누는 우리의 과정을 기록한다.' },
+        { list: [
+          { t: 'ep.8 존중과 열정: &lt;흑백요리사&gt;로부터', lv: 1 },
+          { t: 'ep.9 아, 아무것도 하기 싫다 (Feat. 권태와 무기력)', lv: 1 },
+          { t: 'ep.10 이 세상 모든 낭만을 위하여', lv: 1 },
+          { t: 'ep.11 우리는 우정을 사랑해', lv: 1 },
+          { t: 'ep.12 용기로운 도전생활', lv: 1 },
+          { t: 'ep.13 결핍이 불안이 되지 않게', lv: 1 },
+          { t: 'ep.14 시즌 2 마지막회 : 티엠티 타운, 변화가 필요해!', lv: 1 }
+        ]}
+      ]},
+      { h: '시즌 1 — 생각의 조각들', blocks: [
+        { callout: '한 가지 키워드에 꽂히면 앉은 자리에서 몇 시간이고 떠들 수 있는 우리. 평소에 자주 생각했던 주제나 최근 가장 고민했던 것들을 나누며 시시콜콜한 이야깃거리를 던져보는 시즌. 재밌게 봤던 콘텐츠, 건강과 돈에 관한 고민, 일과 행복까지 촘촘하게 훑어본 기록들.' },
+        { list: [
+          { t: 'ep0. 생각 많은 애들 - 시즌1', lv: 1 },
+          { t: 'ep1. 건강한 신체에 건강한 정신이 깃든다', lv: 1 },
+          { t: 'ep2. 나를 둘러싼 세계 : 영감은 핑계고', lv: 1 },
+          { t: 'ep3. 행복? 얼마면 돼, 얼마면 되냐고!', lv: 1 },
+          { t: 'ep4. 누구에게나 결핍은 있어 (feat.연애남매)', lv: 1 },
+          { t: 'ep5. 왜냐하면 우리는 휴식을 모르고', lv: 1 },
+          { t: 'ep6. 내 속엔 내가 너무도 많아 (feat. 강점혁명)', lv: 1 },
+          { t: 'ep.7 시즌 1 마지막회 : 우리의 레슨런', lv: 1 }
+        ]}
+      ]}
+    ]
+  };
+
+  function openTmtDetail() {
+    const s = tmtDetail;
+    const metaHTML = `<div class="meta-grid meta-2">${s.meta.map(m => `<div><div class="meta-label">${m.label}</div><div class="meta-value">${m.value}</div></div>`).join('')}</div>`;
+    const sectionsHTML = s.sections.map(sec => `<div class="detail-section"><h3>${sec.h}</h3>${renderBlocks(sec.blocks)}</div>`).join('');
+    document.getElementById('detail-inner').innerHTML = `
+      <button class="detail-back" id="detail-back">← Playground</button>
+      <h1 class="detail-title">${s.title}</h1>
+      <p class="detail-tagline">${s.tagline}</p>
+      <div class="detail-cover">${imgPh(s.cover, s.title)}</div>
+      ${metaHTML}
+      ${sectionsHTML}
+    `;
+    document.getElementById('detail').classList.add('open');
+    document.getElementById('detail').scrollTop = 0;
+    document.body.style.overflow = 'hidden';
+    document.getElementById('detail-back').addEventListener('click', closeDetail);
+  }
+
+  const tmtCard = document.getElementById('tmt-card');
+  if (tmtCard) {
+    tmtCard.addEventListener('click', openTmtDetail);
+    tmtCard.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openTmtDetail(); } });
   }
 
   // ─── HAMBURGER ───

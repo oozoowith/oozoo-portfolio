@@ -24,7 +24,14 @@
 - **PLAYGROUND 상세** (3개 카드 모두 클릭형):
   - 포토에세이=`openPhotoDetail`/`photoDetail`, 씨앗실험실=`openSeedDetail`/`seedDetail`, 널 위한 문화예술=`openArtDetail`/`artDetail`.
   - 공통 렌더러 `renderBlocks(blocks)` — 블록 타입: `h`(소제목)·`p`·`callout`·`quote`·`list`(items {t,lv})·`photo`({base,prefix}).
-- **이미지 자동 로딩** `probeImgs(box)`: `{base}/{prefix}{n}.webp`를 1번부터 순차 로드, 없는 번호에서 멈춤(폴더에 파일 넣으면 자동 표시, 빈 그룹 숨김).
+- **사진 그룹 두 가지 방식** (works 상세 `photos:[]`):
+  - **(구) prefix 자동로딩** `probeImgs(box)`: `{base}/{prefix}{n}.webp`를 1번부터 순차 로드, 없는 번호에서 멈춤(폴더에 파일 넣으면 자동 표시, 빈 그룹 숨김). 그룹에 `prefix` 키가 있으면 이 방식. (ccbook·ccin·frip·sqnc·wal)
+  - **(신) 명시 레이아웃** `renderPhotoGroup()`: 그룹에 `prefix` 없이 다음 키로 정의. (moints·gongil·txtclub)
+    - `crop`(종횡비 w/h) + `cols` + `imgs:[...]` → CSS 그리드(repeat(cols,1fr)), 각 셀 `aspect-ratio:crop`+`object-fit:cover`로 **세로폭 통일+crop**. cols 고정이라 여러 줄이어도 셀 크기(높이) 동일. 모바일은 max 3열.
+    - `justified:[[ [name,aspect],… ], …]` → flex 행, 각 img `flex-grow:aspect`(flex-basis 0) → **원본비 유지, 한 줄 가로폭 꽉 채우고 행 내 높이 자동 통일**(crop 없음, 로고/BI 보존용).
+    - `subgroups:[{title, crop, cols, imgs}]` → 상위 `pg-sub`(20px) 아래 작은 `pg-subsub`(15px) 위계. (모인츠 디지털 커뮤니케이션 > SNS/APP/홈페이지)
+    - crop 종횡비는 **변환 시 측정한 실제 픽셀비를 하드코딩**(비동기 측정 없음). 이미지 교체 시 비율 바뀌면 데이터의 crop 값도 갱신 필요.
+- **고화질 webp 변환**: 원본(jpg/jpeg/png)을 `python3 + Pillow`로 긴 변 1600px·quality 90·EXIF 회전반영해 `{basename}.webp` 생성(원본은 .gitignore로 커밋 제외, 디스크 백업 유지). moints c그룹은 `c1-1·c1-2…` 네이밍.
   - works 사진: `images/works/{folder}/a1..webp`(현장)·`b1..webp`(디지털).
   - 갤러리 커버: `images/works/{folder}/cover.webp` (3:2).
   - 플레이그라운드 사진 슬롯(비어있음): `images/playground/silhouette/intro{n}.webp`(포토에세이 소개), `booktalk{n}.webp`(북토크).
