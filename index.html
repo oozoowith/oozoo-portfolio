@@ -116,6 +116,8 @@
     .about-tagline { margin-top: 24px; font-size: 17px; font-weight: 500; line-height: 1.6; }
     .about-bio { margin-top: 20px; font-size: 16px; color: var(--text-secondary); line-height: 1.8; }
     .tag { background: var(--accent-light); color: var(--accent); font-size: 12px; font-weight: 500; padding: 4px 10px; border-radius: 4px; letter-spacing: 0.04em; }
+    .live-link { display: inline-block; margin: 4px 8px 2px 0; background: var(--accent); color: #fff; font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 999px; letter-spacing: 0.01em; text-decoration: none; transition: opacity .2s; }
+    .live-link:hover { opacity: 0.85; }
     .timeline-label { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin: 0 0 14px; }
     .timeline-item { display: grid; grid-template-columns: 88px 1fr; gap: 12px; margin-bottom: 20px; font-size: 14px; line-height: 1.5; }
     .timeline-item:last-child { margin-bottom: 0; }
@@ -276,12 +278,29 @@
     .pg-cell { width: 100%; aspect-ratio: var(--ar); object-fit: cover; object-position: var(--pos, center); display: block; border-radius: 10px; background: var(--border); }
     .pg-row { margin-top: 12px; display: flex; gap: 12px; }
     .pg-row:first-of-type { margin-top: 18px; }
-    .pg-jimg { flex-basis: 0; min-width: 0; height: auto; display: block; border-radius: 10px; background: var(--border); }
+    .pg-jimg { flex-basis: 0; min-width: 0; width: 100%; height: auto; object-fit: cover; display: block; border-radius: 10px; background: var(--border); }
     .pg-subgroup { margin-top: 22px; }
     .pg-subsub { font-size: 15px; font-weight: 600; color: var(--text-secondary); letter-spacing: -0.01em; line-height: 1.4; }
     @media (max-width: 768px) {
       .pg-grid { grid-template-columns: repeat(min(var(--cols), 3), 1fr); }
     }
+    /* split: 이미지(좌) + 텍스트박스(우) */
+    .pg-split { margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: stretch; }
+    .pg-split-img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block; background: var(--border); }
+    .pg-splitbox { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 22px 24px; display: flex; flex-direction: column; justify-content: center; }
+    .pg-splitbox p { font-size: 14.5px; color: var(--text-secondary); line-height: 1.8; margin: 0 0 10px; }
+    .pg-splitbox p:last-child { margin-bottom: 0; }
+    .pg-splitbox .ph { color: var(--text-muted); font-style: italic; }
+    /* 매거진 카드 리스트(링크형) */
+    .pg-maglist { margin-top: 18px; display: grid; gap: 12px; }
+    .pg-mag { display: flex; gap: 16px; align-items: center; justify-content: space-between; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; text-decoration: none; transition: border-color .2s, transform .2s; }
+    .pg-mag:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .pg-mag-body { min-width: 0; }
+    .pg-mag-kicker { font-size: 11px; font-weight: 600; color: var(--accent); letter-spacing: .04em; }
+    .pg-mag-title { margin-top: 3px; font-size: 16px; font-weight: 700; color: var(--text-primary); line-height: 1.35; }
+    .pg-mag-sub { margin-top: 4px; font-size: 13px; color: var(--text-secondary); }
+    .pg-mag-go { flex-shrink: 0; font-size: 13px; font-weight: 600; color: var(--accent); white-space: nowrap; }
+    @media (max-width: 600px) { .pg-split { grid-template-columns: 1fr; } .pg-mag { flex-direction: column; align-items: flex-start; gap: 10px; } }
     .result-item {
       font-size: 16px; color: var(--text-secondary); padding: 14px 0;
       border-bottom: 1px solid var(--border); line-height: 1.6;
@@ -639,6 +658,10 @@
         { n: '월 3회▲', t: '공식 SNS 채널 콘텐츠 발신 횟수' },
         { n: '8.8점', t: '입주 멤버 만족도' }
       ],
+      liveUrl: [
+        { label: '공공그라운드 인스타그램', url: 'https://www.instagram.com/00ground/' },
+        { label: '공공그라운드 브런치', url: 'https://brunch.co.kr/@info1vid' }
+      ],
       photos: [
         { title: '공공일호 공간', desc: "'공공일호' 건물 및 내부 공간을 운영했습니다.", crop: 1.3333, cols: 3, imgs: ['a1', 'a2', 'a3'] },
         { title: '커뮤니티 프로그램 기획·운영', desc: '월 1회 타운홀미팅, 원데이 클래스 등 내·외부 커뮤니티 이벤트를 기획·운영했습니다.', crop: 1.3333, cols: 4, imgs: ['b1', 'b2', 'b3', 'b4'] }
@@ -766,9 +789,25 @@
         { n: '11건', t: '5~6월간 소싱·기획운영한 상품 수' },
         { n: '5주', t: '업무 효율화로 월간 타임라인 단축' }
       ],
+      liveUrl: [{ label: 'SQNC 바로보기', url: 'https://www.frip.co.kr/catalog/5' }],
       photos: [
-        { title: '브랜드 에셋 & 상품', desc: '브랜드 목표·핵심 가치를 정의하고 디자이너와 함께 브랜드 에셋을 개발했습니다.', prefix: 'a' },
-        { title: '매거진 & 상세 콘텐츠', desc: '상품 상세 페이지와 브랜드 인터뷰 매거진을 기획·제작했습니다. (총 2개 시즌, 매거진 5건)', prefix: 'b' }
+        { title: 'SQNC 브랜딩', split: 'a1', text: [
+          "'단조로운 일상을 특별하게' — 감도 높은 경험을 큐레이션하는 프리미엄 브랜드로 정의하고, 브랜드 목표와 핵심 가치를 수립했습니다.",
+          '디자이너와 협업해 로고·컬러·타이포그래피 등 브랜드 에셋을 개발했습니다.'
+        ]},
+        { title: '경험 상품 소싱', desc: '매달 새로운 브랜드의 경험 상품을 직접 발굴·큐레이션했습니다.', crop: 1.0, cols: 5, imgs: ['a2-1', 'a2-2', 'a2-3', 'a2-4', 'a2-5', 'a2-6', 'a2-7', 'a2-8', 'a2-9', 'a2-10'] },
+        { title: '스토리텔링', desc: '상품의 맥락과 감도를 전하는 상세 페이지를 직접 기획·구성했습니다.', justified: [
+          [['b1', 0.437], ['b2', 0.563], ['b3', 1.25]],
+          [['b4', 0.756], ['b5', 0.489], ['b6', 1.002]]
+        ]},
+        { title: '매거진 제작', desc: '브랜드·호스트 인터뷰를 담은 매거진을 기획·구성·편집했습니다.', magazines: [
+          { code: 'SQNC 007', headline: '이곳에서는 누구나 이웃이 된다', brand: '목금토식탁', rep: '이선용 대표', url: 'https://www.frip.co.kr/magazines/20157223' },
+          { code: 'SQNC 008', headline: '이토록 편안한 재즈', brand: '부기우기', rep: '', url: 'https://www.frip.co.kr/magazines/20157224' },
+          { code: 'SQNC 010', headline: '오마카세 그 이상, 독보적 티 세리모니', brand: '오므오트', rep: '', url: 'https://www.frip.co.kr/magazines/20157226' },
+          { code: 'SQNC 020', headline: '', brand: '더퍼퓸클럽바이수향', rep: '', url: 'https://www.frip.co.kr/magazines/20157239' },
+          { code: 'SQNC 030', headline: '', brand: '킨츠기', rep: '작가 김수미', url: 'https://www.frip.co.kr/magazines/20157248' }
+        ]},
+        { title: '브랜드 인터뷰 · 촬영 보조', desc: '브랜드 인터뷰와 상품 촬영 현장을 지원했습니다.', crop: 0.667, cols: 4, imgs: ['d1', 'd2', 'd3', 'd4'] }
       ]
     },
     {
@@ -797,6 +836,10 @@
         { n: '87%', t: '평균 티켓 예매율' },
         { n: '9.5점', t: '고객 만족도 / 추천 의향' },
         { n: '9.3점', t: '재방문 의향' }
+      ],
+      liveUrl: [
+        { label: '공공그라운드 매거진', url: 'https://brunch.co.kr/magazine/00ground' },
+        { label: '텍스트클럽 기획 노트', url: 'https://brunch.co.kr/magazine/oozoo-view' }
       ],
       photos: [
         { title: '현장 사진', desc: '독자 사연을 중심 재료로 한 북토크를 기획·운영했습니다. (작가·셀럽과 총 12회 진행)', crop: 1.505, cols: 4, imgs: ['a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7', 'a8', 'a9', 'a10', 'a11', 'a12'] },
@@ -917,7 +960,7 @@
         <div><div class="meta-label">기간</div><div class="meta-value">${w.period}</div></div>
         <div><div class="meta-label">카테고리</div><div class="meta-value">${categoryLabels[w.category]}</div></div>
         <div><div class="meta-label">역할 · 기여도</div><div class="meta-value">${w.role.replace(/\s*\((기여도[^)]*)\)/, '<br><span class="meta-contrib">$1</span>')}</div></div>
-        <div class="meta-wide"><div class="meta-label">수행 업무</div><div class="meta-value">${w.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div></div>
+        <div class="meta-wide"><div class="meta-label">수행 업무</div><div class="meta-value">${w.tags.map(t => `<span class="tag">${t}</span>`).join('')}${(w.liveUrl || []).map(l => `<a class="live-link" href="${l.url}" target="_blank" rel="noopener">${l.label} ↗</a>`).join('')}</div></div>
       </div>
 
       <!-- (2) 내용 -->
@@ -981,7 +1024,26 @@
       return `<div class="pg-grid" style="--cols:${g.cols}; --ar:${g.crop};${g.pos ? ` --pos:${g.pos};` : ''}">${g.imgs.map(n => pgImgTag(folder, n, 'pg-cell')).join('')}</div>`;
     }
     if (g.justified) {
-      return g.justified.map(row => `<div class="pg-row">${row.map(it => pgImgTag(folder, it[0], 'pg-jimg', `flex-grow:${it[1]}`)).join('')}</div>`).join('');
+      return g.justified.map(row => `<div class="pg-row">${row.map(it => pgImgTag(folder, it[0], 'pg-jimg', `flex-grow:${it[1]}; aspect-ratio:${it[1]}`)).join('')}</div>`).join('');
+    }
+    if (g.split) {
+      const textHTML = (g.text && g.text.length)
+        ? g.text.map(p => `<p>${p}</p>`).join('')
+        : '<p class="ph">브랜딩 요약 텍스트가 들어갈 자리입니다.</p>';
+      return `<div class="pg-split"><img class="pg-split-img" src="images/works/${folder}/${g.split}.webp" alt="" loading="lazy"><div class="pg-splitbox">${textHTML}</div></div>`;
+    }
+    if (g.magazines) {
+      return `<div class="pg-maglist">${g.magazines.map(m => {
+        const sub = m.headline ? (m.brand + (m.rep ? ' · ' + m.rep : '')) : (m.rep || '');
+        return `<a class="pg-mag" href="${m.url}" target="_blank" rel="noopener">
+          <div class="pg-mag-body">
+            ${m.code ? `<div class="pg-mag-kicker">${m.code}</div>` : ''}
+            <div class="pg-mag-title">${m.headline || m.brand}</div>
+            ${sub ? `<div class="pg-mag-sub">${sub}</div>` : ''}
+          </div>
+          <div class="pg-mag-go">매거진 보기 ↗</div>
+        </a>`;
+      }).join('')}</div>`;
     }
     return '';
   }
