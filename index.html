@@ -108,6 +108,24 @@
     .home-bio-secondary { font-size: 16px; line-height: 1.7; color: var(--text-muted); }
     .home-bio-secondary a { color: var(--text-secondary); border-bottom: 1px solid var(--border); transition: color 0.2s, border-color 0.2s; }
     .home-bio-secondary a:hover { color: var(--accent); border-color: var(--accent); }
+    /* 홈 이름: 마우스 오버 시 검정 → 파랑 */
+    .home-mono { cursor: default; }
+    .hn-ko, .hn-en { transition: color 0.25s ease; }
+    .home-mono:hover .hn-ko, .home-mono:hover .hn-en { color: var(--accent); }
+    /* 플로팅 스크롤다운 버튼 (원형, 하단 중앙 고정) */
+    .scroll-down {
+      position: fixed; left: 50%; bottom: 26px; transform: translateX(-50%);
+      width: 46px; height: 46px; border-radius: 50%; border: none; cursor: pointer;
+      background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center;
+      z-index: 90; box-shadow: 0 6px 18px rgba(36, 56, 212, 0.32);
+      transition: opacity 0.3s ease, visibility 0.3s ease, background 0.2s; animation: sd-bounce 2.2s ease-in-out infinite;
+    }
+    .scroll-down:hover { background: #1b2bb0; }
+    .scroll-down.hidden { opacity: 0; visibility: hidden; }
+    @keyframes sd-bounce { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 6px); } }
+    @media (prefers-reduced-motion: reduce) { .scroll-down { animation: none; } }
+    /* 상세 커버 크롭 위치(프로젝트별 지정 가능) */
+    .detail-cover .img-ph img { object-position: var(--cover-pos, 50% 50%); }
 
     /* ─── ABOUT ─── */
     .about-grid { display: grid; grid-template-columns: 60% 40%; gap: 64px; align-items: start; }
@@ -421,8 +439,17 @@
         <p class="home-bio-secondary">작업이 궁금하다면 <a href="#works">Works</a>, 흥미로운 활동이 궁금하다면 <a href="https://www.instagram.com/oozoo.with/" target="_blank" rel="noopener">Instagram</a>을 둘러보세요. 협업 문의는 <a href="mailto:oozoo.work@gmail.com">oozoo.work@gmail.com</a>로 보내주세요.</p>
       </div>
     </div>
+    <div class="skill-cards">
+      <div class="skill-card"><div class="skill-card-name">Brand Marketing</div><div class="skill-card-detail">브랜드 런칭 · 캠페인 기획 · 사업 전략 연계</div></div>
+      <div class="skill-card"><div class="skill-card-name">Experience</div><div class="skill-card-detail">온오프라인 통합 기획 · 경험 시퀀스 설계 · 공간 연출</div></div>
+      <div class="skill-card"><div class="skill-card-name">Community</div><div class="skill-card-detail">유저 플로우 설계 · 팬덤·리텐션 전략<br>BM 고도화</div></div>
+      <div class="skill-card"><div class="skill-card-name">Contents</div><div class="skill-card-detail">채널 스토리텔링 · 카피라이팅<br>온드채널 운영</div></div>
+    </div>
   </div>
 </section>
+<button class="scroll-down" id="scroll-down" aria-label="아래로 스크롤">
+  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+</button>
 
 <!-- ABOUT -->
 <section id="about">
@@ -486,12 +513,6 @@
         </div>
       </div>
     </div>
-    <div class="skill-cards">
-      <div class="skill-card"><div class="skill-card-name">Brand Marketing</div><div class="skill-card-detail">브랜드 런칭 · 캠페인 기획 · 사업 전략 연계</div></div>
-      <div class="skill-card"><div class="skill-card-name">Experience</div><div class="skill-card-detail">온오프라인 통합 기획 · 경험 시퀀스 설계 · 공간 연출</div></div>
-      <div class="skill-card"><div class="skill-card-name">Community</div><div class="skill-card-detail">유저 플로우 설계 · 팬덤·리텐션 전략<br>BM 고도화</div></div>
-      <div class="skill-card"><div class="skill-card-name">Contents</div><div class="skill-card-detail">채널 스토리텔링 · 카피라이팅<br>온드채널 운영</div></div>
-    </div>
   </div>
 </section>
 
@@ -540,19 +561,19 @@
     </p>
     <div class="gallery">
       <div class="g-card" id="photo-card" tabindex="0" role="button" aria-label="포토에세이 마음의 실루엣 상세보기">
-        <div class="cover img-ph" data-slot="images/playground/book-cover.webp">
+        <div class="cover img-ph" data-slot="images/playground/silhouette/cover.webp">
           <span class="g-num">01</span>
           포토에세이 『마음의 실루엣』
-          <img src="images/playground/book-cover.webp" alt="마음의 실루엣" onerror="this.style.display='none'" loading="lazy">
+          <img src="images/playground/silhouette/cover.webp" alt="마음의 실루엣" onerror="this.style.display='none'" loading="lazy">
         </div>
         <div class="g-title">포토에세이 『마음의 실루엣』<span class="g-tag">독립출판</span></div>
         <div class="g-line">2,547일의 그림자 사진을 엮은 독립출판 포토에세이</div>
       </div>
       <div class="g-card" id="seed-card" tabindex="0" role="button" aria-label="씨앗실험실 상세보기">
-        <div class="cover img-ph" data-slot="images/playground/seed.webp">
+        <div class="cover img-ph" data-slot="images/playground/seed/cover.webp">
           <span class="g-num">02</span>
           씨앗실험실
-          <img src="images/playground/seed.webp" alt="씨앗실험실" onerror="this.style.display='none'" loading="lazy">
+          <img src="images/playground/seed/cover.webp" alt="씨앗실험실" onerror="this.style.display='none'" loading="lazy">
         </div>
         <div class="g-title">씨앗실험실<span class="g-tag">커뮤니티</span></div>
         <div class="g-line">가능성을 탐구하는 커뮤니티</div>
@@ -673,7 +694,7 @@
       ]
     },
     {
-      id: 'wal', category: 'community', folder: 'wal',
+      id: 'wal', category: 'community', folder: 'wal', coverPos: '50% 100%',
       title: '왈이의 마음단련장',
       tagline: '일상적인 마음 관리를 위한 명상 서비스 &lt;왈이의 마음단련장&gt; 온라인 커뮤니티',
       line: '온라인 명상 서비스 커뮤니티 구축',
@@ -968,7 +989,7 @@
       <!-- (1) 소개 -->
       <h1 class="detail-title">${w.title}</h1>
       <p class="detail-tagline">${w.tagline}</p>
-      <div class="detail-cover">${imgPh('images/works/' + w.folder + '/cover.webp', w.title)}</div>
+      <div class="detail-cover"${w.coverPos ? ` style="--cover-pos:${w.coverPos}"` : ''}>${imgPh('images/works/' + w.folder + '/cover.webp', w.title)}</div>
       ${w.intro ? `<p class="detail-intro">${w.intro}</p>` : ''}
       <div class="meta-grid">
         <div><div class="meta-label">소속</div><div class="meta-value">${w.org}</div></div>
@@ -1136,7 +1157,7 @@
   const seedDetail = {
     title: '씨앗실험실',
     tagline: '가능성을 탐구하는 커뮤니티.',
-    cover: 'images/playground/seed.webp',
+    cover: 'images/playground/seed/cover.webp',
     intro: [
       '나의 창조성을 발견한다는 것은 나의 고유한 무언가를 찾는 것이고, 고유함은 원래부터 가지고 있어 특유하다는 뜻이니 곧 나의 씨앗이 되겠지요.',
       "내 씨앗이 어떤 모양으로 싹을 틔울지, 어떤 방식으로 기르면 잘 클지 이리저리 연구해보자는 의미에서 '실험실'을 붙였어요.",
@@ -1218,7 +1239,7 @@
       if (b.p !== undefined) return `<p class="detail-p">${b.p}</p>`;
       if (b.callout !== undefined) return `<div class="detail-callout">${b.callout}</div>`;
       if (b.quote !== undefined) return `<blockquote class="detail-quote">${b.quote}</blockquote>`;
-      if (b.list !== undefined) return `<ul class="strat-list">${b.list.map(i => `<li class="lv${i.lv || 1}">${i.t}</li>`).join('')}</ul>`;
+      if (b.list !== undefined) return `<ul class="strat-list">${b.list.map(i => { const t = b.linkAll ? `<a href="${b.linkAll}" target="_blank" rel="noopener">${i.t}</a>` : i.t; return `<li class="lv${i.lv || 1}">${t}</li>`; }).join('')}</ul>`;
       if (b.photo !== undefined) return `<div class="pg-imgs" data-base="${b.photo.base}" data-prefix="${b.photo.prefix}"></div>`;
       return '';
     }).join('');
@@ -1227,7 +1248,7 @@
   const photoDetail = {
     title: '포토에세이 『마음의 실루엣』',
     tagline: '2,547일의 그림자와 마음의 기록을 담은 그림자책 (독립출판, 2023~)',
-    cover: 'images/playground/silhuoette/cover.webp',
+    cover: 'images/playground/silhouette/cover.webp',
     meta: [
       { label: '유형', value: '개인 프로젝트 · 독립출판' },
       { label: '출간', value: '2023.01.11' },
@@ -1265,11 +1286,11 @@
         ]}
       ]}
     ],
-    photoBase: 'images/playground/silhuoette',
+    photoBase: 'images/playground/silhouette',
     photoGroups: [
       { title: '책 소개', cropRows: [
         { ar: 1.509, imgs: ['a1', 'a2', 'a3', 'a4', 'a5', 'a6'] },
-        { ar: 1.0, imgs: ['a7', 'a8'] }
+        { ar: 1.0, imgs: ['a7', 'a8', 'a9', 'a10', 'a11', 'a12'] }
       ]},
       { title: '제작 과정', crop: 0.8, cols: 4, imgs: ['b1', 'b2', 'b3', 'b4'] },
       { title: '서울 퍼블리셔스 테이블', crop: 0.75, cols: 3, imgs: ['c1', 'c2', 'c3', 'c4', 'c5', 'c6'] },
@@ -1401,15 +1422,14 @@
     cover: 'images/playground/tmt.webp',
     meta: [
       { label: '유형', value: '개인 사이드 프로젝트 · 오리지널 팟캐스트' },
-      { label: '기간', value: '2024 ~ 현재' }
+      { label: '기간', value: '2024 ~ 현재' },
+      { label: '채널', value: '<a href="https://www.youtube.com/@TMTTOWN" target="_blank" rel="noopener">유튜브 ↗</a> · <a href="https://www.instagram.com/tmt.town/" target="_blank" rel="noopener">인스타그램 ↗</a>' }
     ],
     sections: [
       { h: '소개', blocks: [
         { callout: '생각 많은 애들의 시시콜콜한 이야기, TMT 타운에 온 걸 환영해!<br>TMT 타운은 생각이 많아도 너~무 많은 우리가 잡다한 이야기를 나누는 곳이야.<br>별 것 아닌 이야기도 딱 한 뼘만큼 깊게 들여다보는 우리의 생각, 한번 들어볼래?' },
-        { h: '채널 · 바로 듣기' },
+        { h: '팟캐스트 바로 듣기' },
         { list: [
-          { t: "<a href=\"https://www.youtube.com/@TMTTOWN\" target=\"_blank\" rel=\"noopener\">공식 유튜브 '생각 많은 애들'</a>", lv: 1 },
-          { t: '<a href="https://www.instagram.com/tmt.town/" target="_blank" rel="noopener">공식 인스타그램</a>', lv: 1 },
           { t: '<a href="https://www.podbbang.com/channels/1790160" target="_blank" rel="noopener">팟빵</a>', lv: 1 },
           { t: '<a href="https://open.spotify.com/show/2WeXDKe5NDcyiw6PJr6vE5" target="_blank" rel="noopener">스포티파이</a>', lv: 1 },
           { t: '<a href="https://podcasts.apple.com/us/podcast/tmt-town/id1748928298" target="_blank" rel="noopener">애플 팟캐스트</a>', lv: 1 }
@@ -1417,7 +1437,7 @@
       ]},
       { h: '시즌 3 — 이야기는 계속 되어야 하니까', blocks: [
         { callout: '재밌으려고 시작한 놀이가 진지한 프로젝트가 되었다! 본업 사이 단비 같은 이야기를 나누며 꾸준함을 꾸준히 이어가보는 시즌. 무슨 얘기를 나눌지는 우리도 몰라~' },
-        { list: [
+        { linkAll: 'https://www.youtube.com/@TMTTOWN', list: [
           { t: 'ep.15-1 근데… 무슨 일 하세요? (우리의 일 이야기 Part 1)', lv: 1 },
           { t: 'ep.15-2 내 일에서 가장 중요한 것 (우리의 일 이야기 Part 2)', lv: 1 },
           { t: 'ep.16 가족 같은 사이', lv: 1 },
@@ -1429,7 +1449,7 @@
       ]},
       { h: '시즌 2 — 감정과 마음', blocks: [
         { callout: '다양한 마음에 관해 이야기하는 시즌! 감정과 마음은 이야기의 시작점이고 통로이기도 하다. 최근 나의 감정, 자주 떠올리는 생각, 마음의 상태나 기분을 솔직하게 나눈다. 답이 없는 마음일지라도 입 밖으로 꺼내어 나누는 우리의 과정을 기록한다.' },
-        { list: [
+        { linkAll: 'https://www.youtube.com/@TMTTOWN', list: [
           { t: 'ep.8 존중과 열정: &lt;흑백요리사&gt;로부터', lv: 1 },
           { t: 'ep.9 아, 아무것도 하기 싫다 (Feat. 권태와 무기력)', lv: 1 },
           { t: 'ep.10 이 세상 모든 낭만을 위하여', lv: 1 },
@@ -1441,7 +1461,7 @@
       ]},
       { h: '시즌 1 — 생각의 조각들', blocks: [
         { callout: '한 가지 키워드에 꽂히면 앉은 자리에서 몇 시간이고 떠들 수 있는 우리. 평소에 자주 생각했던 주제나 최근 가장 고민했던 것들을 나누며 시시콜콜한 이야깃거리를 던져보는 시즌. 재밌게 봤던 콘텐츠, 건강과 돈에 관한 고민, 일과 행복까지 촘촘하게 훑어본 기록들.' },
-        { list: [
+        { linkAll: 'https://www.youtube.com/@TMTTOWN', list: [
           { t: 'ep0. 생각 많은 애들 - 시즌1', lv: 1 },
           { t: 'ep1. 건강한 신체에 건강한 정신이 깃든다', lv: 1 },
           { t: 'ep2. 나를 둘러싼 세계 : 영감은 핑계고', lv: 1 },
@@ -1478,6 +1498,15 @@
   if (tmtCard) {
     tmtCard.addEventListener('click', openTmtDetail);
     tmtCard.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openTmtDetail(); } });
+  }
+
+  // ─── 플로팅 스크롤다운 버튼 ───
+  const scrollDownBtn = document.getElementById('scroll-down');
+  if (scrollDownBtn) {
+    scrollDownBtn.addEventListener('click', () => {
+      const atBottom = window.innerHeight + window.scrollY >= document.body.scrollHeight - 40;
+      window.scrollTo({ top: atBottom ? 0 : window.scrollY + window.innerHeight * 0.9, behavior: 'smooth' });
+    });
   }
 
   // ─── HAMBURGER ───
