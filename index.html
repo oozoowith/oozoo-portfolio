@@ -82,7 +82,7 @@
     /* ─── SECTION COMMON ─── */
     section { padding: 96px 0; }
     .section-label {
-      font-size: 13px; font-weight: 600; letter-spacing: 0.12em;
+      font-family: 'Pretendard', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.12em;
       text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
     }
     .section-subtitle { font-size: 16px; color: var(--text-secondary); margin-bottom: 40px; }
@@ -101,7 +101,7 @@
     .home-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
     .home-mono { line-height: 1.2; color: var(--text-primary); text-align: center; }
     .hn-ko { display: block; font-size: clamp(56px, 9vw, 112px); font-weight: 700; letter-spacing: -0.02em; }
-    .hn-en { display: block; font-weight: 400; font-size: clamp(18px, 2.7vw, 34px); letter-spacing: 0.02em; color: var(--text-muted); }
+    .hn-en { display: block; font-family: 'Pretendard', sans-serif; font-weight: 700; font-size: clamp(18px, 2.7vw, 34px); letter-spacing: 0.02em; color: var(--text-muted); }
     .home-bio-primary { font-size: 22px; line-height: 1.6; }
     .home-bio-primary-en { margin-top: 12px; font-size: 16px; line-height: 1.6; color: var(--text-muted); }
     .home-bio-divider { height: 1px; background: var(--border); margin: 28px 0; }
@@ -168,7 +168,7 @@
     .g-card .cover img { transition: transform 0.4s ease; }
     .g-card:hover .cover img { transform: scale(1.04); }
     .g-num { position: absolute; top: 12px; left: 14px; z-index: 2; font-size: 12px; font-weight: 500; color: #fff; mix-blend-mode: difference; }
-    .g-title { margin-top: 14px; font-size: 19px; font-weight: 700; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .g-title { font-family: 'Pretendard', sans-serif; margin-top: 14px; font-size: 19px; font-weight: 700; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
     .g-tag { font-size: 11px; font-weight: 600; color: var(--accent); background: var(--accent-light); border-radius: 999px; padding: 3px 10px; line-height: 1.5; letter-spacing: -0.01em; white-space: nowrap; }
     .g-line { margin-top: 4px; font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
 
@@ -196,7 +196,7 @@
       font-family: inherit; padding: 8px 0; margin-bottom: 32px;
     }
     .detail-back:hover { color: var(--accent); }
-    .detail-title { font-size: 48px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; }
+    .detail-title { font-family: 'Pretendard', sans-serif; font-size: 48px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; }
     .detail-tagline { margin-top: 14px; font-size: 19px; color: var(--text-secondary); line-height: 1.6; }
     .detail-cover { margin-top: 28px; }
     .detail-cover .img-ph { aspect-ratio: 3/2; border-radius: 12px; }
@@ -318,7 +318,7 @@
     }
     .next-project:hover .next-title { color: var(--accent); }
     .next-label { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
-    .next-title { font-size: 24px; font-weight: 700; margin-top: 4px; transition: color 0.2s; }
+    .next-title { font-family: 'Pretendard', sans-serif; font-size: 24px; font-weight: 700; margin-top: 4px; transition: color 0.2s; }
 
     /* ─── PLAYGROUND ─── */
     .playground-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -959,7 +959,7 @@
             ${g.desc ? `<p class="pg-desc">${g.desc}</p>` : ''}
             <div class="pg-imgs" data-folder="${w.folder}" data-prefix="${g.prefix}"></div>
           </div>
-        ` : renderPhotoGroup(w.folder, g)).join('')}
+        ` : renderPhotoGroup('images/works/' + w.folder, g)).join('')}
       </div>` : '';
 
     document.getElementById('detail-inner').innerHTML = `
@@ -1031,24 +1031,24 @@
   }
 
   // 사진 그룹 렌더러 (명시적 레이아웃) — crop: 세로폭 통일+crop / justified: 원본비로 한 줄 가로폭 맞춤
-  function pgImgTag(folder, n, cls, style) {
-    return `<img class="${cls}"${style ? ` style="${style}"` : ''} src="images/works/${folder}/${n}.webp" alt="" loading="lazy">`;
+  function pgImgTag(base, n, cls, style) {
+    return `<img class="${cls}"${style ? ` style="${style}"` : ''} src="${base}/${n}.webp" alt="" loading="lazy">`;
   }
-  function renderPhotoImgs(folder, g) {
+  function renderPhotoImgs(base, g) {
     if (g.crop) {
-      return `<div class="pg-grid" style="--cols:${g.cols}; --ar:${g.crop};${g.pos ? ` --pos:${g.pos};` : ''}">${g.imgs.map(n => pgImgTag(folder, n, 'pg-cell')).join('')}</div>`;
+      return `<div class="pg-grid" style="--cols:${g.cols}; --ar:${g.crop};${g.pos ? ` --pos:${g.pos};` : ''}">${g.imgs.map(n => pgImgTag(base, n, 'pg-cell')).join('')}</div>`;
     }
     if (g.cropRows) {
-      return g.cropRows.map(r => `<div class="pg-grid" style="--cols:${r.imgs.length}; --ar:${r.ar};${r.pos ? ` --pos:${r.pos};` : ''}">${r.imgs.map(n => pgImgTag(folder, n, 'pg-cell')).join('')}</div>`).join('');
+      return g.cropRows.map(r => `<div class="pg-grid" style="--cols:${r.imgs.length}; --ar:${r.ar};${r.pos ? ` --pos:${r.pos};` : ''}">${r.imgs.map(n => pgImgTag(base, n, 'pg-cell')).join('')}</div>`).join('');
     }
     if (g.justified) {
-      return g.justified.map(row => `<div class="pg-row">${row.map(it => pgImgTag(folder, it[0], 'pg-jimg', `flex-grow:${it[1]}; aspect-ratio:${it[1]}`)).join('')}</div>`).join('');
+      return g.justified.map(row => `<div class="pg-row">${row.map(it => pgImgTag(base, it[0], 'pg-jimg', `flex-grow:${it[1]}; aspect-ratio:${it[1]}`)).join('')}</div>`).join('');
     }
     if (g.split) {
       const textHTML = (g.text && g.text.length)
         ? g.text.map(p => `<p>${p}</p>`).join('')
         : '<p class="ph">브랜딩 요약 텍스트가 들어갈 자리입니다.</p>';
-      return `<div class="pg-split"><img class="pg-split-img" style="--ar:${g.ratio || 1}" src="images/works/${folder}/${g.split}.webp" alt="" loading="lazy"><div class="pg-splitbox">${textHTML}</div></div>`;
+      return `<div class="pg-split"><img class="pg-split-img" style="--ar:${g.ratio || 1}" src="${base}/${g.split}.webp" alt="" loading="lazy"><div class="pg-splitbox">${textHTML}</div></div>`;
     }
     if (g.magazines) {
       return `<div class="pg-maglist">${g.magazines.map(m => {
@@ -1072,10 +1072,10 @@
       ${s.body.map(p => `<p>${p}</p>`).join('')}
     </div>`;
   }
-  function renderPhotoGroup(folder, g) {
+  function renderPhotoGroup(base, g) {
     const inner = g.subgroups
-      ? g.subgroups.map(sg => `<div class="pg-subgroup"><div class="pg-subsub">${sg.title}</div>${renderPhotoImgs(folder, sg)}</div>`).join('')
-      : renderPhotoImgs(folder, g);
+      ? g.subgroups.map(sg => `<div class="pg-subgroup"><div class="pg-subsub">${sg.title}</div>${renderPhotoImgs(base, sg)}</div>`).join('')
+      : renderPhotoImgs(base, g);
     return `<div class="photo-group">
       ${g.title ? `<div class="pg-sub">${g.title}</div>` : ''}
       ${g.desc ? `<p class="pg-desc">${g.desc}</p>` : ''}
@@ -1155,6 +1155,9 @@
       { h: '참여자 피드백', quotes: [
         "씨앗실험실에선 세상과 다른 규칙이 흐른다는 생각을 해요. 밖에선 정신차리게 해주려고 현실적인 조언을 하잖아요. 그런데 여기선 '너의 그런 점이 왜 나빠? 그런 꿈이 왜 안 돼? 이미 충분해! 한 번 해봐!' 하고 말해주는 곳이에요.",
         '해야 하는 일이 하고 싶은 일을 압도하는 것이 당연한 게 아니라는 걸, 머리가 아닌 몸으로 경험했어요.',
+        '솔직하게 꿈과 욕망을 털어놓을 수 있는 비밀 아지트였어요. 처음 보는 사람들이었지만 오히려 그래서 더 안전하게 날것의 나를 보여줄 수 있었고, 다양한 사람들 덕분에 제가 하고자 하는 것을 여러 관점에서 볼 수 있어 좋았어요.',
+        '느슨한 연대감이 가장 좋았어요. 늘 경청하고 고민을 나눠주는 모습이 참가자들에게도 긍정적인 영향을 주었고, 솔직한 모습을 보여도 되는 안전지대가 생긴 점이 정말 좋았습니다.',
+        '내가 하고 있던 것들이 평가의 대상이 되지 않았고, 하고 싶은 것을 눈치 보지 않고 말하고 꿈꿀 수 있던 게 가장 좋았어요.',
         '지금의 제가 정말 새롭다는 걸 스스로는 느껴요. 진짜 진짜 선물같은 경험이 쌓였어요.'
       ]},
       { h: '운영 이력', list: [
@@ -1164,6 +1167,10 @@
         { t: '2026년 6월부터 다시 커뮤니티 재개', lv: 1 },
         { t: '포폴나이트 @카쩨 등 프로그램 운영중', lv: 2 }
       ]}
+    ],
+    photoBase: 'images/playground/seed',
+    photoGroups: [
+      { title: '커뮤니티 프로그램 기획·운영', crop: 1.3333, cols: 3, imgs: ['a1', 'a2', 'a3', 'a4', 'a5', 'a6'] }
     ]
   };
 
@@ -1180,6 +1187,7 @@
       }
       return body ? `<div class="detail-section"><h3>${sec.h}</h3>${body}</div>` : '';
     }).join('');
+    const photosHTML = (s.photoGroups && s.photoGroups.length) ? `<div class="detail-section detail-photos"><h3>프로젝트 살펴보기</h3>${s.photoGroups.map(g => renderPhotoGroup(s.photoBase, g)).join('')}</div>` : '';
     document.getElementById('detail-inner').innerHTML = `
       <button class="detail-back" id="detail-back">← Playground</button>
       <h1 class="detail-title">${s.title}</h1>
@@ -1188,6 +1196,7 @@
       ${introHTML}
       ${metaHTML}
       ${sectionsHTML}
+      ${photosHTML}
     `;
     document.getElementById('detail').classList.add('open');
     markDetailOpen();
@@ -1218,7 +1227,7 @@
   const photoDetail = {
     title: '포토에세이 『마음의 실루엣』',
     tagline: '2,547일의 그림자와 마음의 기록을 담은 그림자책 (독립출판, 2023~)',
-    cover: 'images/playground/book-cover.webp',
+    cover: 'images/playground/silhuoette/cover.webp',
     meta: [
       { label: '유형', value: '개인 프로젝트 · 독립출판' },
       { label: '출간', value: '2023.01.11' },
@@ -1232,7 +1241,6 @@
     sections: [
       { h: '소개', blocks: [
         { h: '보이지 않는 것에 대한 이야기, 『마음의 실루엣』' },
-        { photo: { base: 'images/playground/silhouette', prefix: 'intro' } },
         { p: '무언가의 뒷면을 본 적이 있나요?' },
         { p: '그림자는 보이지 않는 것을 이야기합니다. 주목하지 않으면 스쳐 지나가는 일상 풍경일 뿐이지만, 눈여겨볼 때 비로소 아름다움을 발견할 수 있죠.' },
         { p: '솔직하게 표현하기 어려운 마음은 안쪽에 숨겨두듯이 마음도, 그림자도 이면의 것을 생각하게 합니다.' },
@@ -1254,8 +1262,20 @@
           { t: '그림자라는 매개로 모인 사람들이 서로 연결될 수 있는 모임', lv: 1 },
           { t: '90분 동안은 가까운 이웃처럼 서로 환대해주는 분위기로 만들 것', lv: 1 },
           { t: '뒷면의 이야기를 알려주는 자리 &gt;&gt; 그간의 작업물도 함께 보여주기', lv: 1 }
-        ]},
-        { photo: { base: 'images/playground/silhouette', prefix: 'booktalk' } }
+        ]}
+      ]}
+    ],
+    photoBase: 'images/playground/silhuoette',
+    photoGroups: [
+      { title: '책 소개', cropRows: [
+        { ar: 1.509, imgs: ['a1', 'a2', 'a3', 'a4', 'a5', 'a6'] },
+        { ar: 1.0, imgs: ['a7', 'a8'] }
+      ]},
+      { title: '제작 과정', crop: 0.8, cols: 4, imgs: ['b1', 'b2', 'b3', 'b4'] },
+      { title: '서울 퍼블리셔스 테이블', crop: 0.75, cols: 3, imgs: ['c1', 'c2', 'c3', 'c4', 'c5', 'c6'] },
+      { title: '북토크 · 서점 유통', cropRows: [
+        { ar: 1.3333, imgs: ['d1', 'd2', 'd3', 'd4'] },
+        { ar: 0.75, imgs: ['d5', 'd6', 'd7', 'd8'] }
       ]}
     ]
   };
@@ -1265,6 +1285,7 @@
     const metaHTML = `<div class="meta-grid">${s.meta.map(m => `<div><div class="meta-label">${m.label}</div><div class="meta-value">${m.value}</div></div>`).join('')}<div class="meta-wide"><div class="meta-label">판매처</div><div class="meta-value sale-list">${s.sale}</div></div></div>`;
     const cardsHTML = `<div class="detail-cards">${s.cards.map(c => `<div class="works-card"><div class="works-card-title">${c.title}</div><div class="works-card-desc">${c.desc}</div></div>`).join('')}</div>`;
     const sectionsHTML = s.sections.map(sec => `<div class="detail-section"><h3>${sec.h}</h3>${renderBlocks(sec.blocks)}</div>`).join('');
+    const photosHTML = (s.photoGroups && s.photoGroups.length) ? `<div class="detail-section detail-photos"><h3>프로젝트 살펴보기</h3>${s.photoGroups.map(g => renderPhotoGroup(s.photoBase, g)).join('')}</div>` : '';
     document.getElementById('detail-inner').innerHTML = `
       <button class="detail-back" id="detail-back">← Playground</button>
       <h1 class="detail-title">${s.title}</h1>
@@ -1273,6 +1294,7 @@
       ${metaHTML}
       ${cardsHTML}
       ${sectionsHTML}
+      ${photosHTML}
     `;
     document.getElementById('detail').classList.add('open');
     markDetailOpen();
