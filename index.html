@@ -108,10 +108,13 @@
     .home-bio-secondary { font-size: 16px; line-height: 1.7; color: var(--text-muted); }
     .home-bio-secondary a { color: var(--text-secondary); border-bottom: 1px solid var(--border); transition: color 0.2s, border-color 0.2s; }
     .home-bio-secondary a:hover { color: var(--accent); border-color: var(--accent); }
-    /* 홈 이름: 마우스 오버 시 검정 → 파랑 */
+    /* 홈 이름(정은용): 마우스 움직임에 따라 검정→파랑 그라데이션 */
     .home-mono { cursor: default; }
-    .hn-ko, .hn-en { transition: color 0.25s ease; }
-    .home-mono:hover .hn-ko, .home-mono:hover .hn-en { color: var(--accent); }
+    .hn-ko {
+      background: radial-gradient(circle 240px at var(--mx, 50%) var(--my, 50%), var(--accent) 0%, var(--text-primary) 72%);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent;
+    }
     /* 플로팅 스크롤다운 버튼 (원형, 하단 중앙 고정) */
     .scroll-down {
       position: fixed; left: 50%; bottom: 26px; transform: translateX(-50%);
@@ -168,7 +171,7 @@
       display: flex; align-items: center; justify-content: center;
       color: var(--text-muted); font-size: 13px; letter-spacing: 0.05em; text-align: center;
     }
-    .img-ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .img-ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--cover-pos, 50% 50%); }
 
     /* ─── WORKS (D gallery + E one-liner) ─── */
     .filter-tabs { display: flex; gap: 8px; margin-bottom: 40px; flex-wrap: wrap; }
@@ -756,8 +759,16 @@
       ],
       resultNote: '전사 단위 연간 캠페인으로 확대 운영 논의',
       photos: [
-        { title: '오프라인 — 팝업 공간 & 이벤트', desc: "CGV용산아이파크몰에 독립서점 컨셉 팝업(30일)과 '정세랑의 문장'·'독서관' 이벤트를 운영했습니다.", prefix: 'a' },
-        { title: '온라인 — APP · SNS', desc: '자사 앱 메인·로고·스플래시를 캠페인 테마로 변경하고, 실시간 SNS 커뮤니케이션을 전개했습니다.', prefix: 'b' }
+        { title: '오프라인 팝업 공간 ‘씨집책방’', desc: '브랜드 협업으로 독립서점 컨셉 팝업 공간 ‘씨집책방’을 30일간 운영했습니다. (CGV용산아이파크몰)', crop: 0.75, cols: 4, imgs: ['a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7', 'a8'] },
+        { title: '오프라인 이벤트 ‘정세랑의 문장’ & ‘독서관 - 낮과 밤’', desc: '팝업 공간에서 ‘정세랑의 문장’, ‘독서관 - 낮과 밤’ 등 오프라인 이벤트를 기획·운영했습니다.', crop: 0.75, cols: 4, imgs: ['b1', 'b2', 'b3', 'b4', 'b5', 'b6', 'b7', 'b8'] },
+        { title: '디지털 커뮤니케이션', desc: '자사 앱·인스타그램·X 등 온드 채널에서 캠페인 연계 콘텐츠를 기획·발행하고 실시간 커뮤니케이션을 전개했습니다.', subgroups: [
+          { title: 'APP', cropRows: [
+            { ar: 0.502, imgs: ['c1', 'c2', 'c3'] },
+            { ar: 0.532, imgs: ['c4', 'c5', 'c6', 'c7', 'c8'] }
+          ]},
+          { title: 'Instagram', crop: 0.545, cols: 4, imgs: ['d1', 'd2', 'd3', 'd4', 'd5', 'd6', 'd7', 'd8'] },
+          { title: 'X', crop: 0.86, cols: 5, imgs: ['e1', 'e2', 'e3', 'e4', 'e5'] }
+        ]}
       ]
     },
     {
@@ -786,8 +797,13 @@
         { n: '9.3점', t: '고객 만족도' }
       ],
       photos: [
-        { title: '큐레이션 행사 운영', desc: '총 5회 큐레이션 상영·큐레이터 토크를 기획·운영하고 무대 등 공간을 직접 연출했습니다. (이제훈·전소니·하현상 등)', prefix: 'a' },
-        { title: '디지털 커뮤니케이션', desc: "OOH·무비차트·SNS 등 다채널로 전개하고, 이제훈 배우 유튜브 '제훈씨네'와 협업했습니다.", prefix: 'b' }
+        { title: '큐레이터 토크 기획·운영', desc: '배우 이제훈&lt;메기&gt;, 배우 전소니&lt;괴물&gt;, 싱어송라이터 하현상&lt;원스&gt; 등 총 5회 기획·운영 (2024.10~2025.02)<br>큐레이터 토크 진행 시 무대 등 공간을 직접 연출했습니다.', crop: 0.667, cols: 5, imgs: ['a1', 'a2', 'a3', 'a4', 'a5'] },
+        { title: '극장 OOH 및 APP 연계 홍보', justified: [
+          [['b1', 1.333], ['b2', 1.333], ['b3', 0.75], ['b4', 0.522]],
+          [['b5', 0.518], ['b6', 0.592], ['b7', 0.599]]
+        ]},
+        { title: '디지털 커뮤니케이션', desc: '자사 온드 채널 콘텐츠 기획<br>이제훈 배우 유튜브 채널 ‘제훈씨네’ 협업 런칭 프로모션 (<a href="https://youtu.be/z8yAe2w5L_U?si=RMBe-8ScNaya-sW5" target="_blank" rel="noopener">제훈씨네 ↗</a>)', crop: 0.59, cols: 3, imgs: ['c1', 'c2', 'c3', 'c4', 'c5', 'c6'] },
+        { title: '커뮤니티 · 바이럴 기획·운영', desc: '오픈채팅방 챌린지 등 영화별·주제별 온라인 커뮤니티를 기획·운영했습니다.', crop: 0.543, cols: 4, imgs: ['d1', 'd2', 'd3', 'd4'] }
       ]
     },
     {
@@ -933,7 +949,7 @@
     const grid = document.getElementById('gallery');
     grid.innerHTML = visibleWorks.map((w, i) => `
       <div class="g-card" data-id="${w.id}" tabindex="0" role="button" aria-label="${w.title} 상세보기">
-        <div class="cover img-ph" data-slot="images/works/${w.folder}/cover.webp">
+        <div class="cover img-ph"${w.coverPos ? ` style="--cover-pos:${w.coverPos}"` : ''} data-slot="images/works/${w.folder}/cover.webp">
           <span class="g-num">${String(i + 1).padStart(2, '0')}</span>
           ${w.title}
           <img src="images/works/${w.folder}/cover.webp" alt="${w.title}" onerror="this.style.display='none'" loading="lazy">
@@ -1233,13 +1249,15 @@
   }
 
   // ─── PLAYGROUND DETAIL (포토에세이 『마음의 실루엣』) ───
-  function renderBlocks(blocks) {
+  function renderBlocks(blocks, base) {
     return blocks.map(b => {
       if (b.h !== undefined) return `<div class="detail-subhead">${b.h}</div>`;
       if (b.p !== undefined) return `<p class="detail-p">${b.p}</p>`;
       if (b.callout !== undefined) return `<div class="detail-callout">${b.callout}</div>`;
+      if (b.introbox !== undefined) return `<div class="seed-intro-box">${b.introbox.map(p => `<p>${p}</p>`).join('')}</div>`;
       if (b.quote !== undefined) return `<blockquote class="detail-quote">${b.quote}</blockquote>`;
       if (b.list !== undefined) return `<ul class="strat-list">${b.list.map(i => { const t = b.linkAll ? `<a href="${b.linkAll}" target="_blank" rel="noopener">${i.t}</a>` : i.t; return `<li class="lv${i.lv || 1}">${t}</li>`; }).join('')}</ul>`;
+      if (b.pgroup !== undefined) return renderPhotoGroup(base, b.pgroup);
       if (b.photo !== undefined) return `<div class="pg-imgs" data-base="${b.photo.base}" data-prefix="${b.photo.prefix}"></div>`;
       return '';
     }).join('');
@@ -1271,51 +1289,49 @@
         { p: "숨겨진 것, 아직 드러나지 않은 것을 찾아내어 '영감을 주는 경험'을 만드는 문화기획자다." },
         { p: '좋아하는 것에 사랑을 주어 기른다. 꾸준히 기르는 것은 마음, 재미, 연결.' },
         { p: '열심히 재미있게 살고 싶다.' },
+        { pgroup: { title: '책 소개', cropRows: [
+          { ar: 1.509, imgs: ['a1', 'a2', 'a3', 'a4', 'a5', 'a6'] },
+          { ar: 1.0, imgs: ['a7', 'a8', 'a9', 'a10', 'a11', 'a12'] }
+        ]}},
+        { pgroup: { title: '제작 과정', crop: 0.8, cols: 4, imgs: ['b1', 'b2', 'b3', 'b4'] } },
         { h: '책 속의 문장' },
         { quote: `📍 p.46~47 &lt;행복을 주는 공간은 아름답다&gt; 발췌<br>어떤 공간을 기억하고 아끼는 마음을 갖는 건 경험으로부터 온다. 감각해야만 경험할 수 있으니, 그렇다면 공간은 곧 감각이라고 말할 수도 있을까.<br>무엇이든 어떻게든 느낄 수 있는 곳, 나의 부드러운 마음 하나를 누일 수 있는 곳, 그리하여 '다시'를 다짐할 수 있는 곳. 마음의 아름다움을 지킬 수 있는 공간을 늘 곁에 두고 싶다.` },
         { quote: `📍 p.98~103 &lt;기획하는 마음&gt; 발췌<br>오래전부터 무대 뒤의 이야기를 쓰고 싶었다. 대체로 엄청 유명한 기획자가 아니면 무대 뒷면의 이야기를 들려줄 기회가 없고, 사람들도 그다지 궁금해하지 않는다. 하지만 나의 일은 뒷면에 있고, 나는 나의 일을 무척 아끼는 사람이라서 나라도 내 이야기를 들어주어야겠다고 생각했다. 그래서 아무도 물어보지 않아도 기획 노트를 차곡차곡 쌓아두었다. 그중에서 내가 가장 사랑하는 &lt;텍스트클럽&gt;의 이야기를 나누고 싶다.<br>(중략)<br>프로젝트의 A부터 Z까지 모든 것을 직접 챙기며 나름의 '기획법'을 만들었다. '모든 기획에는 이유가 있어야 한다'는 것을 가장 주요한 방향으로 두고 있다. 기획자는 그 시간, 그 자리에 바로 '그'가, 또는 '그것'이 있어야 할 이유를 만들어 하나의 세계를 만드는 사람이니까. 생각의 시야를 넓힐수록 고려해야 하는 것도 많아지지만, 더 깊이 생각할수록 더 좋은 경험을 줄 수 있다. 그렇게 믿고 있다.<br>무엇보다도 내가 내 기획에 자신이 있어야 창작자에게도 독자에게도 진심으로 가닿을 수 있다고 생각한다. 이 태도를 뭐라고 부를 수 있을까. 기획자로서의 자신감, 혹은 양심, 심지어 그것이 착각이나 오만이더라도 나의 '렌즈'를 진심으로 힘껏, 믿는 것이 기획을 잘 풀리게 한다. &lt;텍스트클럽&gt;을 만들 때는 기획을 뾰족하게 만들기 위해 자주 들여다보며 가까워지고, 이해의 폭을 늘려가는 과정에 전력을 다했다. 나의 관점이 대상을 새롭게, 다르게 해석할 수 있는 여지를 만들 수 있도록. 내가 진심을 다할수록 이번 프로그램 정말 좋다고, 그러니까 함께 들어보자고 자신 있게 이야기할 수 있는 밑천이 되었다.<br>(중략)<br>힘껏 보내온 마음과 큰 도움, 약간의 운으로 굴러갔던 &lt;텍스트클럽&gt;. 텍스트클러버가 기꺼이 내어준 이야기와 공감 덕분에 나는 조금 더 이해할 수 있는 사람이 되었다. 텍스트를 사이에 두고 이야기하며 '우리의 시간'을 만든다는 것, 말이 아닌 무언가를 나눈다는 것. &lt;텍스트클럽&gt;은 그런 것들을 떠올리게 한다.` },
         { quote: `📍 p.80~81 &lt;"Would you like some bread?"&gt; 전문<br>서울에서 열 몇 시간 떨어진 도시, 한 달을 기다렸던 미슐랭 코스 직전에 갑작스럽게 배탈이 났다. 피곤한 몸이 날씨를 버티지 못해 미슐랭 요리 대신 더위를 먹어버린 탓이었다. 머리는 딩딩 울리고, 속은 메슥거려 금방이라도 주저앉을 것 같았지만 귀한 미식 찬스를 도저히 놓칠 수는 없었다. 하지만 화장실이라도 가려고 들어간 식당에서도 눈앞이 핑핑 돌아 앉아있기가 어려웠다. '몸이 좋지 않아서 나는 갈 테니, 친구들 주문만 받아주라'는 말에 웨이터 아저씨가 걱정스러운 얼굴로 말했다.<br>"Are you okay? How about a cold napkin or medicine? Or would you like some bread?"<br>큰 컵에 찬물을 가득 따라주던 웨이터 아저씨는, 마치 지금 당장 뭐라도 해주고 싶은데 본인이 줄 수 있는 가장 좋은 것이 오로지 빵뿐인 사람 같았다. 식은땀을 흘리는 와중에도 '약이랑 빵이 어떻게 한 문장에 있을 수 있지? 이 동네는 빵이 약인가?' 싶어 웃음이 비실 새어 나왔다. 나중에 친구들에게 듣기로, 웨이터 아저씨는 디저트 코스가 나올 때까지도 '네 친구 괜찮냐'며 끝까지 걱정했다고 한다.<br>숙소로 돌아와 한참 동안 열을 앓다가 눈을 떴을 때, 친구들이 꽃다발과 함께 돌아왔다. 아프지 말고 행복하자고. 느닷없이 찾아온 일사병은 하루를 넘기지 않았고 나는 그것이 나에게 온 마음 덕분이었을 것이라 생각한다. 어떤 모양이든 사랑은 힘이 된다.` },
       ]},
+      { h: '서울 퍼블리셔스 테이블', blocks: [
+        { pgroup: { crop: 0.75, cols: 3, imgs: ['c1', 'c2', 'c3', 'c4', 'c5', 'c6'] } }
+      ]},
       { h: '북토크', blocks: [
-        { p: '출간 기념 제1회 북토크 (2023)' },
         { h: '기획 컨셉 - 제1회 그림자책 모임' },
         { list: [
           { t: '그림자라는 매개로 모인 사람들이 서로 연결될 수 있는 모임', lv: 1 },
           { t: '90분 동안은 가까운 이웃처럼 서로 환대해주는 분위기로 만들 것', lv: 1 },
           { t: '뒷면의 이야기를 알려주는 자리 &gt;&gt; 그간의 작업물도 함께 보여주기', lv: 1 }
-        ]}
+        ]},
+        { pgroup: { title: '북토크 · 서점 유통', desc: '출간 기념 제1회 북토크 (2023)', cropRows: [
+          { ar: 1.3333, imgs: ['d1', 'd2', 'd3', 'd4'] },
+          { ar: 0.75, imgs: ['d5', 'd6', 'd7', 'd8'] }
+        ]}}
       ]}
     ],
     photoBase: 'images/playground/silhouette',
-    photoGroups: [
-      { title: '책 소개', cropRows: [
-        { ar: 1.509, imgs: ['a1', 'a2', 'a3', 'a4', 'a5', 'a6'] },
-        { ar: 1.0, imgs: ['a7', 'a8', 'a9', 'a10', 'a11', 'a12'] }
-      ]},
-      { title: '제작 과정', crop: 0.8, cols: 4, imgs: ['b1', 'b2', 'b3', 'b4'] },
-      { title: '서울 퍼블리셔스 테이블', crop: 0.75, cols: 3, imgs: ['c1', 'c2', 'c3', 'c4', 'c5', 'c6'] },
-      { title: '북토크 · 서점 유통', cropRows: [
-        { ar: 1.3333, imgs: ['d1', 'd2', 'd3', 'd4'] },
-        { ar: 0.75, imgs: ['d5', 'd6', 'd7', 'd8'] }
-      ]}
-    ]
+    coverPos: '50% 30%'
   };
 
   function openPhotoDetail() {
     const s = photoDetail;
     const metaHTML = `<div class="meta-grid">${s.meta.map(m => `<div><div class="meta-label">${m.label}</div><div class="meta-value">${m.value}</div></div>`).join('')}<div class="meta-wide"><div class="meta-label">판매처</div><div class="meta-value sale-list">${s.sale}</div></div></div>`;
     const cardsHTML = `<div class="detail-cards">${s.cards.map(c => `<div class="works-card"><div class="works-card-title">${c.title}</div><div class="works-card-desc">${c.desc}</div></div>`).join('')}</div>`;
-    const sectionsHTML = s.sections.map(sec => `<div class="detail-section"><h3>${sec.h}</h3>${renderBlocks(sec.blocks)}</div>`).join('');
-    const photosHTML = (s.photoGroups && s.photoGroups.length) ? `<div class="detail-section detail-photos"><h3>프로젝트 살펴보기</h3>${s.photoGroups.map(g => renderPhotoGroup(s.photoBase, g)).join('')}</div>` : '';
+    const sectionsHTML = s.sections.map(sec => `<div class="detail-section"><h3>${sec.h}</h3>${renderBlocks(sec.blocks, s.photoBase)}</div>`).join('');
     document.getElementById('detail-inner').innerHTML = `
       <button class="detail-back" id="detail-back">← Playground</button>
       <h1 class="detail-title">${s.title}</h1>
       <p class="detail-tagline">${s.tagline}</p>
-      <div class="detail-cover">${imgPh(s.cover, s.title)}</div>
+      <div class="detail-cover"${s.coverPos ? ` style="--cover-pos:${s.coverPos}"` : ''}>${imgPh(s.cover, s.title)}</div>
       ${metaHTML}
       ${cardsHTML}
       ${sectionsHTML}
-      ${photosHTML}
     `;
     document.getElementById('detail').classList.add('open');
     markDetailOpen();
@@ -1335,14 +1351,14 @@
   const artDetail = {
     title: '널 위한 문화예술',
     tagline: '예술문화 미디어 외부 필진 — 디지털 콘텐츠 구성·제작 (2022~)',
-    cover: 'images/playground/art.webp',
+    cover: 'images/playground/art4u/cover.webp',
     meta: [
       { label: '유형', value: '프리랜서 · 콘텐츠 구성 작가' },
       { label: '채널', value: '<a href="https://www.youtube.com/@art_for_you/videos" target="_blank" rel="noopener">널 위한 문화예술 ↗</a>' }
     ],
     sections: [
       { h: '소개', blocks: [
-        { callout: "예술문화 미디어 '널 위한 문화예술' 콘텐츠 구성<br>외부 필진으로서 '이달의 문화예술'을 중심으로 디지털 콘텐츠 원고를 구성·제작합니다." }
+        { introbox: ['예술문화 미디어 ‘널 위한 문화예술’ 외부 필진으로서 ‘이달의 문화예술’을 중심으로 디지털 콘텐츠 원고를 구성·제작합니다.'] }
       ]},
       { h: 'YouTube 영상 원고', blocks: [
         { list: [
@@ -1419,23 +1435,16 @@
   const tmtDetail = {
     title: 'TMT TOWN',
     tagline: '생각 많은 애들의 시시콜콜한 이야기를 나누는 오리지널 팟캐스트 (2024~)',
-    cover: 'images/playground/tmt.webp',
+    cover: 'images/playground/town/cover.webp',
     meta: [
       { label: '유형', value: '개인 사이드 프로젝트 · 오리지널 팟캐스트' },
       { label: '기간', value: '2024 ~ 현재' },
       { label: '채널', value: '<a href="https://www.youtube.com/@TMTTOWN" target="_blank" rel="noopener">유튜브 ↗</a> · <a href="https://www.instagram.com/tmt.town/" target="_blank" rel="noopener">인스타그램 ↗</a>' }
     ],
+    intro: ['생각 많은 애들의 시시콜콜한 이야기, TMT 타운에 온 걸 환영해!<br>TMT 타운은 생각이 많아도 너~무 많은 우리가 잡다한 이야기를 나누는 곳이야.<br>별 것 아닌 이야기도 딱 한 뼘만큼 깊게 들여다보는 우리의 생각, 한번 들어볼래?'],
     sections: [
-      { h: '소개', blocks: [
-        { callout: '생각 많은 애들의 시시콜콜한 이야기, TMT 타운에 온 걸 환영해!<br>TMT 타운은 생각이 많아도 너~무 많은 우리가 잡다한 이야기를 나누는 곳이야.<br>별 것 아닌 이야기도 딱 한 뼘만큼 깊게 들여다보는 우리의 생각, 한번 들어볼래?' },
-        { h: '팟캐스트 바로 듣기' },
-        { list: [
-          { t: '<a href="https://www.podbbang.com/channels/1790160" target="_blank" rel="noopener">팟빵</a>', lv: 1 },
-          { t: '<a href="https://open.spotify.com/show/2WeXDKe5NDcyiw6PJr6vE5" target="_blank" rel="noopener">스포티파이</a>', lv: 1 },
-          { t: '<a href="https://podcasts.apple.com/us/podcast/tmt-town/id1748928298" target="_blank" rel="noopener">애플 팟캐스트</a>', lv: 1 }
-        ]}
-      ]},
-      { h: '시즌 3 — 이야기는 계속 되어야 하니까', blocks: [
+      { h: '', blocks: [
+        { h: '시즌 3 — 이야기는 계속 되어야 하니까' },
         { callout: '재밌으려고 시작한 놀이가 진지한 프로젝트가 되었다! 본업 사이 단비 같은 이야기를 나누며 꾸준함을 꾸준히 이어가보는 시즌. 무슨 얘기를 나눌지는 우리도 몰라~' },
         { linkAll: 'https://www.youtube.com/@TMTTOWN', list: [
           { t: 'ep.15-1 근데… 무슨 일 하세요? (우리의 일 이야기 Part 1)', lv: 1 },
@@ -1445,9 +1454,8 @@
           { t: 'ep.18 헤맨만큼 내 땅이다', lv: 1 },
           { t: 'ep.19 사이드 프로젝트의 기쁨과 슬픔', lv: 1 },
           { t: 'ep.20 요즘 콘텐츠 뭐봄? (ft. OTT부터 공연까지)', lv: 1 }
-        ]}
-      ]},
-      { h: '시즌 2 — 감정과 마음', blocks: [
+        ]},
+        { h: '시즌 2 — 감정과 마음' },
         { callout: '다양한 마음에 관해 이야기하는 시즌! 감정과 마음은 이야기의 시작점이고 통로이기도 하다. 최근 나의 감정, 자주 떠올리는 생각, 마음의 상태나 기분을 솔직하게 나눈다. 답이 없는 마음일지라도 입 밖으로 꺼내어 나누는 우리의 과정을 기록한다.' },
         { linkAll: 'https://www.youtube.com/@TMTTOWN', list: [
           { t: 'ep.8 존중과 열정: &lt;흑백요리사&gt;로부터', lv: 1 },
@@ -1457,9 +1465,8 @@
           { t: 'ep.12 용기로운 도전생활', lv: 1 },
           { t: 'ep.13 결핍이 불안이 되지 않게', lv: 1 },
           { t: 'ep.14 시즌 2 마지막회 : 티엠티 타운, 변화가 필요해!', lv: 1 }
-        ]}
-      ]},
-      { h: '시즌 1 — 생각의 조각들', blocks: [
+        ]},
+        { h: '시즌 1 — 생각의 조각들' },
         { callout: '한 가지 키워드에 꽂히면 앉은 자리에서 몇 시간이고 떠들 수 있는 우리. 평소에 자주 생각했던 주제나 최근 가장 고민했던 것들을 나누며 시시콜콜한 이야깃거리를 던져보는 시즌. 재밌게 봤던 콘텐츠, 건강과 돈에 관한 고민, 일과 행복까지 촘촘하게 훑어본 기록들.' },
         { linkAll: 'https://www.youtube.com/@TMTTOWN', list: [
           { t: 'ep0. 생각 많은 애들 - 시즌1', lv: 1 },
@@ -1478,12 +1485,14 @@
   function openTmtDetail() {
     const s = tmtDetail;
     const metaHTML = `<div class="meta-grid meta-2">${s.meta.map(m => `<div><div class="meta-label">${m.label}</div><div class="meta-value">${m.value}</div></div>`).join('')}</div>`;
-    const sectionsHTML = s.sections.map(sec => `<div class="detail-section"><h3>${sec.h}</h3>${renderBlocks(sec.blocks)}</div>`).join('');
+    const introHTML = (s.intro && s.intro.length) ? `<div class="seed-intro-box">${s.intro.map(p => `<p>${p}</p>`).join('')}</div>` : '';
+    const sectionsHTML = s.sections.map(sec => `<div class="detail-section">${sec.h ? `<h3>${sec.h}</h3>` : ''}${renderBlocks(sec.blocks)}</div>`).join('');
     document.getElementById('detail-inner').innerHTML = `
       <button class="detail-back" id="detail-back">← Playground</button>
       <h1 class="detail-title">${s.title}</h1>
       <p class="detail-tagline">${s.tagline}</p>
       <div class="detail-cover">${imgPh(s.cover, s.title)}</div>
+      ${introHTML}
       ${metaHTML}
       ${sectionsHTML}
     `;
@@ -1498,6 +1507,17 @@
   if (tmtCard) {
     tmtCard.addEventListener('click', openTmtDetail);
     tmtCard.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openTmtDetail(); } });
+  }
+
+  // ─── 홈 이름(정은용) 마우스 추적 그라데이션 ───
+  const hnKo = document.querySelector('.hn-ko');
+  if (hnKo) {
+    hnKo.addEventListener('mousemove', e => {
+      const r = hnKo.getBoundingClientRect();
+      hnKo.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+      hnKo.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+    });
+    hnKo.addEventListener('mouseleave', () => { hnKo.style.removeProperty('--mx'); hnKo.style.removeProperty('--my'); });
   }
 
   // ─── 플로팅 스크롤다운 버튼 ───
