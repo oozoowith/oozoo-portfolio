@@ -275,8 +275,8 @@
     .result-note::before { content: '※ '; }
     .detail-intro { margin-top: 20px; font-size: 16px; color: var(--text-secondary); line-height: 1.8; }
     /* photo section (count-responsive) */
-    .detail-photos .photo-group { margin-top: 45px; }
-    .detail-photos .photo-group:first-of-type { margin-top: 28px; }
+    .detail-photos .photo-group { margin-top: 32px; }
+    .detail-photos .photo-group:first-of-type { margin-top: 20px; }
     .pg-sub { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.3; }
     .pg-desc { margin-top: 8px; font-size: 15px; color: var(--text-secondary); line-height: 1.75; }
     .pg-imgs { margin-top: 18px; display: grid; gap: 12px; align-items: start; }
@@ -295,7 +295,7 @@
     .pg-row { margin-top: 12px; display: flex; gap: 12px; }
     .pg-row:first-of-type { margin-top: 18px; }
     .pg-jimg { flex-basis: 0; min-width: 0; width: 100%; height: auto; object-fit: cover; display: block; border-radius: 10px; background: var(--border); }
-    .pg-subgroup { margin-top: 31px; }
+    .pg-subgroup { margin-top: 22px; }
     .pg-subsub { font-size: 15px; font-weight: 600; color: var(--text-secondary); letter-spacing: -0.01em; line-height: 1.4; }
     @media (max-width: 768px) {
       .pg-grid { grid-template-columns: repeat(min(var(--cols), 3), 1fr); }
@@ -649,8 +649,8 @@
       ],
       photos: [
         { title: '모인츠 라운지', desc: '커뮤니티 멤버 전용 공간 개발 · 기획', crop: 1.5, cols: 4, imgs: ['a1', 'a2', 'a3', 'a4'] },
-        { title: 'B2C·B2B 프로그램 기획·운영', desc: "개봉작 관람 연계 다회차 모임, 파트너사 클래스 ‘사유하는 목요일’ 등 (55건 직접 호스팅)", crop: 1.3333, cols: 4, imgs: ['b1', 'b2', 'b3', 'b4', 'b5', 'b6', 'b7'] },
-        { title: '디지털 커뮤니케이션', desc: '• 자사 APP · SNS · 홈페이지 채널 구축<br>• 호스트 · 멤버 인터뷰 등 콘텐츠 제작 · 발신', subgroups: [
+        { title: 'B2C·B2B 프로그램 기획·운영', desc: "• B2C, B2B 가격 전략 수립 및 프로그램 기획운영 (55건 직접 호스팅)<br>• 파트너사 콜라보 프로그램 ‘사유하는 목요일’ 기획운영", crop: 1.3333, cols: 4, imgs: ['b1', 'b2', 'b3', 'b4', 'b5', 'b6', 'b7'] },
+        { title: '디지털 커뮤니케이션', desc: '• 자사 APP 내 모인츠 페이지 · SNS · 홈페이지 채널 구축 및 운영<br>• 상품 기획, 스토리텔링, 호스트 · 멤버 인터뷰 등 콘텐츠 제작 · 발신', subgroups: [
           { title: 'SNS', crop: 0.64, cols: 3, imgs: ['c1-1', 'c1-2', 'c1-3'] },
           { title: 'APP', crop: 0.661, cols: 4, imgs: ['c2-1', 'c2-2', 'c2-3', 'c2-4'] },
           { title: '홈페이지', crop: 0.632, cols: 3, imgs: ['c3-1', 'c3-2', 'c3-3'] }
@@ -661,13 +661,13 @@
       id: 'gongil', category: 'community', folder: 'gongil',
       title: '공공일호 사람들',
       tagline: "공공그라운드 '공공일호' 입주사 네트워크 구축·강화",
-      line: '공공일호 입주사 네트워크 구축',
+      line: '공공일호 입주사 커뮤니티 기획운영 총괄',
       role: '커뮤니티 매니저로서 입주사 커뮤니티 구축 및 공간 운영 (기여도 100%)',
       org: '공공그라운드', period: '2018.03–2020.02',
       tags: ['커뮤니티 기획운영 총괄', '내외부 정책 수립', '고객 경험 개선', '공공일호 공간 운영'],
       intro: "공공그라운드 '공공일호'의 입주사 간 네트워크를 구축·강화하는 커뮤니티 전략을 수립했습니다. 커뮤니티 매니저로서 스페이스 멤버십 관리, 제휴 멤버 발굴, 입주사 커뮤니티 프로그램 기획운영 등을 실행했고, 이를 SNS 채널로 발신했습니다. 한편 대관·사무실 등 공공일호 공간 운영 정책을 개발·고도화하며 운영관리 업무를 경험했습니다.",
       goal: '입주사 및 소셜섹터 커뮤니티 구축',
-      target: '공공일호 입주사 + 소셜섹터 근무자/관심자',
+      target: '공공일호 입주사 및 소셜섹터 근무자/관심자',
       strategyCore: ['안정적인 코워킹 스페이스 운영', '공공그라운드 및 공공일호 홍보/마케팅'],
       strategy: [
         { t: '(1) 코워킹 스페이스 및 임대 공간 기획운영', lv: 1 },
@@ -687,8 +687,8 @@
         { label: '공공그라운드 브런치', url: 'https://brunch.co.kr/@info1vid' }
       ],
       photos: [
-        { title: '공공일호 공간', desc: "'공공일호' 건물 및 내부 공간을 운영했습니다.", crop: 1.3333, cols: 3, imgs: ['a1', 'a2', 'a3'] },
-        { title: '커뮤니티 프로그램 기획·운영', desc: '월 1회 타운홀미팅, 원데이 클래스 등 내·외부 커뮤니티 이벤트를 기획·운영했습니다.', crop: 1.3333, cols: 4, imgs: ['b1', 'b2', 'b3', 'b4'] }
+        { title: '공공일호 공간', desc: "• 공공일호 건물, 시설 및 장비 관리<br>• 공간 운영 정책, 입주 멤버 가이드라인 등 내부 정책 수립 및 관리", crop: 1.3333, cols: 3, imgs: ['a1', 'a2', 'a3'] },
+        { title: '커뮤니티 프로그램 기획·운영', desc: '내∙외부 커뮤니티 이벤트 기획 및 운영 (월 1회 타운홀미팅, 원데이 클래스 등)', crop: 1.3333, cols: 4, imgs: ['b1', 'b2', 'b3', 'b4'] }
       ]
     },
     {
@@ -719,7 +719,7 @@
         { n: '8.6점', t: '온라인 라이브 세션 만족도' }
       ],
       photos: [
-        { title: '서비스 & 커뮤니티 운영', desc: '&lt;왈이의 마음단련장&gt; 서비스와 온라인 커뮤니티를 운영하며 라이브 세션 등 프로그램을 진행했습니다.', justified: [
+        { title: '서비스 & 커뮤니티 운영', desc: '운영 정책 수립, 프로세스 정립 등 운영 시스템 구축', justified: [
           [['a1', 0.863], ['a2', 0.776], ['a3', 0.75], ['a4', 0.75], ['a5', 0.75]]
         ]},
         { title: '온라인 세션 기획·운영', crop: 1.0, cols: 4, pos: 'top', imgs: ['b1', 'b2', 'b3', 'b4', 'b5', 'b6', 'b7', 'b8'] }
@@ -729,12 +729,12 @@
       id: 'ccbook', category: 'campaign', folder: 'ccbook',
       title: '씨집책방',
       tagline: '"문장과 장면 사이, 씨집책방" - 만우절 시즌 온·오프라인 통합 캠페인',
-      line: '만우절 시즌 IMC 캠페인 총괄',
+      line: '브랜드 IMC 캠페인 총괄',
       role: 'PM으로서 준비~실행까지 전 과정 기획·총괄 (기여도 100%; 대행사 관리 병행)',
       org: 'CJ CGV IMC팀/브랜드 파트', period: '2025.03–04',
       tags: ['상영 기획전·공간·이벤트 기획', '컨셉·스토리텔링', '브랜드 협업', '통합 마케팅 전략 수립', '콘텐츠 QC'],
       intro: "만우절의 시즌성과 특성을 반영한 캠페인입니다. 책과 영화의 공통점인 '이야기'에서 착안하여 브랜드의 온·오프라인 자원을 모두 활용해 독립서점 컨셉으로 4월 한 달간 운영했습니다. 상영 후 메마른 경험을 제공할 수 있도록 온·오프라인 연계 전략을 수립·실행했습니다.",
-      goal: '시즈널 화제성 확보 및 브랜드 인지도 개선',
+      goal: '시즈널 캠페인 화제성 확보 및 브랜드 인지도 개선',
       target: '텍스트힙 트렌드 및 아날로그 경험 소비 선호 2030',
       strategyCore: ['영화관 저관여 고객까지 아우르는 화제성 확보', '온·오프라인 경계 없이 캠페인의 세계관 확장'],
       strategy: [
@@ -756,7 +756,7 @@
       photos: [
         { title: '오프라인 팝업 공간 ‘씨집책방’', desc: "• CGV용산아이파크몰 공간 팝업 (기존 15일 운영 → 최종 30일로 확대 운영)<br>• ‘문학동네’ 출판사와 협업을 통해 원작 및 상영작 연계 큐레이션 도서 300권 구비<br>• 자유 열람용 가구 배치 → 극장 방문객 대상 추가 바이럴 유도", crop: 0.75, cols: 4, imgs: ['a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7', 'a8'] },
         { title: '오프라인 이벤트 ‘정세랑의 문장’ & ‘독서관 - 낮과 밤’', desc: "• 정세랑 작가가 책방지기로 상주, 고객 사연에 따른 맞춤 책을 처방하는 이벤트<br>• 만우절 당일 팝업 공간 ‘씨집책방’에서 진행, 총 45명 참여 (사전 추첨제)<br>• 씨네드쉐프관에서 식음료가 포함된 독서 전용관을 운영, 객석률 80% 기록", crop: 0.75, cols: 4, imgs: ['b1', 'b2', 'b3', 'b4', 'b5', 'b6', 'b7', 'b8'] },
-        { title: '디지털 커뮤니케이션', desc: "• 세계관 확장 및 바이럴 극대화를 위해 만우절 당일 APP 메인 화면/스플래시/로고 변경, 무비차트 ‘씨집책방’ 탭 신설, 기획전 영화 대상 페이지 포스터 적용<br>• 온드 채널별 전략에 따라 주기적 콘텐츠, 실시간 커뮤니케이션 실행 (2개 채널, 총 40건)", subgroups: [
+        { title: '디지털 커뮤니케이션', desc: "• 세계관 확장 및 바이럴 극대화를 위해 만우절 당일 APP 메인 화면/스플래시/로고 변경,<br>무비차트 ‘씨집책방’ 탭 신설, 기획전 영화 대상 페이지 포스터 적용<br>• 온드 채널별 전략에 따라 주기적 콘텐츠, 실시간 커뮤니케이션 실행 (2개 채널, 총 40건)", subgroups: [
           { title: 'APP', cropRows: [
             { ar: 0.502, imgs: ['c1', 'c2', 'c3'] },
             { ar: 0.532, imgs: ['c4', 'c5', 'c6', 'c7', 'c8'] }
@@ -769,7 +769,7 @@
     {
       id: 'ccin', category: 'campaign', folder: 'ccin',
       title: 'CCIN (씬)',
-      tagline: '"우리가 만드는 취향 씬" — 취향 기반 영화 큐레이션 서비스',
+      tagline: '"우리가 만드는 취향 씬" - 취향 기반 영화 큐레이션 서비스',
       line: '취향 기반 영화 큐레이션 서비스 기획운영',
       role: 'PM으로서 월간 운영 시스템 구축, 월간 프로그램 실행까지 전 과정 기획·운영 (기여도 80%)',
       org: 'CJ CGV IMC팀/브랜드 파트', period: '2024.08–2025.02',
@@ -792,19 +792,19 @@
         { n: '9.3점', t: '고객 만족도' }
       ],
       photos: [
-        { title: '큐레이터 토크 기획·운영', desc: '배우 이제훈&lt;메기&gt;, 배우 전소니&lt;괴물&gt;, 싱어송라이터 하현상&lt;원스&gt; 등 총 5회 기획·운영 (2024.10~2025.02)<br>큐레이터 토크 진행 시 무대 등 공간을 직접 연출했습니다.', crop: 0.667, cols: 5, imgs: ['a1', 'a2', 'a3', 'a4', 'a5'] },
+        { title: '큐레이터 토크 기획·운영', desc: '• 총 5회 기획·운영 (2024.10~2025.02): 배우 이제훈&lt;메기&gt;, 배우 전소니&lt;괴물&gt;, 싱어송라이터 하현상&lt;원스&gt; 등 <br>• 큐레이터 토크 진행 시 무대 등 공간 직접 연출', crop: 0.667, cols: 5, imgs: ['a1', 'a2', 'a3', 'a4', 'a5'] },
         { title: '극장 OOH 및 APP 연계 홍보', justified: [
           [['b1', 1.333], ['b2', 1.333], ['b3', 0.75], ['b4', 0.522]],
           [['b5', 0.518], ['b6', 0.592], ['b7', 0.599]]
         ]},
-        { title: '디지털 커뮤니케이션', desc: '자사 온드 채널 콘텐츠 기획<br>이제훈 배우 유튜브 채널 ‘제훈씨네’ 협업 런칭 프로모션 (<a href="https://youtu.be/z8yAe2w5L_U?si=RMBe-8ScNaya-sW5" target="_blank" rel="noopener">제훈씨네 ↗</a>)', crop: 0.59, cols: 3, imgs: ['c1', 'c2', 'c3', 'c4', 'c5', 'c6'] },
-        { title: '커뮤니티 · 바이럴 기획·운영', desc: '오픈채팅방 챌린지 등 영화별·주제별 온라인 커뮤니티를 기획·운영했습니다.', crop: 0.543, cols: 4, imgs: ['d1', 'd2', 'd3', 'd4'] }
+        { title: '디지털 커뮤니케이션', desc: '• 자사 온드 채널 콘텐츠 기획<br>• 이제훈 배우 유튜브 채널 ‘제훈씨네’ 협업 런칭 프로모션 (<a href="https://youtu.be/z8yAe2w5L_U?si=RMBe-8ScNaya-sW5" target="_blank" rel="noopener">제훈씨네 ↗</a>)', crop: 0.59, cols: 3, imgs: ['c1', 'c2', 'c3', 'c4', 'c5', 'c6'] },
+        { title: '커뮤니티 · 바이럴 기획·운영', desc: '오픈채팅방 챌린지 등 영화별·주제별 온라인 커뮤니티 기획운영', crop: 0.543, cols: 4, imgs: ['d1', 'd2', 'd3', 'd4'] }
       ]
     },
     {
       id: 'sqnc', category: 'launch', folder: 'sqnc',
       title: 'SQNC (시퀀스)',
-      tagline: '"INSPIRE YOUR LIFE, SEQUENCE" - 프렌트립 신규 프리미엄 큐레이션 브랜드',
+      tagline: '"INSPIRE YOUR LIFE, SEQUENCE" - 프렌트립 신규 프리미엄 브랜드',
       line: '신규 큐레이션 브랜드 런칭',
       role: 'PM으로서 브랜드 런칭 준비~실행까지 전 과정 기획·총괄 (기여도 100%)',
       org: '프렌트립 시퀀스팀', period: '2023.04–06',
@@ -844,20 +844,20 @@
             "파르품삼각의 올팩티브 저니는 시향 이상의 가치를 전합니다. '제3의 옷'처럼, 어느덧 우리 생활에 중요한 요소가 된 향을 입체적으로 바라보고, 적극적으로 활용해 보세요. 단 150분 동안 시각, 청각, 후각을 중심으로 경험하는 올팩티브 저니는 나의 세계관을 한층 더 넓혀줍니다. 일상을 바꿔줄 '작지만 강렬한 경험'이 되어주죠. 2년간 1,000명을 만나온 베테랑 시향 마스터가 새로운 세계로 여러분을 안내합니다."
           ]
         }},
-        { title: '매거진 제작', desc: '브랜드·호스트 인터뷰를 담은 매거진을 기획·구성·편집했습니다.', magazines: [
+        { title: '매거진 제작', desc: '브랜드·호스트 인터뷰를 담은 매거진 기획·구성·편집', magazines: [
           { code: 'SQNC 007', headline: '이곳에서는 누구나 이웃이 된다', brand: '목금토식탁', rep: '이선용 대표', url: 'https://www.frip.co.kr/magazines/20157223' },
           { code: 'SQNC 008', headline: '이토록 편안한 재즈', brand: '부기우기', rep: '황순재 대표 · 박휘상 점장', url: 'https://www.frip.co.kr/magazines/20157224' },
           { code: 'SQNC 010', headline: '오마카세 그 이상, 독보적 티 세리모니', brand: '오므오트', rep: '김현용 · 김혜진 대표', url: 'https://www.frip.co.kr/magazines/20157226' },
           { code: 'SQNC 020', headline: '순간의 행복, 찰나의 향기로', brand: '더 퍼퓸 바이 수향', rep: '김수향 대표', url: 'https://www.frip.co.kr/magazines/20157239' },
           { code: 'SQNC 030', headline: '다시, 이어가는 마음', brand: '킨츠기 작가 김수미', rep: '', url: 'https://www.frip.co.kr/magazines/20157248' }
         ]},
-        { title: '브랜드 인터뷰 · 촬영 보조', desc: '브랜드 인터뷰와 상품 촬영 현장을 지원했습니다.', crop: 0.667, cols: 4, imgs: ['d1', 'd2', 'd3', 'd4'] }
+        { title: '브랜드 인터뷰 · 촬영 보조', desc: '', crop: 0.667, cols: 4, imgs: ['d1', 'd2', 'd3', 'd4'] }
       ]
     },
     {
       id: 'txtclub', category: 'launch', folder: 'txtclub',
-      title: 'TXT CLUB(텍스트클럽)',
-      tagline: '"텍스트 너머의 이야기, 텍스트클럽" — 신규 북토크 브랜드',
+      title: 'TXT CLUB (텍스트클럽)',
+      tagline: '"텍스트 너머의 이야기, 텍스트클럽" - 공공그라운드 신규 북토크 브랜드',
       line: '신규 브랜디드 콘텐츠 개발·기획운영 총괄',
       role: 'PM으로서 브랜드 런칭부터 개별 회차 실행까지 전 과정 기획·총괄 (기여도 100%)',
       org: '공공그라운드', period: '2020.01–2022.04',
@@ -886,7 +886,7 @@
         { label: '텍스트클럽 기획 노트', url: 'https://brunch.co.kr/magazine/oozoo-view' }
       ],
       photos: [
-        { title: '현장 사진', desc: '독자 사연을 중심 재료로 한 북토크를 기획·운영했습니다. (작가·셀럽과 총 12회 진행)', crop: 1.505, cols: 4, imgs: ['a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7', 'a8', 'a9', 'a10', 'a11', 'a12'] },
+        { title: '현장 사진', desc: '• 아이디어 제안부터 당일 현장 운영까지, 프로젝트 A-Z 직접 실행<br> • 공동기획 파트너 외 총 7개 출판사 및 작가 12명과 커뮤니케이션<br>• 극장 운영 감독: 행사 플로우 기획 및 무대 연출, 무대/음향/스탭 커뮤니케이션<br>• 판매 페이지 스토리텔링, SNS 콘텐츠 발행 등 통합 마케팅 실행', crop: 1.505, cols: 4, imgs: ['a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7', 'a8', 'a9', 'a10', 'a11', 'a12'] },
         { title: 'BI 개발', justified: [
           [['b1', 0.7075], ['b2', 0.667], ['b3', 1.0], ['b4', 1.0]],
           [['b5', 0.75], ['b6', 0.75], ['b7', 0.75]]
@@ -920,8 +920,8 @@
         { n: '25%', t: '자기계발 카테고리 구매 유저의 플랫폼 리텐션율' }
       ],
       photos: [
-        { title: '자기발견 · 자기계발 카테고리 상품 기획·운영', desc: 'IP 협업 및 개별 상품의 기획·섭외·스토리텔링부터 현장 운영까지 담당했습니다.', crop: 1.3333, cols: 4, imgs: ['a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7', 'a8'] },
-        { title: '상품 기획 및 스토리텔링', desc: '상품 상세 페이지 등 디자인물을 제작했습니다.', cropRows: [
+        { title: '자기발견 · 자기계발 카테고리 상품 기획·운영', desc: 'IP 협업 프로젝트 및 개별 상품 P&L 구조 세팅<br>• 아이템 기획, 강연자 섭외 및 호스트 소싱<br>• 현장 운영', crop: 1.3333, cols: 4, imgs: ['a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7', 'a8'] },
+        { title: '상품 기획 및 스토리텔링', desc: '콘텐츠 기획 및 스토리텔링, 상세페이지 등 디자인물 제작', cropRows: [
           { ar: 0.359, imgs: ['b1', 'b2', 'b3', 'b4'] },
           { ar: 0.462, imgs: ['b5', 'b6', 'b7'] }
         ]}
@@ -1167,12 +1167,12 @@
   // ─── PLAYGROUND DETAIL (씨앗실험실) ───
   const seedDetail = {
     title: '씨앗실험실',
-    tagline: '가능성을 탐구하는 커뮤니티.',
+    tagline: '가능성을 탐구하는 커뮤니티',
     cover: 'images/playground/seed/cover.webp',
     intro: [
-      '나의 창조성을 발견한다는 것은 나의 고유한 무언가를 찾는 것이고, 고유함은 원래부터 가지고 있어 특유하다는 뜻이니 곧 나의 씨앗이 되겠지요.',
-      "내 씨앗이 어떤 모양으로 싹을 틔울지, 어떤 방식으로 기르면 잘 클지 이리저리 연구해보자는 의미에서 '실험실'을 붙였어요.",
-      '실험실에서는 망해도 되고 이상해도 되거든요. 즐겁게 실험해봅시다.'
+      '다양한 커뮤니티 프로그램을 경험하며 나의 가능성을 탐구합니다.<br>나의 가능성을 발견한다는 것은 나의 고유한 무언가를 찾는 것이고,<br>고유함은 원래부터 가지고 있어 특유하다는 뜻이니 곧 나의 씨앗이 되겠지요.',
+      "내 씨앗이 어떤 모양으로 싹을 틔울지,<br>어떤 방식으로 기르면 잘 클지 이리저리 연구해보자는 의미에서 '실험실'을 붙였어요.",
+      '실험실에서는 망해도 되고 이상해도 되거든요. 즐겁게 실험해봅시다!'
     ],
     meta: [
       { label: '유형', value: '개인 사이드 프로젝트 · 기획/운영' },
@@ -1197,7 +1197,7 @@
         { t: "줄리아 카메론의 &lt;아티스트 웨이&gt; 기반 12주 과정, '모닝페이지반' 등 온라인 진행 (누적 33명 참여)", lv: 2 },
         { t: '매 기수 프로그램 설명서·커뮤니티 규칙·보증금/장학금 제도 설계·운영', lv: 2 },
         { t: '2026년 6월부터 다시 커뮤니티 재개', lv: 1 },
-        { t: '포폴나이트 @카쩨 등 프로그램 운영중', lv: 2 }
+        { t: '\'포폴나이트\' 등 다양한 프로그램 운영중', lv: 2 }
       ]}
     ],
     photoBase: 'images/playground/seed',
@@ -1260,7 +1260,7 @@
 
   const photoDetail = {
     title: '포토에세이 『마음의 실루엣』',
-    tagline: '2,547일의 그림자와 마음의 기록을 담은 그림자책 (독립출판, 2023~)',
+    tagline: '2,547일, 그림자와 마음의 기록을 담은 그림자책 (독립출판)',
     cover: 'images/playground/silhouette/cover.webp',
     meta: [
       { label: '유형', value: '개인 프로젝트 · 독립출판' },
@@ -1269,16 +1269,16 @@
     ],
     sale: '<a class="paper-link" href="https://pixelperinch.com/" target="_blank" rel="noopener">픽셀 퍼 인치</a> · <a class="paper-link" href="https://smartstore.naver.com/justorage/products/8330718444" target="_blank" rel="noopener">스토리지북앤필름 본점</a> · <a class="paper-link" href="https://www.instagram.com/at_storage/" target="_blank" rel="noopener">스토리지북앤필름 로터리점</a> · <a class="paper-link" href="https://byeolcheck.kr/shop" target="_blank" rel="noopener">별책부록</a> · <a class="paper-link" href="https://smartstore.naver.com/dasibookshop/products/8420892779" target="_blank" rel="noopener">다시서점</a> · <a class="paper-link" href="https://smartstore.naver.com/allornothing/products/8341695876" target="_blank" rel="noopener">올오어낫싱</a> · <a class="paper-link" href="https://www.instagram.com/dokseogwan/" target="_blank" rel="noopener">독서관</a> · <a class="paper-link" href="https://www.instagram.com/soblue_official/" target="_blank" rel="noopener">쏘블루</a> · <a class="paper-link" href="https://www.instagram.com/nunpulkot/" target="_blank" rel="noopener">눈풀꽃</a> · <a class="paper-link" href="https://www.instagram.com/shape_of_time/" target="_blank" rel="noopener">셰입오프타임</a> · <a class="paper-link" href="https://www.instagram.com/akerbookstore/" target="_blank" rel="noopener">에이커 북스토어</a> · <a class="paper-link" href="https://smartstore.naver.com/lovenfree_book/products/8419496448" target="_blank" rel="noopener">러브앤프리</a> · <a class="paper-link" href="https://www.instagram.com/bamsuzymandramy.bookstore/" target="_blank" rel="noopener">밤수지맨드라미 북스토어</a> · <a class="paper-link" href="https://www.instagram.com/labas.book/" target="_blank" rel="noopener">라바북스</a> · <a class="paper-link" href="https://www.yes24.com/product/goods/138336656" target="_blank" rel="noopener">예스24</a> · <a class="paper-link" href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=352237081" target="_blank" rel="noopener">알라딘</a>',
     cards: [
-      { title: '텀블벅 펀딩', desc: '266% 달성 (2022.12.15~2023.01.08)<br><a href="https://tumblbug.com/oozoowith" target="_blank" rel="noopener">텀블벅 프로젝트 ↗</a>' },
-      { title: '독립출판 페어 참여', desc: '국내 최대 규모 독립출판물 페어 &lt;서울 퍼블리셔스 테이블 2023&gt; 부스 참여 (2023)' }
+      { title: '텀블벅 성공 프로젝트', desc: '최종 펀딩 266% 달성 (2022.12~2023.01)<br><a href="https://tumblbug.com/oozoowith" target="_blank" rel="noopener">텀블벅 프로젝트 ↗</a>' },
+      { title: '독립출판물 페어 참여', desc: '국내 최대 규모 독립출판물 페어 &lt;서울 퍼블리셔스 테이블 2023&gt; 부스 참여 (2023)' }
     ],
     sections: [
       { h: '소개', blocks: [
         { h: '보이지 않는 것에 대한 이야기, 『마음의 실루엣』' },
         { p: '무언가의 뒷면을 본 적이 있나요?' },
-        { p: '그림자는 보이지 않는 것을 이야기합니다. 주목하지 않으면 스쳐 지나가는 일상 풍경일 뿐이지만, 눈여겨볼 때 비로소 아름다움을 발견할 수 있죠.' },
+        { p: '그림자는 보이지 않는 것을 이야기합니다.<br>주목하지 않으면 스쳐 지나가는 일상 풍경일 뿐이지만,<br>눈여겨볼 때 비로소 아름다움을 발견할 수 있죠.' },
         { p: '솔직하게 표현하기 어려운 마음은 안쪽에 숨겨두듯이 마음도, 그림자도 이면의 것을 생각하게 합니다.' },
-        { p: '『마음의 실루엣』은 2,547일 동안 모은 그림자와 마음의 기록을 담은 그림자책입니다. 가려진 것을 생각해보는 분, 숨겨진 이야기가 궁금한 분, 아름다움과 연결되고 싶은 분들께 닿기를 바랍니다.' },
+        { p: '『마음의 실루엣』은 2,547일 동안 모은 그림자와 마음의 기록을 담은 그림자책입니다.<br>가려진 것을 생각해보는 분, 숨겨진 이야기가 궁금한 분, 아름다움과 연결되고 싶은 분들께 닿기를 바랍니다.' },
         { h: '작가 우주' },
         { p: '가능성이 많은 사람. 세상에 있던 것을 새롭게 발견하고, 다르게 보는 것을 좋아한다.' },
         { p: "숨겨진 것, 아직 드러나지 않은 것을 찾아내어 '영감을 주는 경험'을 만드는 문화기획자다." },
@@ -1294,17 +1294,17 @@
         { quote: `📍 p.98~103 &lt;기획하는 마음&gt; 발췌<br>오래전부터 무대 뒤의 이야기를 쓰고 싶었다. 대체로 엄청 유명한 기획자가 아니면 무대 뒷면의 이야기를 들려줄 기회가 없고, 사람들도 그다지 궁금해하지 않는다. 하지만 나의 일은 뒷면에 있고, 나는 나의 일을 무척 아끼는 사람이라서 나라도 내 이야기를 들어주어야겠다고 생각했다. 그래서 아무도 물어보지 않아도 기획 노트를 차곡차곡 쌓아두었다. 그중에서 내가 가장 사랑하는 &lt;텍스트클럽&gt;의 이야기를 나누고 싶다.<br>(중략)<br>프로젝트의 A부터 Z까지 모든 것을 직접 챙기며 나름의 '기획법'을 만들었다. '모든 기획에는 이유가 있어야 한다'는 것을 가장 주요한 방향으로 두고 있다. 기획자는 그 시간, 그 자리에 바로 '그'가, 또는 '그것'이 있어야 할 이유를 만들어 하나의 세계를 만드는 사람이니까. 생각의 시야를 넓힐수록 고려해야 하는 것도 많아지지만, 더 깊이 생각할수록 더 좋은 경험을 줄 수 있다. 그렇게 믿고 있다.<br>무엇보다도 내가 내 기획에 자신이 있어야 창작자에게도 독자에게도 진심으로 가닿을 수 있다고 생각한다. 이 태도를 뭐라고 부를 수 있을까. 기획자로서의 자신감, 혹은 양심, 심지어 그것이 착각이나 오만이더라도 나의 '렌즈'를 진심으로 힘껏, 믿는 것이 기획을 잘 풀리게 한다. &lt;텍스트클럽&gt;을 만들 때는 기획을 뾰족하게 만들기 위해 자주 들여다보며 가까워지고, 이해의 폭을 늘려가는 과정에 전력을 다했다. 나의 관점이 대상을 새롭게, 다르게 해석할 수 있는 여지를 만들 수 있도록. 내가 진심을 다할수록 이번 프로그램 정말 좋다고, 그러니까 함께 들어보자고 자신 있게 이야기할 수 있는 밑천이 되었다.<br>(중략)<br>힘껏 보내온 마음과 큰 도움, 약간의 운으로 굴러갔던 &lt;텍스트클럽&gt;. 텍스트클러버가 기꺼이 내어준 이야기와 공감 덕분에 나는 조금 더 이해할 수 있는 사람이 되었다. 텍스트를 사이에 두고 이야기하며 '우리의 시간'을 만든다는 것, 말이 아닌 무언가를 나눈다는 것. &lt;텍스트클럽&gt;은 그런 것들을 떠올리게 한다.` },
         { quote: `📍 p.80~81 &lt;"Would you like some bread?"&gt; 전문<br>서울에서 열 몇 시간 떨어진 도시, 한 달을 기다렸던 미슐랭 코스 직전에 갑작스럽게 배탈이 났다. 피곤한 몸이 날씨를 버티지 못해 미슐랭 요리 대신 더위를 먹어버린 탓이었다. 머리는 딩딩 울리고, 속은 메슥거려 금방이라도 주저앉을 것 같았지만 귀한 미식 찬스를 도저히 놓칠 수는 없었다. 하지만 화장실이라도 가려고 들어간 식당에서도 눈앞이 핑핑 돌아 앉아있기가 어려웠다. '몸이 좋지 않아서 나는 갈 테니, 친구들 주문만 받아주라'는 말에 웨이터 아저씨가 걱정스러운 얼굴로 말했다.<br>"Are you okay? How about a cold napkin or medicine? Or would you like some bread?"<br>큰 컵에 찬물을 가득 따라주던 웨이터 아저씨는, 마치 지금 당장 뭐라도 해주고 싶은데 본인이 줄 수 있는 가장 좋은 것이 오로지 빵뿐인 사람 같았다. 식은땀을 흘리는 와중에도 '약이랑 빵이 어떻게 한 문장에 있을 수 있지? 이 동네는 빵이 약인가?' 싶어 웃음이 비실 새어 나왔다. 나중에 친구들에게 듣기로, 웨이터 아저씨는 디저트 코스가 나올 때까지도 '네 친구 괜찮냐'며 끝까지 걱정했다고 한다.<br>숙소로 돌아와 한참 동안 열을 앓다가 눈을 떴을 때, 친구들이 꽃다발과 함께 돌아왔다. 아프지 말고 행복하자고. 느닷없이 찾아온 일사병은 하루를 넘기지 않았고 나는 그것이 나에게 온 마음 덕분이었을 것이라 생각한다. 어떤 모양이든 사랑은 힘이 된다.` },
       ]},
-      { h: '서울 퍼블리셔스 테이블', blocks: [
+      { h: '서울퍼블리셔스테이블', blocks: [
         { pgroup: { crop: 0.75, cols: 3, imgs: ['c1', 'c2', 'c3', 'c4', 'c5', 'c6'] } }
       ]},
-      { h: '북토크', blocks: [
-        { h: '기획 컨셉 - 제1회 그림자책 모임' },
+      { h: '북토크 · 서점 유통', blocks: [
+        { h: '출간 기념 제1회 북토크 (2023)' },
         { list: [
-          { t: '그림자라는 매개로 모인 사람들이 서로 연결될 수 있는 모임', lv: 1 },
-          { t: '90분 동안은 가까운 이웃처럼 서로 환대해주는 분위기로 만들 것', lv: 1 },
-          { t: '뒷면의 이야기를 알려주는 자리 &gt;&gt; 그간의 작업물도 함께 보여주기', lv: 1 }
+          { t: '기획 컨셉: 제1회 그림자책 모임', lv: 1 },
+          { t: '• 그림자라는 매개로 모인 사람들이 서로 연결될 수 있는 모임<br>• 90분 동안은 가까운 이웃처럼 서로 환대해주는 분위기로 만들 것<br>• 뒷면의 이야기를 알려주는 자리이므로, 그간의 작업물도 함께 보여주기', lv: 1 },
+          { t: '• 전국 독립서점 및 온라인 서점 유통중', lv: 1 }
         ]},
-        { pgroup: { title: '북토크 · 서점 유통', desc: '출간 기념 제1회 북토크 (2023)', cropRows: [
+        { pgroup: { title: '', desc: '', cropRows: [
           { ar: 1.3333, imgs: ['d1', 'd2', 'd3', 'd4'] },
           { ar: 0.75, imgs: ['d5', 'd6', 'd7', 'd8'] }
         ]}}
@@ -1345,7 +1345,7 @@
   // ─── PLAYGROUND DETAIL (널 위한 문화예술) ───
   const artDetail = {
     title: '널 위한 문화예술',
-    tagline: '예술문화 미디어 외부 필진 — 디지털 콘텐츠 구성·제작 (2022~)',
+    tagline: '예술문화 미디어 외부 필진 - 디지털 콘텐츠 구성·제작 (2022~2026)',
     cover: 'images/playground/art4u/cover.webp',
     meta: [
       { label: '유형', value: '프리랜서 · 콘텐츠 구성 작가' },
@@ -1429,7 +1429,7 @@
   // ─── PLAYGROUND DETAIL (TMT TOWN) ───
   const tmtDetail = {
     title: 'TMT TOWN',
-    tagline: '생각 많은 애들의 시시콜콜한 이야기를 나누는 오리지널 팟캐스트 (2024~)',
+    tagline: '”We are Too Much Thinker - 오늘도 딱 한 뼘만큼 깊게” (2024~)',
     cover: 'images/playground/town/cover.webp',
     meta: [
       { label: '유형', value: '개인 사이드 프로젝트 · 오리지널 팟캐스트' },
@@ -1439,8 +1439,8 @@
     intro: ['생각 많은 애들의 시시콜콜한 이야기, TMT 타운에 온 걸 환영해!<br>TMT 타운은 생각이 많아도 너~무 많은 우리가 잡다한 이야기를 나누는 곳이야.<br>별 것 아닌 이야기도 딱 한 뼘만큼 깊게 들여다보는 우리의 생각, 한번 들어볼래?'],
     sections: [
       { h: '', blocks: [
-        { h: '시즌 3 — 이야기는 계속 되어야 하니까' },
-        { callout: '재밌으려고 시작한 놀이가 진지한 프로젝트가 되었다! 본업 사이 단비 같은 이야기를 나누며 꾸준함을 꾸준히 이어가보는 시즌. 무슨 얘기를 나눌지는 우리도 몰라~' },
+        { h: '시즌 3: 이야기는 계속 되어야 하니까' },
+        { callout: '재밌으려고 시작한 놀이가 진지한 프로젝트가 되었다!<br>본업 사이 단비 같은 이야기를 나누며 꾸준함을 꾸준히 이어가보는 시즌.<br>무슨 얘기를 나눌지는 우리도 몰라~' },
         { linkAll: 'https://www.youtube.com/@TMTTOWN', list: [
           { t: 'ep.15-1 근데… 무슨 일 하세요? (우리의 일 이야기 Part 1)', lv: 1 },
           { t: 'ep.15-2 내 일에서 가장 중요한 것 (우리의 일 이야기 Part 2)', lv: 1 },
@@ -1450,8 +1450,8 @@
           { t: 'ep.19 사이드 프로젝트의 기쁨과 슬픔', lv: 1 },
           { t: 'ep.20 요즘 콘텐츠 뭐봄? (ft. OTT부터 공연까지)', lv: 1 }
         ]},
-        { h: '시즌 2 — 감정과 마음' },
-        { callout: '다양한 마음에 관해 이야기하는 시즌! 감정과 마음은 이야기의 시작점이고 통로이기도 하다. 최근 나의 감정, 자주 떠올리는 생각, 마음의 상태나 기분을 솔직하게 나눈다. 답이 없는 마음일지라도 입 밖으로 꺼내어 나누는 우리의 과정을 기록한다.' },
+        { h: '시즌 2: 감정과 마음' },
+        { callout: '다양한 마음에 관해 이야기하는 시즌!<br>감정과 마음은 이야기의 시작점이고 통로이기도 하다.<br>최근 나의 감정, 자주 떠올리는 생각, 마음의 상태나 기분을 솔직하게 나눈다.<br>답이 없는 마음일지라도 입 밖으로 꺼내어 나누는 우리의 과정을 기록한다.' },
         { linkAll: 'https://www.youtube.com/@TMTTOWN', list: [
           { t: 'ep.8 존중과 열정: &lt;흑백요리사&gt;로부터', lv: 1 },
           { t: 'ep.9 아, 아무것도 하기 싫다 (Feat. 권태와 무기력)', lv: 1 },
@@ -1461,8 +1461,8 @@
           { t: 'ep.13 결핍이 불안이 되지 않게', lv: 1 },
           { t: 'ep.14 시즌 2 마지막회 : 티엠티 타운, 변화가 필요해!', lv: 1 }
         ]},
-        { h: '시즌 1 — 생각의 조각들' },
-        { callout: '한 가지 키워드에 꽂히면 앉은 자리에서 몇 시간이고 떠들 수 있는 우리. 평소에 자주 생각했던 주제나 최근 가장 고민했던 것들을 나누며 시시콜콜한 이야깃거리를 던져보는 시즌. 재밌게 봤던 콘텐츠, 건강과 돈에 관한 고민, 일과 행복까지 촘촘하게 훑어본 기록들.' },
+        { h: '시즌 1: 생각의 조각들' },
+        { callout: '한 가지 키워드에 꽂히면 앉은 자리에서 몇 시간이고 떠들 수 있는 우리.<br>평소에 자주 생각했던 주제나 최근 가장 고민했던 것들을 나누며<br>시시콜콜한 이야깃거리를 던져보는 시즌.<br>재밌게 봤던 콘텐츠, 건강과 돈에 관한 고민, 일과 행복까지 촘촘하게 훑어본 기록들.' },
         { linkAll: 'https://www.youtube.com/@TMTTOWN', list: [
           { t: 'ep0. 생각 많은 애들 - 시즌1', lv: 1 },
           { t: 'ep1. 건강한 신체에 건강한 정신이 깃든다', lv: 1 },
