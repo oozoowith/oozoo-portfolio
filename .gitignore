@@ -2,6 +2,7 @@
 portfolio.pdf
 .claude/
 deploy.command
+editor.html
 
 # 원본 대용량 이미지(JPG/PNG 등)는 커밋 금지 — 사이트는 webp만 사용.
 # deploy.command의 git add -A 가 원본을 담지 않도록 차단.
