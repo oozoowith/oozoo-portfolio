@@ -108,13 +108,8 @@
     .home-bio-secondary { font-size: 16px; line-height: 1.7; color: var(--text-muted); }
     .home-bio-secondary a { color: var(--text-secondary); border-bottom: 1px solid var(--border); transition: color 0.2s, border-color 0.2s; }
     .home-bio-secondary a:hover { color: var(--accent); border-color: var(--accent); }
-    /* 홈 이름(정은용): 마우스 움직임에 따라 검정→파랑 그라데이션 */
     .home-mono { cursor: default; }
-    .hn-ko {
-      background: radial-gradient(circle 240px at var(--mx, 50%) var(--my, 50%), var(--accent) 0%, var(--text-primary) 72%);
-      -webkit-background-clip: text; background-clip: text;
-      -webkit-text-fill-color: transparent; color: transparent;
-    }
+    .hn-ko { color: var(--text-primary); }
     /* 플로팅 스크롤다운 버튼 (원형, 하단 중앙 고정) */
     .scroll-down {
       position: fixed; left: 50%; bottom: 26px; transform: translateX(-50%);
@@ -154,7 +149,7 @@
     .edu-role { color: var(--text-secondary); display: block; font-size: 12.5px; margin-top: 3px; }
     .paper-item { margin-bottom: 12px; }
     .paper-item:last-child { margin-bottom: 0; }
-    .paper-title { font-size: 12.5px; font-weight: 600; line-height: 1.5; color: var(--text-primary); }
+    .paper-title { font-family: 'Pretendard', sans-serif; font-size: 12.5px; font-weight: 600; line-height: 1.5; color: var(--text-primary); }
     .paper-meta { font-size: 11.5px; color: var(--text-muted); line-height: 1.45; margin-top: 3px; }
     .paper-link { font-size: 12.5px; color: var(--text-primary); font-weight: 600; line-height: 1.5; display: inline-block; }
     .paper-link:hover { text-decoration: underline; }
@@ -231,7 +226,7 @@
     .meta-wide { grid-column: 1 / -1; }
     @media (max-width: 768px) { .meta-grid { grid-template-columns: repeat(2, 1fr); } }
     .meta-grid.meta-2 { grid-template-columns: repeat(2, 1fr); }
-    .detail-section { margin-top: 32px; }
+    .detail-section { margin-top: 45px; }
     .detail-section h3 {
       font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
       color: var(--accent); margin-bottom: 12px;
@@ -479,14 +474,14 @@
         <div class="timeline-item"><span class="timeline-year">2021</span><div><div class="timeline-org">왈</div><div class="timeline-role">Operating Director (겸직)</div></div></div>
         <div class="timeline-item"><span class="timeline-year">2017</span><div><div class="timeline-org">망고플레이트</div><div class="timeline-role">운영팀 RA</div></div></div>
         <div class="timeline-item"><span class="timeline-year">2016</span><div><div class="timeline-org">LK Base</div><div class="timeline-role">언어학 전문가</div></div></div>
-        <div class="timeline-item"><span class="timeline-year">2013–2015</span><div><div class="timeline-org">건국대학교 언어커뮤니케이션 실험실</div><div class="timeline-role">RA (연구원)</div></div></div>
+        <div class="timeline-item"><span class="timeline-year">2013–2015</span><div><div class="timeline-org">건국대학교 언어커뮤니케이션 실험실</div><div class="timeline-role">RA</div></div></div>
       </div>
     </div>
     <div class="about-sub">
       <div>
         <p class="timeline-label">학력</p>
         <div class="edu-item"><span class="edu-year">2013–2015</span> <span class="edu-org">건국대학교 일반대학원</span><span class="edu-role">문화콘텐츠·커뮤니케이션학 석사</span></div>
-        <div class="edu-item"><span class="edu-year">2009–2013</span> <span class="edu-org">건국대학교</span><span class="edu-role">커뮤니케이션학</span></div>
+        <div class="edu-item"><span class="edu-year">2009–2013</span> <span class="edu-org">건국대학교</span><span class="edu-role">커뮤니케이션학 (문화콘텐츠학 연계전공)</span></div>
       </div>
       <div>
         <p class="timeline-label">논문 · 학술활동</p>
@@ -653,9 +648,9 @@
         { n: '85%', t: '평균 출석률' }
       ],
       photos: [
-        { title: '모인츠 라운지', crop: 1.5, cols: 4, imgs: ['a1', 'a2', 'a3', 'a4'] },
-        { title: 'B2C·B2B 프로그램 기획·운영', desc: "개봉작 관람 연계 다회차 모임과 파트너사 클래스 '사유하는 목요일' 등 B2C·B2B 프로그램을 직접 기획·운영했습니다. (55건 직접 호스팅)", crop: 1.3333, cols: 4, imgs: ['b1', 'b2', 'b3', 'b4', 'b5', 'b6', 'b7'] },
-        { title: '디지털 커뮤니케이션', desc: 'SNS·앱·홈페이지 채널을 구축하고, 호스트·멤버 인터뷰 등 콘텐츠를 제작·발신했습니다.', subgroups: [
+        { title: '모인츠 라운지', desc: '커뮤니티 멤버 전용 공간 개발 · 기획', crop: 1.5, cols: 4, imgs: ['a1', 'a2', 'a3', 'a4'] },
+        { title: 'B2C·B2B 프로그램 기획·운영', desc: "개봉작 관람 연계 다회차 모임, 파트너사 클래스 ‘사유하는 목요일’ 등 (55건 직접 호스팅)", crop: 1.3333, cols: 4, imgs: ['b1', 'b2', 'b3', 'b4', 'b5', 'b6', 'b7'] },
+        { title: '디지털 커뮤니케이션', desc: '• 자사 APP · SNS · 홈페이지 채널 구축<br>• 호스트 · 멤버 인터뷰 등 콘텐츠 제작 · 발신', subgroups: [
           { title: 'SNS', crop: 0.64, cols: 3, imgs: ['c1-1', 'c1-2', 'c1-3'] },
           { title: 'APP', crop: 0.661, cols: 4, imgs: ['c2-1', 'c2-2', 'c2-3', 'c2-4'] },
           { title: '홈페이지', crop: 0.632, cols: 3, imgs: ['c3-1', 'c3-2', 'c3-3'] }
@@ -759,9 +754,9 @@
       ],
       resultNote: '전사 단위 연간 캠페인으로 확대 운영 논의',
       photos: [
-        { title: '오프라인 팝업 공간 ‘씨집책방’', desc: '브랜드 협업으로 독립서점 컨셉 팝업 공간 ‘씨집책방’을 30일간 운영했습니다. (CGV용산아이파크몰)', crop: 0.75, cols: 4, imgs: ['a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7', 'a8'] },
-        { title: '오프라인 이벤트 ‘정세랑의 문장’ & ‘독서관 - 낮과 밤’', desc: '팝업 공간에서 ‘정세랑의 문장’, ‘독서관 - 낮과 밤’ 등 오프라인 이벤트를 기획·운영했습니다.', crop: 0.75, cols: 4, imgs: ['b1', 'b2', 'b3', 'b4', 'b5', 'b6', 'b7', 'b8'] },
-        { title: '디지털 커뮤니케이션', desc: '자사 앱·인스타그램·X 등 온드 채널에서 캠페인 연계 콘텐츠를 기획·발행하고 실시간 커뮤니케이션을 전개했습니다.', subgroups: [
+        { title: '오프라인 팝업 공간 ‘씨집책방’', desc: "• CGV용산아이파크몰 공간 팝업 (기존 15일 운영 → 최종 30일로 확대 운영)<br>• ‘문학동네’ 출판사와 협업을 통해 원작 및 상영작 연계 큐레이션 도서 300권 구비<br>• 자유 열람용 가구 배치 → 극장 방문객 대상 추가 바이럴 유도", crop: 0.75, cols: 4, imgs: ['a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7', 'a8'] },
+        { title: '오프라인 이벤트 ‘정세랑의 문장’ & ‘독서관 - 낮과 밤’', desc: "• 정세랑 작가가 책방지기로 상주, 고객 사연에 따른 맞춤 책을 처방하는 이벤트<br>• 만우절 당일 팝업 공간 ‘씨집책방’에서 진행, 총 45명 참여 (사전 추첨제)<br>• 씨네드쉐프관에서 식음료가 포함된 독서 전용관을 운영, 객석률 80% 기록", crop: 0.75, cols: 4, imgs: ['b1', 'b2', 'b3', 'b4', 'b5', 'b6', 'b7', 'b8'] },
+        { title: '디지털 커뮤니케이션', desc: "• 세계관 확장 및 바이럴 극대화를 위해 만우절 당일 APP 메인 화면/스플래시/로고 변경, 무비차트 ‘씨집책방’ 탭 신설, 기획전 영화 대상 페이지 포스터 적용<br>• 온드 채널별 전략에 따라 주기적 콘텐츠, 실시간 커뮤니케이션 실행 (2개 채널, 총 40건)", subgroups: [
           { title: 'APP', cropRows: [
             { ar: 0.502, imgs: ['c1', 'c2', 'c3'] },
             { ar: 0.532, imgs: ['c4', 'c5', 'c6', 'c7', 'c8'] }
@@ -1507,17 +1502,6 @@
   if (tmtCard) {
     tmtCard.addEventListener('click', openTmtDetail);
     tmtCard.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openTmtDetail(); } });
-  }
-
-  // ─── 홈 이름(정은용) 마우스 추적 그라데이션 ───
-  const hnKo = document.querySelector('.hn-ko');
-  if (hnKo) {
-    hnKo.addEventListener('mousemove', e => {
-      const r = hnKo.getBoundingClientRect();
-      hnKo.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
-      hnKo.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
-    });
-    hnKo.addEventListener('mouseleave', () => { hnKo.style.removeProperty('--mx'); hnKo.style.removeProperty('--my'); });
   }
 
   // ─── 플로팅 스크롤다운 버튼 ───
