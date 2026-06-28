@@ -730,7 +730,7 @@
         { title: '서비스 & 커뮤니티 운영', desc: '운영 정책 수립, 프로세스 정립 등 운영 시스템 구축', justified: [
           [['a1', 0.75], ['a2', 0.75], ['a3', 0.75], ['a4', 0.75], ['a5', 0.75]]
         ]},
-        { title: '온라인 세션 기획·운영', crop: 1.0, cols: 4, pos: 'top', imgs: ['b1', 'b2', 'b3', 'b4', 'b5', 'b7', 'b8', 'b6'] }
+        { title: '온라인 세션 기획·운영', crop: 1.0, cols: 4, pos: 'top', posMap: { b5: '50% 100%' }, imgs: ['b1', 'b2', 'b3', 'b4', 'b5', 'b6', 'b7', 'b8'] }
       ]
     },
     {
@@ -895,7 +895,7 @@
       ],
       photos: [
         { title: '현장 사진', desc: '• 아이디어 제안부터 당일 현장 운영까지, 프로젝트 A-Z 직접 실행<br> • 공동기획 파트너 외 총 7개 출판사 및 작가 12명과 커뮤니케이션<br>• 극장 운영 감독: 행사 플로우 기획 및 무대 연출, 무대/음향/스탭 커뮤니케이션<br>• 판매 페이지 스토리텔링, SNS 콘텐츠 발행 등 통합 마케팅 실행', crop: 1.505, cols: 4, imgs: ['a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7', 'a8', 'a9', 'a10', 'a11', 'a12'] },
-        { title: 'BI 개발', story: { tag: '기획 노트 발췌', body: ['본질은 텍스트클럽을 둘러싼 사람들의 관계성이다. 모든 사람이 한 세계관에 속해있지만 서로 다른 형태로 공존하고 있다. 각 그룹을 나누고, 문장부호를 붙이면 비주얼로 표현할 수 있지 않을까?'] }, justified: [
+        { title: 'BI 개발', storyTop: { tag: '기획 노트 발췌', body: ['본질은 텍스트클럽을 둘러싼 사람들의 관계성이다. 모든 사람이 한 세계관에 속해있지만 서로 다른 형태로 공존하고 있다. 각 그룹을 나누고, 문장부호를 붙이면 비주얼로 표현할 수 있지 않을까?'] }, justified: [
           [['b1', 0.7075], ['b2', 0.667], ['b3', 1.0], ['b4', 1.0]],
           [['b5', 0.75], ['b6', 0.75], ['b7', 0.75]]
         ]}
@@ -1076,7 +1076,7 @@
   }
   function renderPhotoImgs(base, g) {
     if (g.crop) {
-      return `<div class="pg-grid" style="--cols:${g.cols}; --ar:${g.crop};${g.pos ? ` --pos:${g.pos};` : ''}">${g.imgs.map(n => pgImgTag(base, n, 'pg-cell')).join('')}</div>`;
+      return `<div class="pg-grid" style="--cols:${g.cols}; --ar:${g.crop};${g.pos ? ` --pos:${g.pos};` : ''}">${g.imgs.map(n => pgImgTag(base, n, 'pg-cell', g.posMap && g.posMap[n] ? `object-position:${g.posMap[n]}` : '')).join('')}</div>`;
     }
     if (g.cropRows) {
       return g.cropRows.map(r => `<div class="pg-grid" style="--cols:${r.imgs.length}; --ar:${r.ar};${r.pos ? ` --pos:${r.pos};` : ''}">${r.imgs.map(n => pgImgTag(base, n, 'pg-cell')).join('')}</div>`).join('');
@@ -1119,6 +1119,7 @@
     return `<div class="photo-group">
       ${g.title ? `<div class="pg-sub">${g.title}</div>` : ''}
       ${g.desc ? `<p class="pg-desc">${g.desc}</p>` : ''}
+      ${g.storyTop ? renderStoryBox(g.storyTop) : ''}
       ${inner}
       ${g.story ? renderStoryBox(g.story) : ''}
     </div>`;
@@ -1448,37 +1449,37 @@
       { h: '', blocks: [
         { h: '시즌 3: 이야기는 계속 되어야 하니까' },
         { callout: '재밌으려고 시작한 놀이가 진지한 프로젝트가 되었다!<br>본업 사이 단비 같은 이야기를 나누며 꾸준함을 꾸준히 이어가보는 시즌.<br>무슨 얘기를 나눌지는 우리도 몰라~' },
-        { linkAll: 'https://www.youtube.com/@TMTTOWN', list: [
-          { t: 'ep.15-1 근데… 무슨 일 하세요? (우리의 일 이야기 Part 1)', lv: 1 },
-          { t: 'ep.15-2 내 일에서 가장 중요한 것 (우리의 일 이야기 Part 2)', lv: 1 },
-          { t: 'ep.16 가족 같은 사이', lv: 1 },
-          { t: 'ep.17 와! 여름이다!', lv: 1 },
-          { t: 'ep.18 헤맨만큼 내 땅이다', lv: 1 },
-          { t: 'ep.19 사이드 프로젝트의 기쁨과 슬픔', lv: 1 },
-          { t: 'ep.20 요즘 콘텐츠 뭐봄? (ft. OTT부터 공연까지)', lv: 1 }
+        { list: [
+          { t: '<a href="https://youtu.be/TI56huJiWtQ" target="_blank" rel="noopener">ep.15-1 근데… 무슨 일 하세요? (우리의 일 이야기 Part 1)</a>', lv: 1 },
+          { t: '<a href="https://youtu.be/xnmwA5VMNc0" target="_blank" rel="noopener">ep.15-2 내 일에서 가장 중요한 것 (우리의 일 이야기 Part 2)</a>', lv: 1 },
+          { t: '<a href="https://youtu.be/EkeiBTJyfsU" target="_blank" rel="noopener">ep.16 가족 같은 사이</a>', lv: 1 },
+          { t: '<a href="https://youtu.be/oL4X81BRbRA" target="_blank" rel="noopener">ep.17 와! 여름이다!</a>', lv: 1 },
+          { t: '<a href="https://youtu.be/hGGV21_MhkE" target="_blank" rel="noopener">ep.18 헤맨만큼 내 땅이다</a>', lv: 1 },
+          { t: '<a href="https://youtu.be/e3WG8VPKY6Y" target="_blank" rel="noopener">ep.19 사이드 프로젝트의 기쁨과 슬픔</a>', lv: 1 },
+          { t: '<a href="https://youtu.be/TvaoTii-2Jc" target="_blank" rel="noopener">ep.20 요즘 콘텐츠 뭐봄? (ft. OTT부터 공연까지)</a>', lv: 1 }
         ]},
         { h: '시즌 2: 감정과 마음' },
         { callout: '다양한 마음에 관해 이야기하는 시즌!<br>감정과 마음은 이야기의 시작점이고 통로이기도 하다.<br>최근 나의 감정, 자주 떠올리는 생각, 마음의 상태나 기분을 솔직하게 나눈다.<br>답이 없는 마음일지라도 입 밖으로 꺼내어 나누는 우리의 과정을 기록한다.' },
-        { linkAll: 'https://www.youtube.com/@TMTTOWN', list: [
-          { t: 'ep.8 존중과 열정: &lt;흑백요리사&gt;로부터', lv: 1 },
-          { t: 'ep.9 아, 아무것도 하기 싫다 (Feat. 권태와 무기력)', lv: 1 },
-          { t: 'ep.10 이 세상 모든 낭만을 위하여', lv: 1 },
-          { t: 'ep.11 우리는 우정을 사랑해', lv: 1 },
-          { t: 'ep.12 용기로운 도전생활', lv: 1 },
-          { t: 'ep.13 결핍이 불안이 되지 않게', lv: 1 },
-          { t: 'ep.14 시즌 2 마지막회 : 티엠티 타운, 변화가 필요해!', lv: 1 }
+        { list: [
+          { t: '<a href="https://youtu.be/y5ZSX8SXj2E" target="_blank" rel="noopener">ep.8 존중과 열정: &lt;흑백요리사&gt;로부터</a>', lv: 1 },
+          { t: '<a href="https://youtu.be/-Ys1IepnkFw" target="_blank" rel="noopener">ep.9 아, 아무것도 하기 싫다 (Feat. 권태와 무기력)</a>', lv: 1 },
+          { t: '<a href="https://youtu.be/FxXipuCJ3v4" target="_blank" rel="noopener">ep.10 이 세상 모든 낭만을 위하여</a>', lv: 1 },
+          { t: '<a href="https://youtu.be/Ec0vzEeiK20" target="_blank" rel="noopener">ep.11 우리는 우정을 사랑해</a>', lv: 1 },
+          { t: '<a href="https://youtu.be/5mCV9yVx5Zw" target="_blank" rel="noopener">ep.12 용기로운 도전생활</a>', lv: 1 },
+          { t: '<a href="https://youtu.be/cqb-XYiLZDU" target="_blank" rel="noopener">ep.13 결핍이 불안이 되지 않게</a>', lv: 1 },
+          { t: '<a href="https://youtu.be/dMloVHpaoxs" target="_blank" rel="noopener">ep.14 시즌 2 마지막회 : 티엠티 타운, 변화가 필요해!</a>', lv: 1 }
         ]},
         { h: '시즌 1: 생각의 조각들' },
         { callout: '한 가지 키워드에 꽂히면 앉은 자리에서 몇 시간이고 떠들 수 있는 우리.<br>평소에 자주 생각했던 주제나 최근 가장 고민했던 것들을 나누며<br>시시콜콜한 이야깃거리를 던져보는 시즌.<br>재밌게 봤던 콘텐츠, 건강과 돈에 관한 고민, 일과 행복까지 촘촘하게 훑어본 기록들.' },
-        { linkAll: 'https://www.youtube.com/@TMTTOWN', list: [
-          { t: 'ep0. 생각 많은 애들 - 시즌1', lv: 1 },
-          { t: 'ep1. 건강한 신체에 건강한 정신이 깃든다', lv: 1 },
-          { t: 'ep2. 나를 둘러싼 세계 : 영감은 핑계고', lv: 1 },
-          { t: 'ep3. 행복? 얼마면 돼, 얼마면 되냐고!', lv: 1 },
-          { t: 'ep4. 누구에게나 결핍은 있어 (feat.연애남매)', lv: 1 },
-          { t: 'ep5. 왜냐하면 우리는 휴식을 모르고', lv: 1 },
-          { t: 'ep6. 내 속엔 내가 너무도 많아 (feat. 강점혁명)', lv: 1 },
-          { t: 'ep.7 시즌 1 마지막회 : 우리의 레슨런', lv: 1 }
+        { list: [
+          { t: '<a href="https://youtu.be/qKN820JCxAs" target="_blank" rel="noopener">ep0. 생각 많은 애들 - 시즌1</a>', lv: 1 },
+          { t: '<a href="https://youtu.be/Bc1hek6s6gY" target="_blank" rel="noopener">ep1. 건강한 신체에 건강한 정신이 깃든다</a>', lv: 1 },
+          { t: '<a href="https://youtu.be/HiSgylIBXFM" target="_blank" rel="noopener">ep2. 나를 둘러싼 세계 : 영감은 핑계고</a>', lv: 1 },
+          { t: '<a href="https://youtu.be/V9LgYNxkrIM" target="_blank" rel="noopener">ep3. 행복? 얼마면 돼, 얼마면 되냐고!</a>', lv: 1 },
+          { t: '<a href="https://youtu.be/rQgLeF3VAvg" target="_blank" rel="noopener">ep4. 누구에게나 결핍은 있어 (feat.연애남매)</a>', lv: 1 },
+          { t: '<a href="https://youtu.be/neYYaAwc-Ns" target="_blank" rel="noopener">ep5. 왜냐하면 우리는 휴식을 모르고</a>', lv: 1 },
+          { t: '<a href="https://youtu.be/IPCw0huEekc" target="_blank" rel="noopener">ep6. 내 속엔 내가 너무도 많아 (feat. 강점혁명)</a>', lv: 1 },
+          { t: '<a href="https://youtu.be/qL9Yl0DdrR0" target="_blank" rel="noopener">ep.7 시즌 1 마지막회 : 우리의 레슨런</a>', lv: 1 }
         ]}
       ]}
     ]
