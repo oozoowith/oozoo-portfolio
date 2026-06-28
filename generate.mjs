@@ -10,7 +10,7 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const SITE = 'https://www.oozoo.work';
-const GA4 = 'G-XXXXXXXXXX'; // TODO: 실제 GA4 측정 ID로 교체 (index.html과 동일하게)
+const GA4 = 'G-75SJSREK34'; // GA4 측정 ID (index.html과 동일하게 유지)
 const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 
 // ── index.html에서 데이터 리터럴만 안전 추출 (괄호 균형 매칭, 문자열/이스케이프 고려) ──

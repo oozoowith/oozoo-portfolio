@@ -153,8 +153,22 @@ images/
 ## 8. 배포 메모
 
 GitHub 레포 → Vercel 연결 → Deploy. 이후 GitHub에 파일 push 시 자동 재배포.
-자세한 절차는 별도 안내 참고.
+`deploy.command`(로컬·gitignore)가 배포 직전 `node generate.mjs`로 정적 페이지를 재생성한 뒤 커밋·푸시.
 
 ---
 
-*최종 업데이트: 2026-06-20*
+## 9. 2026-06-28 대규모 업데이트 (SEO·URL·분석·보안)
+
+- 사진 그룹/서브그룹 간격 40%↑ 누락분 반영, TMT 커버 3:2 정돈, art4u 텍스트형 카드, wal a1/a2·b5 정리, 텍스트클럽 BI 기획노트(storyTop), 모인츠 레어로우 링크
+- TMT 에피소드별 유튜브 링크 22개(시즌1~3 재생목록 매칭)
+- 콘텐츠 복사 방지(우클릭·선택·드래그 차단)
+- **프로젝트별 진짜 URL**(`/works/{id}`·`/play/{key}`) + `generate.mjs`로 정적 페이지 12개 생성(검색·AI 크롤러용 풀 텍스트)
+- JSON-LD(Person/WebSite/CreativeWork)·canonical·sitemap.xml·robots.txt(AI 봇 선택적 차단)
+- `vercel.json` 보안 헤더(CSP 등)+cleanUrls
+- GA4(`G-75SJSREK34`) 연동: 프로젝트별 조회·유입·체류·이탈 + 메뉴 클릭 이벤트
+
+상세 구조·주의사항은 `HANDOFF.md` 10절 및 메모리 `work-rules.md` 참고.
+
+---
+
+*최종 업데이트: 2026-06-28*

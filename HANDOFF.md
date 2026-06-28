@@ -1,19 +1,21 @@
 # 인수인계 — 정은용 포트폴리오 (oozoo.work)
 
-> 최종 갱신: 2026-06-28 / 최신 커밋 `ff5d9b4` (main) / 라이브 정상
+> 최종 갱신: 2026-06-28 / 최신 커밋 `5a82216`+ (main) / 라이브 정상
 > 디자인 시스템 상세는 메모리 `design-guide.md`, 작업규칙은 `work-rules.md` 참고.
+> ⚠️ 이제 단일 파일이 아님 — `index.html`(SPA) + `generate.mjs`(정적 페이지 생성기) + `vercel.json`·`robots.txt`·`sitemap.xml` + 생성물 `works/*.html`·`play/*.html`. 아래 10절 참고.
 
 ---
 
 ## 1. 한눈에 보는 현황
-- **단일 파일** `index.html` (CSS·JS 전부 인라인). 외부 의존성 = 폰트 CDN(Montserrat·Pretendard)뿐.
-- 라이브: **oozoo.work → www.oozoo.work**(308) / Vercel 호스팅 / Gabia DNS.
+- `index.html` = SPA(CSS·JS 인라인). 데이터(works·*Detail)도 인라인 `<script>`에 있음. 외부 의존성 = 폰트 CDN(Montserrat·Pretendard) + GA4(googletagmanager).
+- **프로젝트별 진짜 URL**: 상세 열람 시 `/works/{id}`·`/play/{key}`로 pushState. 직접 진입·공유·크롤러는 `generate.mjs`가 만든 **정적 페이지**(`works/*.html`·`play/*.html`)가 서빙. (10절)
+- 라이브: **oozoo.work → www.oozoo.work**(308) / Vercel 호스팅 / Gabia DNS. `vercel.json`에 `cleanUrls`+보안 헤더(CSP 등).
 - 배포: 로컬 → GitHub(`oozoowith/oozoo-portfolio` main) push → **Vercel 자동 배포**.
 - 섹션: NAV · HOME · ABOUT · WORKS · PLAYGROUND · CONTACT · FOOTER.
 
 ## 2. 배포 방법 (중요)
 - 로컬 `/Users/eunyong/portfolio_web` ↔ GitHub. SSH 키 `~/.ssh/github_family`(repo `core.sshCommand`, 계정 `oozoowith`).
-- **사용자용**: `deploy.command` 더블클릭(커밋·푸시 자동, `git add -A`). `deploy.command`는 .gitignore.
+- **사용자용**: `deploy.command` 더블클릭(**먼저 `node generate.mjs`로 정적 페이지 재생성** → `git add -A` → 커밋·푸시 자동). `deploy.command`는 .gitignore. ⚠️ node 필요.
 - **에이전트용**: `export GIT_SSH_COMMAND="ssh -i ~/.ssh/github_family"` 후 `git add … && git commit && git push origin main`.
 - ⚠️ **force-push·merge 전략 금지**(분류기 차단). 갈라지면 작업트리 커밋 후 일반 push(fast-forward). 과거 `merge -s ours` 되돌림 사고 있었음.
 - **대용량 원본 커밋 금지**: `.gitignore`가 `images/works/**`·`images/playground/**`의 JPG/jpg/JPEG/jpeg/PNG/png + `portfolio.pdf`·`.claude/`·`deploy.command`·`editor.html` 제외. (사이트는 webp만 사용. `images/og.jpg`는 예외로 커밋됨)
@@ -59,14 +61,27 @@
 - **Figma MCP**: Starter 한도 작아 거의 못 씀. **LinkedIn**: 봇 차단(999).
 
 ## 8. 남은 일 / 열린 결정
-- [ ] **TMT 에피소드별 유튜브 링크** — 현재 전체가 채널 홈(@TMTTOWN)으로 연결됨(`linkAll`). 개별 영상 URL 필요: Notion 북마크는 추출 불가, 채널 RSS로 최근 10편(Ep.012~020,15-1/2)만 확정 가능. **사용자가 시즌별 재생목록 URL 또는 에피소드 URL 제공 시 1:1 매칭** 예정.
+- [x] **TMT 에피소드별 유튜브 링크** — 시즌1~3 재생목록 RSS로 22개 영상 매칭 완료(개별 youtu.be 링크).
+- [x] **진짜 URL + 정적 페이지 + GA4 + AI 봇 선택 차단** — 완료(10절). GA4 측정 ID `G-75SJSREK34` 반영됨.
+- [ ] **GA4 데이터 확인** — 배포 후 24~48h 후 analytics.google.com에서 유입·프로젝트별 조회·체류·이탈 집계 시작. 실시간 보고서로 즉시 동작 확인 가능.
 - [ ] **씨집책방 설명** — portfolio.pdf 6·7·8p 우측 상단 불렛으로 삽입 완료(2026-06-28). ccbook A/B crop 기준은 추정값.
 - [ ] **커버 화질** — 씨집책방·SQNC 커버 일부 업스케일(약간 흐림), 고화질 원본 교체 권장.
 - [ ] **Gotham 폰트** — 유료, Montserrat 대체 중(스택 1순위 'Gotham' 유지). 라이선스 시 자가호스팅.
 - [ ] **원본 파일 삭제** — works·playground 원본(jpg/png)은 .gitignore로 제외돼 디스크 백업만. 삭제 시 더 높은 화질 재변환 불가(사용자 직접 확인 후 결정).
 
 ## 9. 파일 맵
-- `index.html` — 전체 사이트. `editor.html` — 로컬 텍스트 에디터(gitignore). `deploy.command` — 배포 버튼(gitignore).
+- `index.html` — SPA 본체. `generate.mjs` — 정적 페이지 생성기(커밋). `works/*.html`·`play/*.html` — 생성된 정적 페이지(커밋). `vercel.json`·`robots.txt`·`sitemap.xml` — 커밋.
+- `editor.html` — 로컬 텍스트 에디터(gitignore). `deploy.command` — 배포 버튼(gitignore, generate.mjs 자동 실행).
 - `README.md`(이미지 가이드) · `WORKLOG.md`(이력) · `HANDOFF.md`(이 파일).
 - 이미지: `images/works/{moints,gongil,wal,ccbook,ccin,sqnc,txtclub,frip}/`, `images/playground/{silhouette,seed,town,art4u}/`, `images/og.{webp,jpg}`.
-- 메모리: `~/.claude/projects/-Users-eunyong-portfolio-web/memory/` — MEMORY.md(인덱스), project_portfolio.md, user_profile.md, korean-word-break.md, **work-rules.md**(배포·JS안전·성과카드·에디터), **design-guide.md**(디자인 시스템 전체).
+- 메모리: `~/.claude/projects/-Users-eunyong-portfolio-web/memory/` — MEMORY.md(인덱스), project_portfolio.md, user_profile.md, korean-word-break.md, **work-rules.md**(배포·JS안전·성과카드·에디터·인프라·CSP·생성기·라우터·robots·GA4), **design-guide.md**(디자인 시스템 전체).
+
+## 10. SEO·진짜 URL·정적 페이지·분석·보안 (커밋 5a82216+)
+- **생성기 `generate.mjs`**: `index.html`의 데이터 리터럴(works·categoryLabels·seedDetail·photoDetail·tmtDetail·artDetail)을 `vm`으로 추출 → `/works/{id}.html`·`/play/{key}.html` 12개 + `sitemap.xml` 생성. **데이터는 index.html에 그대로 둠**(editor.html 영향 없음). 데이터 구조 변경 시 generate.mjs의 render 함수(workBody/detailBody/renderBlocksStatic)도 갱신. 실행: `node generate.mjs`(deploy.command가 배포 직전 자동 실행).
+- **라우터(진짜 경로)**: 상세 열람 = `/works/{id}`·`/play/{key}` pushState(해시 아님). `<base href="/">` 필수(없으면 서브경로에서 상대경로 이미지 깨짐). currentRoute/markDetailOpen/parseRoute(경로+구해시 호환)/applyRoute/popstate/initialRoute. 직접 진입·크롤러는 정적 페이지가 응답.
+- **정적 페이지**: 풀 SEO head(title·description·canonical·OG·JSON-LD CreativeWork) + 본문 전체 텍스트 → 검색·AI가 실제 내용 읽음(SPA는 JS라 비실행 크롤러가 못 읽던 문제 해결). 자체 경량 CSS, GA4 스니펫 포함.
+- **JSON-LD**: index.html `<head>`에 Person+WebSite, 정적 페이지에 CreativeWork. `canonical` 모두 지정.
+- **robots.txt(선택적 AI 차단)**: 일반 검색 전체 허용 / 생성형 AI 봇 26종은 `/works/`·`/play/` 상세만 차단(홈=간단정보 허용). **⚠️ 새 경로 디렉터리 추가 시 robots도 갱신**.
+- **vercel.json**: `cleanUrls:true`(`.html` 자동 정리, 308) + 보안 헤더(X-Frame-Options·nosniff·Referrer-Policy·Permissions-Policy·**CSP**). **⚠️ 외부 리소스(폰트·CDN·스크립트·분석) 추가 시 CSP 허용목록 갱신 필수**(현재: jsdelivr·google fonts·googletagmanager·google-analytics, 'unsafe-inline'). 헤더는 로컬 미적용 → 실서버 `curl -sI`로 검증.
+- **GA4(`G-75SJSREK34`)**: index.html `<head>`(2곳)+generate.mjs(GA4 상수) 동일 유지. 상세 열람=가상 page_view(markDetailOpen→gaView: 프로젝트별 조회·유입·체류·이탈), 네비 클릭=menu_click 이벤트. ID 변경 시 두 파일 모두 교체.
+- **콘텐츠 복사 방지**: body `user-select:none` + JS로 우클릭·복사·드래그·선택 차단(억제 수준; 소스보기·크롤러는 못 막음). 이메일 클립보드 복사는 programmatic이라 정상.
