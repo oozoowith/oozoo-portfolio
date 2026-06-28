@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="/">
   <title>정은용 | Experience Designer</title>
   <meta name="description" content="브랜드 경험 기획자 정은용의 포트폴리오. 커뮤니티, 캠페인, 콘텐츠 전략을 설계합니다.">
   <meta property="og:title" content="정은용 | Experience Designer">
@@ -44,6 +45,14 @@
       }
     ]
   }
+  </script>
+  <!-- Google Analytics 4 (측정 ID는 G-XXXXXXXXXX 자리에 실제 ID로 교체 — generate.mjs도 동일하게) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
   </script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1164,9 +1173,14 @@
   let detailHistoryActive = false;
   let currentRoute = '';
   let navigatingHistory = false; // popstate/최초진입으로 라우트 복원 중엔 true (중복 push 방지)
+  // GA4 가상 페이지뷰: 상세(오버레이)를 '페이지'로 기록 → 프로젝트별 조회수·유입·체류시간·이탈 분석
+  function gaView(route, title) {
+    if (window.gtag) gtag('event', 'page_view', { page_path: '/' + route, page_location: location.origin + '/' + route, page_title: (title || route) + ' | 정은용' });
+  }
   function markDetailOpen() {
+    gaView(currentRoute, (document.querySelector('#detail .detail-title') || {}).textContent);
     if (navigatingHistory) { detailHistoryActive = true; return; } // URL은 브라우저가 이미 설정함
-    const url = '#/' + currentRoute;
+    const url = '/' + currentRoute; // 진짜 경로: /works/{id} · /play/{key}
     if (!detailHistoryActive) { history.pushState({ detailOpen: true }, '', url); detailHistoryActive = true; }
     else { history.replaceState({ detailOpen: true }, '', url); } // 상세→다음 상세는 URL만 교체(엔트리 추가 X)
   }
@@ -1176,15 +1190,16 @@
     if (detailHistoryActive) { detailHistoryActive = false; history.back(); }
   }
   const playOpeners = { photo: () => openPhotoDetail(), seed: () => openSeedDetail(), tmt: () => openTmtDetail(), art: () => openArtDetail() };
-  function parseRoute(hash) {
-    const m = (hash || '').match(/^#\/(works|play)\/([\w-]+)$/);
+  // 경로(/works/{id}·/play/{key}) 또는 구 해시(#/works/...) 모두 인식 (해시는 이전 공유 링크 호환용)
+  function parseRoute(loc) {
+    const m = (loc || '').match(/^#?\/(works|play)\/([\w-]+)\/?$/);
     if (!m) return null;
     if (m[1] === 'works') return works.some(w => w.id === m[2]) ? { fn: () => openDetail(m[2]) } : null;
     return playOpeners[m[2]] ? { fn: playOpeners[m[2]] } : null;
   }
   function applyRoute(r) { navigatingHistory = true; r.fn(); navigatingHistory = false; }
   window.addEventListener('popstate', () => {
-    const r = parseRoute(location.hash);
+    const r = parseRoute(location.pathname) || parseRoute(location.hash);
     if (r) { applyRoute(r); }                 // 뒤/앞으로 상세 진입 → 해당 상세 복원
     else if (document.getElementById('detail').classList.contains('open')) {
       detailHistoryActive = false;
@@ -1595,15 +1610,21 @@
   ['contextmenu', 'copy', 'cut', 'dragstart', 'selectstart'].forEach(ev =>
     document.addEventListener(ev, e => e.preventDefault()));
 
+  // ─── GA4: 메뉴(네비) 클릭수 추적 ───
+  document.addEventListener('click', e => {
+    const a = e.target.closest('nav a[href^="#"], .mobile-link, .nudge a[href^="#"]');
+    if (a && window.gtag) gtag('event', 'menu_click', { menu_target: a.getAttribute('href'), menu_label: a.textContent.trim().slice(0, 40) });
+  });
+
   // ─── 최초 진입 URL 라우팅 (모든 상세 데이터·함수 정의 이후 실행) ───
-  // 공유받은 #/works/{id}·#/play/{key} 링크로 들어오면 해당 상세를 바로 열고,
-  // 해시 없는 base 엔트리를 아래에 깔아 뒤로가기 시 목록으로 닫히게 함
+  // 진짜 경로(/works/{id})는 정적 페이지가 서빙하지만, 구 해시 공유 링크(#/works/...)나
+  // SPA로 깊은 경로 진입 시 해당 상세를 바로 열고, base 엔트리를 깔아 뒤로가기 시 목록으로 닫히게 함
   (function initialRoute() {
-    const hash = location.hash;
-    const r = parseRoute(hash);
+    const target = location.hash || location.pathname;
+    const r = parseRoute(location.hash) || parseRoute(location.pathname);
     if (!r) return;
-    history.replaceState(null, '', location.pathname + location.search);
-    history.pushState({ detailOpen: true }, '', hash);
+    history.replaceState(null, '', '/');
+    history.pushState({ detailOpen: true }, '', target);
     applyRoute(r);
     detailHistoryActive = true;
   })();

@@ -1,86 +1,113 @@
 # robots.txt — oozoo.work
-# 일반 검색엔진(구글·빙·네이버 등)은 허용, 생성형 AI 학습/수집 봇은 차단
+# 일반 검색엔진(구글·빙·네이버 등): 전체 허용
+# 생성형 AI 봇: 홈(간단한 정보)만 허용, 프로젝트 상세(/works/·/play/)는 차단 → "사이트+간단 정보만 노출"
 
 User-agent: *
 Allow: /
 
-# ─── 생성형 AI 봇 차단 (학습·수집·온디맨드 조회) ───
+# ─── 생성형 AI 봇: 상세 페이지만 선택적 차단 ───
 User-agent: GPTBot
-Disallow: /
+Disallow: /works/
+Disallow: /play/
 
 User-agent: ChatGPT-User
-Disallow: /
+Disallow: /works/
+Disallow: /play/
 
 User-agent: OAI-SearchBot
-Disallow: /
+Disallow: /works/
+Disallow: /play/
 
 User-agent: ClaudeBot
-Disallow: /
+Disallow: /works/
+Disallow: /play/
 
 User-agent: anthropic-ai
-Disallow: /
+Disallow: /works/
+Disallow: /play/
 
 User-agent: Claude-Web
-Disallow: /
+Disallow: /works/
+Disallow: /play/
 
 User-agent: Claude-User
-Disallow: /
+Disallow: /works/
+Disallow: /play/
 
 User-agent: PerplexityBot
-Disallow: /
+Disallow: /works/
+Disallow: /play/
 
 User-agent: Perplexity-User
-Disallow: /
+Disallow: /works/
+Disallow: /play/
 
 User-agent: Google-Extended
-Disallow: /
+Disallow: /works/
+Disallow: /play/
 
 User-agent: Applebot-Extended
-Disallow: /
+Disallow: /works/
+Disallow: /play/
 
 User-agent: Meta-ExternalAgent
-Disallow: /
+Disallow: /works/
+Disallow: /play/
 
 User-agent: meta-externalagent
-Disallow: /
+Disallow: /works/
+Disallow: /play/
 
 User-agent: FacebookBot
-Disallow: /
+Disallow: /works/
+Disallow: /play/
 
 User-agent: Bytespider
-Disallow: /
+Disallow: /works/
+Disallow: /play/
 
 User-agent: Amazonbot
-Disallow: /
+Disallow: /works/
+Disallow: /play/
 
 User-agent: CCBot
-Disallow: /
+Disallow: /works/
+Disallow: /play/
 
 User-agent: cohere-ai
-Disallow: /
+Disallow: /works/
+Disallow: /play/
 
 User-agent: Diffbot
-Disallow: /
+Disallow: /works/
+Disallow: /play/
 
 User-agent: Omgilibot
-Disallow: /
+Disallow: /works/
+Disallow: /play/
 
 User-agent: Omgili
-Disallow: /
+Disallow: /works/
+Disallow: /play/
 
 User-agent: ImagesiftBot
-Disallow: /
+Disallow: /works/
+Disallow: /play/
 
 User-agent: YouBot
-Disallow: /
+Disallow: /works/
+Disallow: /play/
 
 User-agent: Timpibot
-Disallow: /
+Disallow: /works/
+Disallow: /play/
 
 User-agent: PetalBot
-Disallow: /
+Disallow: /works/
+Disallow: /play/
 
 User-agent: DuckAssistBot
-Disallow: /
+Disallow: /works/
+Disallow: /play/
 
 Sitemap: https://www.oozoo.work/sitemap.xml
