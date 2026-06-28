@@ -183,6 +183,14 @@
     .g-card .cover { aspect-ratio: 3/2; }
     .g-card .cover img { transition: transform 0.4s ease; }
     .g-card:hover .cover img { transform: scale(1.04); }
+    /* 텍스트형 커버(커버 이미지 없는 카드) */
+    .cover-text {
+      position: relative; border-radius: 8px; overflow: hidden;
+      background: #28333D; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 10px; padding: 24px; text-align: center;
+    }
+    .cover-text .ct-title { font-family: 'Pretendard', sans-serif; font-size: 26px; font-weight: 700; color: #F5F1E8; letter-spacing: -0.01em; line-height: 1.3; word-break: keep-all; }
+    .cover-text .ct-sub { font-size: 12px; color: rgba(245, 241, 232, 0.6); letter-spacing: 0.06em; line-height: 1.5; }
     .g-num { position: absolute; top: 12px; left: 14px; z-index: 2; font-size: 12px; font-weight: 500; color: #fff; mix-blend-mode: difference; }
     .g-title { font-family: 'Pretendard', sans-serif; margin-top: 14px; font-size: 19px; font-weight: 700; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
     .g-tag { font-size: 11px; font-weight: 600; color: var(--accent); background: var(--accent-light); border-radius: 999px; padding: 3px 10px; line-height: 1.5; letter-spacing: -0.01em; white-space: nowrap; }
@@ -275,8 +283,8 @@
     .result-note::before { content: '※ '; }
     .detail-intro { margin-top: 20px; font-size: 16px; color: var(--text-secondary); line-height: 1.8; }
     /* photo section (count-responsive) */
-    .detail-photos .photo-group { margin-top: 32px; }
-    .detail-photos .photo-group:first-of-type { margin-top: 20px; }
+    .detail-photos .photo-group { margin-top: 45px; }
+    .detail-photos .photo-group:first-of-type { margin-top: 28px; }
     .pg-sub { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.3; }
     .pg-desc { margin-top: 8px; font-size: 15px; color: var(--text-secondary); line-height: 1.75; }
     .pg-imgs { margin-top: 18px; display: grid; gap: 12px; align-items: start; }
@@ -295,7 +303,7 @@
     .pg-row { margin-top: 12px; display: flex; gap: 12px; }
     .pg-row:first-of-type { margin-top: 18px; }
     .pg-jimg { flex-basis: 0; min-width: 0; width: 100%; height: auto; object-fit: cover; display: block; border-radius: 10px; background: var(--border); }
-    .pg-subgroup { margin-top: 22px; }
+    .pg-subgroup { margin-top: 31px; }
     .pg-subsub { font-size: 15px; font-weight: 600; color: var(--text-secondary); letter-spacing: -0.01em; line-height: 1.4; }
     @media (max-width: 768px) {
       .pg-grid { grid-template-columns: repeat(min(var(--cols), 3), 1fr); }
@@ -577,19 +585,19 @@
         <div class="g-line">가능성을 탐구하는 커뮤니티</div>
       </div>
       <div class="g-card" id="tmt-card" tabindex="0" role="button" aria-label="TMT TOWN 상세보기">
-        <div class="cover img-ph" data-slot="images/playground/tmt.webp">
+        <div class="cover img-ph" data-slot="images/playground/town/cover.webp">
           <span class="g-num">03</span>
           TMT TOWN
-          <img src="images/playground/tmt.webp" alt="TMT TOWN" onerror="this.style.display='none'" loading="lazy">
+          <img src="images/playground/town/cover.webp" alt="TMT TOWN" onerror="this.style.display='none'" loading="lazy">
         </div>
         <div class="g-title">TMT TOWN<span class="g-tag">팟캐스트</span></div>
         <div class="g-line">생각 많은 애들의 시시콜콜한 이야기, 오리지널 팟캐스트</div>
       </div>
       <div class="g-card" id="art-card" tabindex="0" role="button" aria-label="널 위한 문화예술 상세보기">
-        <div class="cover img-ph" data-slot="images/playground/art.webp">
+        <div class="cover cover-text">
           <span class="g-num">04</span>
-          널 위한 문화예술
-          <img src="images/playground/art.webp" alt="널 위한 문화예술" onerror="this.style.display='none'" loading="lazy">
+          <span class="ct-title">널 위한 문화예술</span>
+          <span class="ct-sub">예술문화 미디어 외부 필진</span>
         </div>
         <div class="g-title">널 위한 문화예술<span class="g-tag">프리랜서</span></div>
         <div class="g-line">문화예술 미디어 외부 필진</div>
@@ -648,7 +656,7 @@
         { n: '85%', t: '평균 출석률' }
       ],
       photos: [
-        { title: '모인츠 라운지', desc: '커뮤니티 멤버 전용 공간 개발 · 기획 (가구 브랜드 레어로우 협업)', crop: 1.5, cols: 4, imgs: ['a1', 'a2', 'a3', 'a4'] },
+        { title: '모인츠 라운지', desc: '커뮤니티 멤버 전용 공간 개발 · 기획 (가구 브랜드 <a href="https://rareraw.com/board/gallery/read.html?no=7365&board_no=16&category_no=1&cate_no=1&page=3" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:underline; text-underline-offset:2px;">레어로우</a> 협업)', crop: 1.5, cols: 4, imgs: ['a1', 'a2', 'a3', 'a4'] },
         { title: 'B2C·B2B 프로그램 기획·운영', desc: "• B2C, B2B 가격 전략 수립 및 프로그램 기획운영 (55건 직접 호스팅)<br>• 파트너사 콜라보 프로그램 ‘사유하는 목요일’ 기획운영", crop: 1.3333, cols: 4, imgs: ['b1', 'b2', 'b3', 'b4', 'b5', 'b6', 'b7'] },
         { title: '디지털 커뮤니케이션', desc: '• 자사 APP 내 모인츠 페이지 · SNS · 홈페이지 채널 구축 및 운영<br>• 상품 기획, 스토리텔링, 호스트 · 멤버 인터뷰 등 콘텐츠 제작 · 발신', subgroups: [
           { title: 'SNS', crop: 0.64, cols: 3, imgs: ['c1-1', 'c1-2', 'c1-3'] },
@@ -720,9 +728,9 @@
       ],
       photos: [
         { title: '서비스 & 커뮤니티 운영', desc: '운영 정책 수립, 프로세스 정립 등 운영 시스템 구축', justified: [
-          [['a1', 0.863], ['a2', 0.776], ['a3', 0.75], ['a4', 0.75], ['a5', 0.75]]
+          [['a1', 0.75], ['a2', 0.75], ['a3', 0.75], ['a4', 0.75], ['a5', 0.75]]
         ]},
-        { title: '온라인 세션 기획·운영', crop: 1.0, cols: 4, pos: 'top', imgs: ['b1', 'b2', 'b3', 'b4', 'b5', 'b6', 'b7', 'b8'] }
+        { title: '온라인 세션 기획·운영', crop: 1.0, cols: 4, pos: 'top', imgs: ['b1', 'b2', 'b3', 'b4', 'b5', 'b7', 'b8', 'b6'] }
       ]
     },
     {
@@ -887,7 +895,7 @@
       ],
       photos: [
         { title: '현장 사진', desc: '• 아이디어 제안부터 당일 현장 운영까지, 프로젝트 A-Z 직접 실행<br> • 공동기획 파트너 외 총 7개 출판사 및 작가 12명과 커뮤니케이션<br>• 극장 운영 감독: 행사 플로우 기획 및 무대 연출, 무대/음향/스탭 커뮤니케이션<br>• 판매 페이지 스토리텔링, SNS 콘텐츠 발행 등 통합 마케팅 실행', crop: 1.505, cols: 4, imgs: ['a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7', 'a8', 'a9', 'a10', 'a11', 'a12'] },
-        { title: 'BI 개발', justified: [
+        { title: 'BI 개발', story: { tag: '기획 노트 발췌', body: ['본질은 텍스트클럽을 둘러싼 사람들의 관계성이다. 모든 사람이 한 세계관에 속해있지만 서로 다른 형태로 공존하고 있다. 각 그룹을 나누고, 문장부호를 붙이면 비주얼로 표현할 수 있지 않을까?'] }, justified: [
           [['b1', 0.7075], ['b2', 0.667], ['b3', 1.0], ['b4', 1.0]],
           [['b5', 0.75], ['b6', 0.75], ['b7', 0.75]]
         ]}
@@ -1409,7 +1417,6 @@
       <button class="detail-back" id="detail-back">← Playground</button>
       <h1 class="detail-title">${s.title}</h1>
       <p class="detail-tagline">${s.tagline}</p>
-      <div class="detail-cover">${imgPh(s.cover, s.title)}</div>
       ${metaHTML}
       ${sectionsHTML}
     `;
