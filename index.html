@@ -43,7 +43,11 @@
       line-height: 1.75;
       word-break: keep-all;
       overflow-wrap: break-word;
+      -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;
+      -webkit-touch-callout: none;
     }
+    /* 콘텐츠 보호: 이미지 드래그 방지 (선택/복사 차단은 body user-select + JS) */
+    img { -webkit-user-drag: none; user-drag: none; }
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
 
@@ -730,7 +734,7 @@
         { title: '서비스 & 커뮤니티 운영', desc: '운영 정책 수립, 프로세스 정립 등 운영 시스템 구축', justified: [
           [['a1', 0.75], ['a2', 0.75], ['a3', 0.75], ['a4', 0.75], ['a5', 0.75]]
         ]},
-        { title: '온라인 세션 기획·운영', crop: 1.0, cols: 4, pos: 'top', posMap: { b5: '50% 100%' }, imgs: ['b1', 'b2', 'b3', 'b4', 'b5', 'b6', 'b7', 'b8'] }
+        { title: '온라인 세션 기획·운영', crop: 1.0, cols: 4, pos: 'top', imgs: ['b1', 'b2', 'b3', 'b4', 'b6', 'b7', 'b8'] }
       ]
     },
     {
@@ -1540,6 +1544,10 @@
       setTimeout(() => { emailBtn.textContent = original; }, 1500);
     }).catch(() => {});
   });
+
+  // ─── 콘텐츠 보호: 우클릭·복사·잘라내기·드래그·선택 차단 (억제 수준; 소스보기/개발자도구까지 막진 못함) ───
+  ['contextmenu', 'copy', 'cut', 'dragstart', 'selectstart'].forEach(ev =>
+    document.addEventListener(ev, e => e.preventDefault()));
 </script>
 </body>
 </html>
