@@ -65,7 +65,7 @@ function pageShell({ url, title, desc, image, jsonld, body }) {
   <script type="application/ld+json">${JSON.stringify(jsonld)}</script>
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=${GA4}"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA4}');</script>
+  <script>try{var _q=location.search;if(_q.indexOf('noga-off')>-1)localStorage.removeItem('oozoo_noga');else if(_q.indexOf('noga')>-1)localStorage.setItem('oozoo_noga','1');if(localStorage.getItem('oozoo_noga')==='1')window['ga-disable-${GA4}']=true;}catch(e){}window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA4}');</script>
   <style>
     :root{--bg:#F8F7F4;--text:#1A1A1A;--sub:#6B6B6B;--muted:#9E9E9E;--accent:#2438D4;--line:#E5E3DD;--surface:#fff}
     *{box-sizing:border-box;margin:0;padding:0}
