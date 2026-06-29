@@ -96,6 +96,8 @@ function pageShell({ url, title, desc, image, jsonld, body }) {
     .rc .n{font-size:20px;font-weight:800;color:var(--accent)}
     .rc .t{font-size:13px;color:var(--sub);margin-top:4px}
     a{color:var(--accent)}
+    .seed-apply{display:inline-block;margin-left:10px;vertical-align:middle;background:var(--accent);color:#fff;font-size:13px;font-weight:700;padding:8px 16px;border-radius:999px;text-decoration:none;white-space:nowrap;box-shadow:0 4px 14px rgba(36,56,212,.3)}
+    .seed-apply:hover{box-shadow:0 7px 20px rgba(36,56,212,.5)}
     .cta{display:inline-block;margin-top:36px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;font-size:14px;padding:12px 22px;border-radius:999px}
     .foot{margin-top:48px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
   </style>
