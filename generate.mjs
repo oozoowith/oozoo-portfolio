@@ -160,7 +160,7 @@ function workBody(w) {
 // ── PLAYGROUND 페이지 ──
 function detailBody(s, kicker) {
   const meta = s.meta
-    ? `<div class="meta"${s.applyUrl ? ' style="grid-template-columns:repeat(3,1fr)"' : ''}>${s.meta.map(r => `<div><div class="lbl">${esc(r.label)}</div><div class="val">${r.value}</div></div>`).join('')}${s.applyUrl ? `<div style="display:flex;align-items:center;justify-content:flex-end"><a class="seed-apply" href="${s.applyUrl}" target="_blank" rel="noopener">🌱 신청하기 →</a></div>` : ''}</div>`
+    ? `<div class="meta"${s.applyUrl ? ' style="grid-template-columns:repeat(3,1fr)"' : ''}>${s.meta.map(r => `<div><div class="lbl">${esc(r.label)}</div><div class="val">${r.value}</div></div>`).join('')}${s.applyUrl ? `<div style="display:flex;align-items:center;justify-content:flex-start"><a class="seed-apply" href="${s.applyUrl}" target="_blank" rel="noopener">🌱 신청하기 →</a></div>` : ''}</div>`
     : '';
   const intro = s.intro ? `<div class="box">${s.intro.map(p => `<p>${p}</p>`).join('')}</div>` : '';
   const sections = (s.sections || []).map(sec => {

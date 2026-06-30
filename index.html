@@ -184,10 +184,10 @@
     .live-link:hover { opacity: 0.85; }
     /* 씨앗실험실 신청 CTA (메타 3칸 균등, 버튼이 가장 우측 셀) */
     .meta-grid.meta-3 { grid-template-columns: repeat(3, 1fr); }
-    .meta-apply { display: flex; align-items: center; justify-content: flex-end; }
+    .meta-apply { display: flex; align-items: center; justify-content: flex-start; }
     @media (max-width: 768px) {
       .meta-grid.meta-3 { grid-template-columns: repeat(2, 1fr); }
-      .meta-apply { grid-column: 1 / -1; justify-content: flex-start; margin-top: 4px; }
+      .meta-apply { grid-column: 1 / -1; margin-top: 4px; }
     }
     .seed-apply { display: inline-block; vertical-align: middle; background: var(--accent); color: #fff; font-size: 13px; font-weight: 700; padding: 8px 16px; border-radius: 999px; text-decoration: none; white-space: nowrap; box-shadow: 0 4px 14px rgba(36,56,212,0.3); animation: seedPulse 2.2s ease-in-out infinite; transition: transform .15s ease, box-shadow .2s ease; }
     .seed-apply:hover { transform: translateY(-1px); box-shadow: 0 7px 20px rgba(36,56,212,0.5); animation: none; }
