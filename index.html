@@ -182,8 +182,14 @@
     .tag { background: var(--accent-light); color: var(--accent); font-size: 12px; font-weight: 500; padding: 4px 10px; border-radius: 4px; letter-spacing: 0.04em; }
     .live-link { display: inline-block; margin: 4px 8px 2px 0; background: var(--accent); color: #fff; font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 999px; letter-spacing: 0.01em; text-decoration: none; transition: opacity .2s; }
     .live-link:hover { opacity: 0.85; }
-    /* 씨앗실험실 신청 CTA (기간 옆 강조 버튼) */
-    .seed-apply { display: inline-block; margin-left: 10px; vertical-align: middle; background: var(--accent); color: #fff; font-size: 13px; font-weight: 700; padding: 8px 16px; border-radius: 999px; text-decoration: none; white-space: nowrap; box-shadow: 0 4px 14px rgba(36,56,212,0.3); animation: seedPulse 2.2s ease-in-out infinite; transition: transform .15s ease, box-shadow .2s ease; }
+    /* 씨앗실험실 신청 CTA (메타 3칸 균등, 버튼이 가장 우측 셀) */
+    .meta-grid.meta-3 { grid-template-columns: repeat(3, 1fr); }
+    .meta-apply { display: flex; align-items: center; justify-content: flex-end; }
+    @media (max-width: 768px) {
+      .meta-grid.meta-3 { grid-template-columns: repeat(2, 1fr); }
+      .meta-apply { grid-column: 1 / -1; justify-content: flex-start; margin-top: 4px; }
+    }
+    .seed-apply { display: inline-block; vertical-align: middle; background: var(--accent); color: #fff; font-size: 13px; font-weight: 700; padding: 8px 16px; border-radius: 999px; text-decoration: none; white-space: nowrap; box-shadow: 0 4px 14px rgba(36,56,212,0.3); animation: seedPulse 2.2s ease-in-out infinite; transition: transform .15s ease, box-shadow .2s ease; }
     .seed-apply:hover { transform: translateY(-1px); box-shadow: 0 7px 20px rgba(36,56,212,0.5); animation: none; }
     @keyframes seedPulse { 0%, 100% { box-shadow: 0 4px 14px rgba(36,56,212,0.28); } 50% { box-shadow: 0 4px 22px rgba(36,56,212,0.55); } }
     @media (prefers-reduced-motion: reduce) { .seed-apply { animation: none; } }
@@ -1260,8 +1266,9 @@
     ],
     meta: [
       { label: '유형', value: '개인 사이드 프로젝트 · 기획/운영' },
-      { label: '기간', value: '2021.08 ~ 현재 <a class="seed-apply" href="https://litt.ly/oozoo.with" target="_blank" rel="noopener">🌱 신청하기 →</a>' }
+      { label: '기간', value: '2021.08 ~ 현재' }
     ],
+    applyUrl: 'https://litt.ly/oozoo.with',
     sections: [
       { h: '세계관', list: [
         { t: "일·나이·직업·성별로 나를 설명하는 대신 '솔직한 나'를 마음껏 드러낼 수 있는 커뮤니티", lv: 1 },
@@ -1293,7 +1300,7 @@
   function openSeedDetail() {
     const s = seedDetail; currentRoute = 'play/seed';
     const introHTML = (s.intro && s.intro.length) ? `<div class="seed-intro-box">${s.intro.map(p => `<p>${p}</p>`).join('')}</div>` : '';
-    const metaHTML = (s.meta && s.meta.length) ? `<div class="meta-grid meta-2">${s.meta.map(m => `<div><div class="meta-label">${m.label}</div><div class="meta-value">${m.value}</div></div>`).join('')}</div>` : '';
+    const metaHTML = (s.meta && s.meta.length) ? `<div class="meta-grid ${s.applyUrl ? 'meta-3' : 'meta-2'}">${s.meta.map(m => `<div><div class="meta-label">${m.label}</div><div class="meta-value">${m.value}</div></div>`).join('')}${s.applyUrl ? `<div class="meta-apply"><a class="seed-apply" href="${s.applyUrl}" target="_blank" rel="noopener">🌱 신청하기 →</a></div>` : ''}</div>` : '';
     const sectionsHTML = (s.sections || []).map(sec => {
       let body = '';
       if (sec.list && sec.list.length) {

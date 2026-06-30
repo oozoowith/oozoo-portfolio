@@ -18,3 +18,11 @@ images/playground/**/*.JPEG
 images/playground/**/*.jpeg
 images/playground/**/*.PNG
 images/playground/**/*.png
+
+# feed/ 인스타 슬라이드 도구: 소스(html·cjs·command)는 커밋, 생성되는 PNG·node_modules는 제외
+feed/*.png
+feed/*.PNG
+feed/*.jpg
+feed/*.jpeg
+feed/node_modules/
+node_modules/
